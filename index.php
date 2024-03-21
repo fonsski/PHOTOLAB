@@ -11,8 +11,8 @@ $category = $link->query("SELECT * FROM categories");
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/assets/css/main.css" />
-  <link rel="stylesheet" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
   <title>PHOTOLAB</title>
 </head>
 
@@ -187,14 +187,18 @@ $category = $link->query("SELECT * FROM categories");
         <h1>О КОМПАНИИ</h1>
         <nav>
           <ul>
-            Мы в соцсетях
+            Мы в соцсетях:
             <li>
               <a href="https://vk.com/fotolab55"><i class="fa fa-vk" aria-hidden="true"></i></a>
             </li>
             <li><a href="#about">О нас</a></li>
           </ul>
         </nav>
-        <p></p>
+      </div>
+
+      <div class="footer_content3">
+        <h1>По вопросам сотрудничества</h1>
+        <i class="fa fa-envelope-open" aria-hidden="true"> photolab@gmail.com</i>
       </div>
 
       <div class="copyright_block">

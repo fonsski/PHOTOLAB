@@ -15,13 +15,12 @@ body {
 }
 
 @font-face {
-  font-family: Merriweather-bold-;
-  src: url(/assets/fonts/Merriweather/merriweatherbold.woff2)
-    format("woff");
+  font-family: Merriweather-bold;
+  src: url(/assets/fonts/Merriweather/merriweatherbold.woff2) format("woff");
 }
 
 @font-face {
-  font-family: Merriweather-ultrabold-;
+  font-family: Merriweather-ultrabold;
   src: url(/assets/fonts/Merriweather/merriweatherultrabold.woff2)
     format("woff");
 }
@@ -31,6 +30,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /* Код для шапки и контента внутри неё */
@@ -72,7 +72,7 @@ header {
 .header_nav a {
   text-decoration: none;
   color: white;
-  font-family: Merriweather-bold-;
+  font-family: Merriweather-bold;
   font-size: 16px;
 }
 
@@ -95,7 +95,7 @@ header {
 }
 
 .banner_text h1 {
-  font-family: Merriweather-bold-;
+  font-family: Merriweather-bold;
   font-size: 22px;
 }
 
@@ -185,12 +185,12 @@ header {
 
 .services_nav__block h1 {
   font-size: 40px;
-  font-family: Merriweather-bold-;
+  font-family: Merriweather-bold;
 }
 
 .services_nav__block h2 {
   font-size: 18px;
-  font-family: Merriweather-bold-;
+  font-family: Merriweather-bold;
 }
 
 h3 {
@@ -330,7 +330,7 @@ h3 {
 }
 
 .addresses_title {
-  font-family: Merriweather-bold-;
+  font-family: Merriweather-bold;
   font-size: 40px;
   color: #ffffff;
   text-align: center;
@@ -352,7 +352,7 @@ h3 {
 
 .footer_content {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
 }
 
@@ -378,14 +378,14 @@ h3 {
 }
 
 .footer_content2 {
-  font-family: Merriweather-regular;
+  font-family: Merriweather-bold;
   font-size: 18px;
   color: #ffffff;
 }
 
 .footer_content2 h1 {
   font-size: 20px;
-  font-family: Merriweather-bold-;
+  font-family: Merriweather-bold;
 }
 
 .footer_content2 ul {
@@ -396,6 +396,17 @@ h3 {
   text-decoration: none;
   color: #ffffff;
   cursor: pointer;
+}
+
+.footer_content3 {
+  font-family: Merriweather-regular;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.footer_content3 h1 {
+  font-size: 20px;
+  font-family: Merriweather-bold;
 }
 
 .copyright_block {
