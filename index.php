@@ -10,9 +10,7 @@ $category = $link->query("SELECT * FROM categories");
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/header.css" />
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="stylesheet" href="assets/css/footer.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
   <title>PHOTOLAB</title>
@@ -27,6 +25,7 @@ $category = $link->query("SELECT * FROM categories");
         <li class="nav_element"><a href="#services">КАТАЛОГ</a></li>
         <li class="nav_element"><a href="#footer">КОНТАКТЫ</a></li>
         <li class="nav_element"><a href="">РАССЧИТАТЬ СТОИМОСТЬ</a></li>
+        <li class="nav_element"><a href="/vendor/admin/admin_panel.php">admin</a></li>
       </ul>
     </nav>
   </header>
@@ -50,15 +49,6 @@ $category = $link->query("SELECT * FROM categories");
 
   <section id="services">
     <h1 class="services_title">Наши услуги</h1>
-    <div class="search_field">
-      <form name="search" method="POST" action="vendor/functions/">
-        <input type="search" name="query" placeholder="Поиск" />
-        <button class="butt">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
-      </form>
-    </div>
-
     <nav class="services_nav__block">
       <?php foreach ($category as $cat) { ?>
         <button class="services_button" id="<?= $cat['id'] ?>"><?= $cat['name'] ?></button>
@@ -79,6 +69,7 @@ $category = $link->query("SELECT * FROM categories");
       <button class="address_button" id="2">6-я станционная 2/3</button>
       <button class="address_button" id="3">Дианова, 14</button>
       <button class="address_button" id="4">Комарова 6к1</button>
+      <!-- <button class="address_button" id="5">Добровольского</button> -->
     </nav>
     <div class="address_content">
       <a class="dg-widget-link" href="http://2gis.ru/omsk/firm/70000001047537964/center/73.4114170074463,54.96110887404802/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Омска</a>
@@ -176,6 +167,8 @@ $category = $link->query("SELECT * FROM categories");
         });
       </script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
     </div>
+
+    <!-- сюда засунуть 2гис скрипт добровольского -->
   </section>
 
   <section id="footer">
@@ -205,7 +198,7 @@ $category = $link->query("SELECT * FROM categories");
       </div>
 
       <div class="copyright_block">
-        <i class="fa fa-copyright" aria-hidden="true">2021-2024 Photolab Все права защищены</i>
+        <i class="fa fa-copyright" aria-hidden="true"> 2021-2024 Photolab Все права защищены</i>
       </div>
     </div>
   </section>

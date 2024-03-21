@@ -134,11 +134,13 @@ switch ($id) {
                 'content' => '<div class="products_block">
                 <div class="cls">
                 <h1>Создать баннер</h1>
-                <form action = "addCategory.php" method="post"> 
-                <label for="products">Введите заголовок баннера</label>
-                <input type="text" name="name">
-                <label for="products">Введите описание баннера</label>
-                <input type="text" name="cost">
+                <form action = "addBanner.php" method="post"> 
+                <label for="banner_name">Введите заголовок баннера</label>
+                <input type="text" name="banner_name">
+                <label for="banner_title">Введите описание баннера</label>
+                <input type="text" name="banner_title">
+                <label for="banner_text">Введите описание баннера</label>
+                <input type="text" name="banner_text">
                 <button class="admin_button">Подтвердить</button>
                 </form>
                 </div>
