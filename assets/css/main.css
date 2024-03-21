@@ -1,0 +1,8 @@
+/* Код для body, прелоад лого */
+
+body {
+  background-color: #262c38;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}

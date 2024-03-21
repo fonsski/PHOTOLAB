@@ -1,0 +1,50 @@
+<?php
+include "core.php";
+$_POST = (array) json_decode(file_get_contents('php://input'));
+$id = $_POST['id'];
+
+switch ($id) {
+    case 1:
+        $address = [
+            [
+                'content' => '<div class="cls">
+                hui</div>',
+            ]
+        ];
+        break;
+    case 2:
+        $address = [
+            [
+                'content' => '<div class="cls">
+                <a class="dg-widget-link" href="http://2gis.ru/omsk/firm/70000001047782588/center/73.45823764801027,54.9188059504649/zoom/15?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Омска</a><div class="dg-widget-link"><a href="http://2gis.ru/omsk/firm/70000001047782588/photos/70000001047782588/center/73.45823764801027,54.9188059504649/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div><div class="dg-widget-link"><a href="http://2gis.ru/omsk/center/73.45916,54.922053/zoom/15/routeTab/rsType/bus/to/73.45916,54.922053╎Photolab, фотоцентр?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Photolab, фотоцентр</a></div><script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script><script charset="utf-8">new DGWidgetLoader({"width":640,"height":600,"borderColor":"#a3a3a3","pos":{"lat":54.9188059504649,"lon":73.45823764801027,"zoom":15},"opt":{"city":"omsk"},"org":[{"id":"70000001047782588"}]});</script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+                </div>',
+            ]
+        ];
+        break;
+    case 3:
+        $address = [
+            [
+                'content' => '<div class="cls">
+            hui</div>',
+            ]
+        ];
+        break;
+    case 4:
+        $address = [
+            [
+                'content' => '<div class="cls">
+
+                </div>',
+            ]
+        ];
+        break;
+    default:
+        $address = [
+            [
+                'h1' => 'Страница не найдена',
+                'content' => 'Ошибка 404',
+            ]
+        ];
+}
+
+echo json_encode($address);
