@@ -128,40 +128,71 @@ switch ($id) {
         ];
         break;
     case 4:
+        $banner = $link->query("SELECT * FROM `banner`");
+        $resultBanner = [];
+        foreach ($banner as $item) {
+            $resultBanner .= "<option value='{$item['name']}'>{$item['name']}</option>";
+        }
+
         $data = [
             [
                 'h1' => 'Настройки баннера',
                 'content' => '<div class="products_block">
                 <div class="cls">
                 <h1>Создать баннер</h1>
-                <form action = "addBanner.php" method="post"> 
-                <label for="banner_name">Введите заголовок баннера</label>
+                <form action = "bannerAdd.php" method="POST" enctype="multipart/form-data"> 
+                <label for="banner_name">Введите название баннера</label>
                 <input type="text" name="banner_name">
-                <label for="banner_title">Введите описание баннера</label>
+                <label for="banner_title">Введите заголовок баннера</label>
                 <input type="text" name="banner_title">
-                <label for="banner_text">Введите описание баннера</label>
+                <label for="banner_text">Введите текстовое содержание баннера</label>
                 <input type="text" name="banner_text">
+                <label for="banner_image">Выберете изображение</label>
+                <input type="file" name="banner_image">
+                <button class="admin_button">Подтвердить</button>
+                </form>
+                </div>
+
+                <div class="cls">
+                <h1>Редактировать баннер</h1>
+                <form action = "bannerUpdate.php" method="POST" enctype="multipart/form-data"> 
+                <label for="bannerOld">Выберите баннер</label>
+                <select name="bannerOld">' .
+                    $resultBanner
+                    . '</select>
+                <label for="banner_name__new">Введите новое название баннера</label>
+                <input type="text" name="banner_name__new">
+                <label for="banner_title__new">Введите новый заголовок баннера</label>
+                <input type="text" name="banner_title__new">
+                <label for="banner_text__new">Введите новое текстовое содержание баннера</label>
+                <input type="text" name="banner_text__new">
+                <label for="banner_image__new">Выберете новое изображение</label>
+                <input type="file" name="banner_image__new">
+                <button class="admin_button">Подтвердить</button>
+                </form>
+                </div>
+
+                <div class="cls">
+                <h1>Удалить баннер</h1>
+                <form action = "bannerDelete.php" method="POST""> 
+                <label for="bannerDelete">Выберите баннер который хотите удалить</label>
+                <select name="bannerDelete">' .
+                    $resultBanner
+                    . '</select>
+                <button class="admin_button">Подтвердить</button>
+                </form>
+                </div>
+
+                <div class="cls">
+                <h1>Выбрать активный баннер</h1>
+                <form action = "bannerSetActive.php" method="POST" enctype="multipart/form-data"> 
+                <label for="banner_name">Введите название баннера</label>
+                <input type="text" name="banner_name">
                 <button class="admin_button">Подтвердить</button>
                 </form>
                 </div>
                 
-                
-                <div class="cls">
-                <h1>Редактировать категорию</h1>
-                <form> 
-                <label for="products">Введите новое значение категории</label>
-                <input type="text" name="products">
-                <button class="admin_button">Подтвердить</button>
-                </form>
-                </div>
-                <div class="cls">
-                <h1>Удалить категорию</h1>
-                <form> 
-                <label for="products">Введите название категории</label>
-                <input type="text" name="products">
-                <button class="admin_button">Подтвердить</button>
-                </form>
-                </div>',
+                ',
             ]
         ];
         break;

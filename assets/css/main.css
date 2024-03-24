@@ -421,141 +421,93 @@ iframe {
 
 /* Адаптив */
 
-@media (min-width: 2600px) {
-  .banner_content {
-    grid-template-columns: 400px 500px;
-  }
-
-  .services_content {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .content {
-    width: 400px;
-  }
-
-  .card__image {
-    height: 300px;
-  }
-
-  .card__content {
-    height: 150px;
-  }
-}
-
 @media (min-width: 1900px) and (max-width: 2599px) {
   .banner_content {
     grid-template-columns: 300px 400px;
   }
-
   .services_content {
     grid-template-columns: repeat(3, 1fr);
   }
-
   .content {
     width: 300px;
   }
-
   .card__image {
     height: 250px;
   }
-
   .card__content {
     height: 125px;
   }
 }
-
 @media (min-width: 1400px) and (max-width: 1899px) {
   .banner_content {
     grid-template-columns: 320px 350px;
   }
-
   .banner_text h1 {
     font-size: 32px;
   }
-
   .banner_text p {
     font-size: 24px;
   }
-
   .services_content {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .services_title h1 {
     font-size: 32px;
   }
-
   .content {
     width: 250px;
   }
-
   .card__image {
     height: 200px;
   }
-
   .card__content {
     height: 100px;
   }
 }
-
 @media (min-width: 900px) and (max-width: 1399px) {
   .banner_content {
     grid-template-columns: 320px 360px;
   }
-
   .services_content {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .content {
     width: 200px;
   }
-
   .card__content {
     height: 75px;
   }
 }
-
 @media (max-width: 899px) {
   .banner_content {
     grid-template-columns: 150px 250px;
   }
-
   .services_content {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .content {
     width: 150px;
   }
-
   .card__image {
     height: 100px;
   }
-
   .card__content {
     height: 50px;
   }
 }
-
 @media (max-width: 399px) {
   .banner_content {
     grid-template-columns: 1fr;
   }
-
   .services_content {
     grid-template-columns: 1fr;
   }
-
   .content {
     width: 100%;
   }
-
   .card__image {
     height: 75px;
   }
-
   .card__content {
     height: 37.5px;
   }

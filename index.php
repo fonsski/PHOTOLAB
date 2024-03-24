@@ -2,6 +2,8 @@
 require_once "vendor/functions/core.php";
 
 $category = $link->query("SELECT * FROM categories");
+
+$banner = $link->query("SELECT * FROM banner");
 ?>
 
 <!DOCTYPE html>
@@ -31,20 +33,20 @@ $category = $link->query("SELECT * FROM categories");
   </header>
 
   <section id="banner">
-    <div class="banner_content">
-      <div class="banner_image">
-        <img src="assets/img/products/IMG_1690.JPG" alt="Кружка" />
-      </div>
+    <?php foreach ($banner as $banner_cont) { ?>
+      <div class="banner_content">
+        <div class="banner_image">
+          <img src="assets/img/products/<?= $banner_cont['img'] ?>" alt="Кружка" />
+        </div>
 
-      <div class="banner_text">
-        <h1>Lorem, ipsum.</h1>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus
-          dolorum autem asperiores soluta velit quis aspernatur repellendus
-          exercitationem deserunt libero!
-        </p>
+        <div class="banner_text">
+          <h1><?= $banner_cont['title'] ?></h1>
+          <p>
+            <?=$banner_cont['text']?>
+          </p>
+        </div>
       </div>
-    </div>
+    <?php } ?>
   </section>
 
   <section id="services">
@@ -57,8 +59,6 @@ $category = $link->query("SELECT * FROM categories");
 
     <div class="services_content">
     </div>
-
-
 
   </section>
 
