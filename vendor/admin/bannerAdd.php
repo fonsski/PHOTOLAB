@@ -1,8 +1,8 @@
 <?php
 include "../functions/core.php";
 
-if (!empty($_FILES['img'])) {
-    $files = $_FILES['img'];
+if (!empty($_FILES['banner_image'])) {
+    $files = $_FILES['banner_image'];
     $banner_image = $files['name'];
     move_uploaded_file($files['tmp_name'], '../../assets/img/banner/' . $banner_image);
 }

@@ -3,7 +3,7 @@ require_once "vendor/functions/core.php";
 
 $category = $link->query("SELECT * FROM categories");
 
-$banner = $link->query("SELECT * FROM banner");
+$banner = $link->query("SELECT * FROM banner WHERE active = 1");
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ $banner = $link->query("SELECT * FROM banner");
     <?php foreach ($banner as $banner_cont) { ?>
       <div class="banner_content">
         <div class="banner_image">
-          <img src="assets/img/products/<?= $banner_cont['img'] ?>" alt="Кружка" />
+          <img src="assets/img/banner/<?= $banner_cont['img'] ?>" alt="Кружка" />
         </div>
 
         <div class="banner_text">

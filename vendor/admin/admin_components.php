@@ -167,7 +167,7 @@ switch ($id) {
                 <label for="banner_text__new">Введите новое текстовое содержание баннера</label>
                 <input type="text" name="banner_text__new">
                 <label for="banner_image__new">Выберете новое изображение</label>
-                <input type="file" name="banner_image__new">
+                <input type="file" name="banner_image">
                 <button class="admin_button">Подтвердить</button>
                 </form>
                 </div>
@@ -185,9 +185,11 @@ switch ($id) {
 
                 <div class="cls">
                 <h1>Выбрать активный баннер</h1>
-                <form action = "bannerSetActive.php" method="POST" enctype="multipart/form-data"> 
-                <label for="banner_name">Введите название баннера</label>
-                <input type="text" name="banner_name">
+                <form action = "bannerActive.php" method="POST" enctype="multipart/form-data"> 
+                <label for="banneActive">Выберите баннер</label>
+                <select name="bannerActive">' .
+                    $resultBanner
+                    . '</select>
                 <button class="admin_button">Подтвердить</button>
                 </form>
                 </div>
