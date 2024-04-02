@@ -1,3 +1,14 @@
+/* Стили для шапки, шрифты и нормализация */
+
+@font-face {
+  font-family: Gotham-medium;
+  src: url(/assets/fonts/Gotham/gothampronarrow_medium.ttf);
+}
+
+@font-face {
+  font-family: Gotham-bold;
+  src: url(/assets/fonts/Gotham/gothampronarrow_bold.ttf);
+}
 /* Код для body, прелоад лого */
 
 body {
@@ -5,24 +16,6 @@ body {
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
-}
-
-/* Стили для шапки, шрифты и нормализация */
-
-@font-face {
-  font-family: Merriweather-regular;
-  src: url(/assets/fonts/Merriweather/merriweather.woff2) format("woff");
-}
-
-@font-face {
-  font-family: Merriweather-bold;
-  src: url(/assets/fonts/Merriweather/merriweatherbold.woff2) format("woff");
-}
-
-@font-face {
-  font-family: Merriweather-ultrabold;
-  src: url(/assets/fonts/Merriweather/merriweatherultrabold.woff2)
-    format("woff");
 }
 
 /* Нормализация отступов*/
@@ -43,12 +36,12 @@ header {
 }
 
 .logo {
-  width: 260px;
-  height: 70px;
+  width: 200px;
+  height: 100px;
 }
 
 .header_nav {
-  left: 30%;
+  left: 37%;
   position: absolute;
 }
 
@@ -72,7 +65,7 @@ header {
 .header_nav a {
   text-decoration: none;
   color: white;
-  font-family: Merriweather-bold;
+  font-family: Gotham-medium;
   font-size: 16px;
 }
 
@@ -89,18 +82,19 @@ header {
   grid-template-columns: 300px 400px;
   gap: 30px;
   border-radius: 10px;
-  width: 80%;
+  max-width: 80%;
+  height: 350px;
   background-color: white;
   padding: 60px;
 }
 
 .banner_text h1 {
-  font-family: Merriweather-bold;
+  font-family: Gotham-Bold;
   font-size: 22px;
 }
 
 .banner_text p {
-  font-family: Merriweather-regular;
+  font-family: Gotham-Medium;
   font-size: 18px;
 }
 
@@ -120,7 +114,7 @@ header {
 }
 
 .services_title {
-  font-family: Merriweather-regular;
+  font-family: Gotham-medium;
   font-size: 40px;
   color: #ffffff;
   text-align: center;
@@ -138,7 +132,7 @@ header {
   border: none;
   background-color: #e4e4e4;
   padding-left: 10px;
-  font-family: Merriweather-regular;
+  font-family: Gotham-medium;
   font-size: 14px;
 }
 
@@ -185,12 +179,12 @@ header {
 
 .services_nav__block h1 {
   font-size: 40px;
-  font-family: Merriweather-bold;
+  font-family: Gotham-bold;
 }
 
 .services_nav__block h2 {
   font-size: 18px;
-  font-family: Merriweather-bold;
+  font-family: Gotham-bold;
 }
 
 h3 {
@@ -228,7 +222,7 @@ h3 {
 }
 
 .card__content-title {
-  font-family: Merriweather-regular;
+  font-family: Gotham-medium;
   font-size: 18px;
   font-weight: 800;
 }
@@ -264,7 +258,7 @@ h3 {
   cursor: pointer;
   background-color: #ffffff;
   border-radius: 5px;
-  font-family: Merriweather-regular;
+  font-family: Gotham-medium;
   font-size: 14px;
 }
 
@@ -311,7 +305,7 @@ h3 {
 }
 
 .card__content-title {
-  font-family: Merriweather-regular;
+  font-family: Gotham-medium;
   font-size: 18px;
   font-weight: 800;
 }
@@ -330,7 +324,7 @@ h3 {
 }
 
 .addresses_title {
-  font-family: Merriweather-bold;
+  font-family: Gotham-bold;
   font-size: 40px;
   color: #ffffff;
   text-align: center;
@@ -357,14 +351,14 @@ h3 {
 }
 
 .footer_content1 {
-  font-family: Merriweather-regular;
+  font-family: Gotham-medium;
   font-size: 18px;
   color: #ffffff;
 }
 
 .footer_content1 h1 {
   font-size: 20px;
-  font-family: Merriweather-regular;
+  font-family: Gotham-medium;
 }
 
 .footer_content1 ul {
@@ -378,14 +372,14 @@ h3 {
 }
 
 .footer_content2 {
-  font-family: Merriweather-bold;
+  font-family: Gotham-bold;
   font-size: 18px;
   color: #ffffff;
 }
 
 .footer_content2 h1 {
   font-size: 20px;
-  font-family: Merriweather-bold;
+  font-family: Gotham-bold;
 }
 
 .footer_content2 ul {
@@ -399,18 +393,18 @@ h3 {
 }
 
 .footer_content3 {
-  font-family: Merriweather-regular;
+  font-family: Gotham-medium;
   font-size: 18px;
   color: #ffffff;
 }
 
 .footer_content3 h1 {
   font-size: 20px;
-  font-family: Merriweather-bold;
+  font-family: Gotham-bold;
 }
 
 .copyright_block {
-  font-family: Merriweather-regular;
+  font-family: Gotham-medium;
   font-size: 14px;
   color: #ffffff;
 }
@@ -419,96 +413,168 @@ iframe {
   border-radius: 20px;
 }
 
+/* Всплывающее окно */
+
+/* transition */
+.btn,
+.closer,
+.overlay {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.btn {
+  display: inline-block;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: white; /* Цвет текста белый */
+  font-family: Gotham-bold; /* Жирный шрифт */
+  font-size: 16px; /* Размер текста */
+  text-decoration: none; /* Убрать подчеркивание */
+  border-radius: 5px; /* Закругленные углы */
+  margin: 0 10px; /* Отступы между кнопками */
+}
+
+/*--- CONTENT ---*/
+
+.overlay {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.87);
+}
+.dlg-modal {
+  width: 100%;
+  max-width: 570px;
+  height: 300px;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  z-index: 10;
+  padding: 35px 36px;
+  background: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.85);
+}
+.dlg-modal-fade {
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.dlg-modal-slide {
+  top: -20px;
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+  visibility: visible;
+  opacity: 1;
+}
+
+.closer {
+  width: 40px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: url("/assets/img/icons/cross.png") no-repeat;
+  cursor: pointer;
+}
+.closer:hover {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* animation */
+.fadeIn,
+.fadeOut,
+.slideInDown,
+.slideOutUp {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes slideInDown {
+  from {
+    top: -20px;
+    -webkit-transform: translate(-50%, -100%);
+    transform: translate(-50%, -100%);
+  }
+  to {
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes slideOutUp {
+  from {
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  to {
+    top: -20px;
+    -webkit-transform: translate(-50%, -100%);
+    transform: translate(-50%, -100%);
+  }
+}
+.slideOutUp {
+  -webkit-animation-name: slideOutUp;
+  animation-name: slideOutUp;
+}
+
 /* Адаптив */
 
-@media (min-width: 1900px) and (max-width: 2599px) {
-  .banner_content {
-    grid-template-columns: 300px 400px;
-  }
-  .services_content {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .content {
-    width: 300px;
-  }
-  .card__image {
-    height: 250px;
-  }
-  .card__content {
-    height: 125px;
-  }
-}
-@media (min-width: 1400px) and (max-width: 1899px) {
-  .banner_content {
-    grid-template-columns: 320px 350px;
-  }
-  .banner_text h1 {
-    font-size: 32px;
-  }
-  .banner_text p {
-    font-size: 24px;
-  }
-  .services_content {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .services_title h1 {
-    font-size: 32px;
-  }
-  .content {
-    width: 250px;
-  }
-  .card__image {
-    height: 200px;
-  }
-  .card__content {
-    height: 100px;
-  }
-}
-@media (min-width: 900px) and (max-width: 1399px) {
-  .banner_content {
-    grid-template-columns: 320px 360px;
-  }
-  .services_content {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .content {
-    width: 200px;
-  }
-  .card__content {
-    height: 75px;
-  }
-}
-@media (max-width: 899px) {
-  .banner_content {
-    grid-template-columns: 150px 250px;
-  }
-  .services_content {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .content {
-    width: 150px;
-  }
-  .card__image {
-    height: 100px;
-  }
-  .card__content {
-    height: 50px;
-  }
-}
-@media (max-width: 399px) {
-  .banner_content {
-    grid-template-columns: 1fr;
-  }
-  .services_content {
-    grid-template-columns: 1fr;
-  }
-  .content {
-    width: 100%;
-  }
-  .card__image {
-    height: 75px;
-  }
-  .card__content {
-    height: 37.5px;
-  }
-}
+/* Шапка */

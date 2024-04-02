@@ -15,7 +15,7 @@ if (isset($_POST['log'])) {
 
     $user = $users->fetch_assoc();
     $_SESSION['admin']['id'] = $user['id'];
-    redirectUser('../../vendor/admin/admin_panel.php'); // перенаправление на страницу администратора
+    redirectUser('../../index.php'); // перенаправление на страницу администратора
     exit();
 }
 

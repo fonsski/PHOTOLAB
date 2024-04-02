@@ -20,17 +20,28 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
 
 <body>
   <header>
-    <img src="assets/img/photologo.svg" alt="Логотип" class="logo" />
+    <img src="assets/img/logo.svg" alt="Логотип" class="logo" />
     <nav class="header_nav">
       <ul class="nav_bar">
         <li class="nav_element"><a href="#banner">ГЛАВНАЯ</a></li>
         <li class="nav_element"><a href="#services">КАТАЛОГ</a></li>
         <li class="nav_element"><a href="#footer">КОНТАКТЫ</a></li>
-        <li class="nav_element"><a href="">РАССЧИТАТЬ СТОИМОСТЬ</a></li>
-        <li class="nav_element"><a href="/vendor/admin/admin_panel.php">admin</a></li>
+        <?php if (isset($_SESSION['admin'])) { ?>
+          <li class="nav_element"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>
+        <?php } ?>
+        <!-- <button type="button" class="btn btn-default" data-modal="modal_1">РАССЧИТАТЬ СТОИМОСТЬ</button> -->
       </ul>
     </nav>
   </header>
+
+  <!-- <div class="overlay" data-close=""></div>
+
+  <div id="modal_1" class="dlg-modal dlg-modal-fade">
+    <span class="closer" data-close=""></span>
+    <h3>Здесь Вы можете рассчитать примерную стоимость заказа</h3>
+    <p>Стоимость рассчитывается примерно, точную полную стоимость согласует оператор в филиале</p>
+  </div>
+  </div> -->
 
   <section id="banner">
     <?php foreach ($banner as $banner_cont) { ?>
@@ -42,7 +53,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
         <div class="banner_text">
           <h1><?= $banner_cont['title'] ?></h1>
           <p>
-            <?=$banner_cont['text']?>
+            <?= $banner_cont['text'] ?>
           </p>
         </div>
       </div>
@@ -69,7 +80,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
       <button class="address_button" id="2">6-я станционная 2/3</button>
       <button class="address_button" id="3">Дианова, 14</button>
       <button class="address_button" id="4">Комарова 6к1</button>
-      <!-- <button class="address_button" id="5">Добровольского</button> -->
+      <!-- <button class="address_button" id="5">Добровольского, 10</button> -->
     </nav>
     <div class="address_content">
       <a class="dg-widget-link" href="http://2gis.ru/omsk/firm/70000001047537964/center/73.4114170074463,54.96110887404802/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Омска</a>
@@ -189,7 +200,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
           <ul>
             Мы в соцсетях:
             <li>
-              <a href="https://vk.com/fotolab55"><i class="fa fa-vk" aria-hidden="true"></i></a>
+              <a href="https://vk.com/fotolab55"><i class="fa fa-vk" aria-hidden="true"></i> ВКонтакте</a>
             </li>
             <li><a href="#about">О нас</a></li>
           </ul>
@@ -209,8 +220,10 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
   <script src="assets/js/navigation.js"></script>
   <script src="assets/js/addresses.js"></script>
   <script>
-
+    const typeAnimate = 'fade';
   </script>
+  <script src="assets/js/popup.function.js"></script>
+  <script src="/assets/js/dashtoadmin.js"></script>
 </body>
 
 </html>
