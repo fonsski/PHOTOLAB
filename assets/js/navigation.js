@@ -28,10 +28,10 @@ serviceButtons.forEach((element) => {
 function htmlCreate(product) {
   return `
     <div class="product_card">
-      <div class="card__image"><img src="/assets/img/products/${product.img}"></div>
+      <div class="card__image"><img src="../../assets/img/products/${product.img}"></div>
       <div class="card__content">
         <h3 class="card__content-title">${product.name}</h3>
-        <h3 class="card__content_cost">${product.price} р.</h3>
+        <h3 class="card__content_cost">${product.price}р.</h3>
       </div>
     </div>
     `;

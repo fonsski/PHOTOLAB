@@ -12,6 +12,8 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Готовите к печати фотографии? Нужна срочная печать брошюр? Хотите заказать брендированные сувениры? Сеть рекламных и полиграфических услуг «Photolab» выполнит любой заказ! Мы предлагаем широкий спектр услуг: от печати фотографий до изготовления рекламной продукции. Качественная работа, индивидуальный подход и конкурентные цены — вот почему клиенты выбирают нас!">
+  <meta name="keywords" content="Печать фотографий, печать брошюр, печать документов, печать визиток, печать листовок, печать плакатов, печать баннеров, печать на кружках, печать на футболках, сувениры, рекламная продукция, типография «Photolab».">
   <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
@@ -162,7 +164,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
       <script charset="utf-8">
         new DGWidgetLoader({
           "width": 690,
-          "height": 400,
+          "height": 300,
           "borderColor": "#a3a3a3",
           "pos": {
             "lat": 54.9987028372875,
@@ -187,31 +189,29 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
       <div class="footer_content1">
         <h1>НАШИ УСЛУГИ</h1>
         <ul>
-          <li><a href="#">Печать фотографий</a></li>
-          <li><a href="#">Сувениры</a></li>
+          <li><a href="#" data-button-id="">Фотопечать</a></li>
+          <li><a href="#">Сувенирная продукция</a></li>
           <li><a href="#">Широкоформатная печать</a></li>
           <li><a href="#">Полиграфия</a></li>
         </ul>
       </div>
 
       <div class="footer_content2">
-        <h1>О КОМПАНИИ</h1>
+        <h1>Мы в соцсетях:</h1>
+        <!-- <a href="#about">О нас</a> -->
         <nav>
           <ul>
-            Мы в соцсетях:
             <li>
               <a href="https://vk.com/fotolab55"><i class="fa fa-vk" aria-hidden="true"></i> ВКонтакте</a>
             </li>
-            <li><a href="#about">О нас</a></li>
           </ul>
         </nav>
       </div>
 
       <div class="footer_content3">
         <h1>По вопросам сотрудничества</h1>
-        <i class="fa fa-envelope-open" aria-hidden="true"> photolab@gmail.com</i>
+        <i class="fa fa-envelope-open" aria-hidden="true"> <a href="mailto:photolabzakaz@yandex.ru">photolabzakaz@yandex.ru</a></i>
       </div>
-
       <div class="copyright_block">
         <i class="fa fa-copyright" aria-hidden="true"> 2021-2024 Photolab Все права защищены</i>
       </div>
@@ -224,6 +224,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
   </script>
   <script src="assets/js/popup.function.js"></script>
   <script src="/assets/js/dashtoadmin.js"></script>
+  <script src="/assets/js/hamburger.js"></script>
 </body>
 
 </html>
