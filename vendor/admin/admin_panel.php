@@ -3,6 +3,9 @@
 require "../functions/core.php";
 // Проверка на администратора
 isAdmin();
+$category = $link->query("SELECT * FROM `categories`");
+$products = $link->query("SELECT * FROM `products`");
+$banner = $link->query("SELECT * FROM `banner`");
 ?>
 
 <!DOCTYPE html>
@@ -25,71 +28,99 @@ isAdmin();
             <li>
                 <button class="admin-navigation" id="2">Товары</button>
             </li>
-            <li><button class="admin-navigation" id="3">Категории товаров</button></li>
+            <li>
+                <button class="admin-navigation" id="3">Категории товаров</button>
+            </li>
             <li>
                 <button class="admin-navigation" id="4">Настройки баннера</button>
             </li>
         </ul>
     </nav>
     <div class="main">
-        <!-- Сюда с помощью AJAX динамически подставляется контент из admin_components.php -->
-    </div>
+        <div class="admin_content" style="display: none;">
+            <div class="products_block">
+                <div class="cls">
+                    <h1>Добавить товар</h1>
+                    <form action="addProduct.php" method="POST" enctype="multipart/form-data">
+                        <label for="products">Введите название товара</label>
+                        <input type="text" name="name">
+                        <label for="products">Введите цену</label>
+                        <input type="text" name="cost">
+                        <label for="product_category">Выберите категорию товара</label>
+                        <select name="category_id">
+                            <?php foreach ($category as $item) { ?>
+                                <option value="<?=$item['id']?>"><?=$item['name']?></option>
+                            <?php } ?> 
+                        </select>
+                        <label for="img">Выберете изображение</label>
+                        <input type="file" name="img">
+                        <button class="admin_button">Подтвердить</button>
+                    </form>
+                </div>
+
+
+                <div class="cls">
+                    <h1>Редактировать товар</h1>
+                    <form action="productUpdate.php" method="POST" enctype="multipart/form-data">
+                        <label for="name_old">Выберите товар для редактирования</label>
+                        <select name="name_old" class="select_old">
+                            
+                            </select>
+                        <label for="products__name_new">Введите новое название товара</label>
+                        <input type="text" name="products__name_new">
+                        <label for="cost__new">Введите новую цену</label>
+                        <input type="text" name="cost__new">
+                        <label for="product_category__new">Выберите новую категорию товара</label>
+                        <select name="category_id__new">' .
+                            $resultCategory
+                            . '</select>
+                        <input type="file" name="img__new">
+                        <button class="admin_button">Подтвердить</button>
+                    </form>
+                </div>
+
+                <div class="cls">
+                    <h1>Удалить товар</h1>
+                    <form action="productDelete.php" method="POST">
+                        <label for="product__delete">Введите название товара</label>
+                        <select name="product__delete">' .
+                            $resultProduct
+                            . '</select>
+                        <button class="admin_button">Подтвердить</button>
+                    </form>
+                </div>
+            </div>
+            <div class="admin_content" style="display: none;">
+                Адрес 2
+            </div>
+            <div class="admin_content" style="display: none;">
+                Адрес 3
+            </div>
+            <div class="admin_content" style="display: none;">
+                Адрес 4
+            </div>
+        </div>
 </body>
 
 </html>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const buttons = document.querySelectorAll('.admin-navigation');
-        buttons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Удаление класса active у всех li элементов
-                const allLiElements = document.querySelectorAll('.nav-list li');
-                allLiElements.forEach(li => {
-                    li.classList.remove('active');
-                });
-                // Добавление класса active к родительскому элементу li
-                this.parentElement.classList.add('active');
-                // Отправка POST запроса на сервер
-                fetch("admin_components.php", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json;charset=utf-8",
-                        },
-                        body: JSON.stringify({
-                            'id': this.id
-                        }),
-                    })
-                    .then(response => response.json())
-                    .then(result => {
-                        let html = '';
-                        // Формирование HTML кода на основе полученных данных
-                        result.forEach(element => {
-                            html += htmlCreate(element);
-                        });
-                        // Вставка сформированного HTML кода в элемент с классом main
-                        document.querySelector(".main").innerHTML = html;
-                    });
+    // Получаем все кнопки навигации и блоки с адресами
+    const navigationButtons = document.querySelectorAll(".admin-navigation");
+    const adminBlocks = document.querySelectorAll(".admin_content");
+
+    // Скрываем все блоки с адресами
+    adminBlocks.forEach((block) => (block.style.display = "none"));
+
+    // Добавляем обработчики событий для кнопок навигации
+    navigationButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            adminBlocks.forEach((block, i) => {
+                if (i === index) {
+                    block.style.display = "flex";
+                } else {
+                    block.style.display = "none";
+                }
             });
         });
-    });
-
-    // Функция для создания HTML элемента на основе данных
-    function htmlCreate(component) {
-        return `
-    <div class="components_content">
-        <h1 class="j_title">${component.h1}</h1>
-        ${component.content}
-    </div>
-    `;
-    }
-
-    // Запуск контента с id 1 по умолчанию после загрузки страницы
-    document.addEventListener('DOMContentLoaded', function() {
-        // Находим кнопку с id 1 и эмулируем клик на нее
-        const defaultButton = document.getElementById('1');
-        if (defaultButton) {
-            defaultButton.click();
-        }
     });
 </script>
