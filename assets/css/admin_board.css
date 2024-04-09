@@ -1,5 +1,5 @@
 :root {
-  --body-bg: #262c38;
+  --body-bg: #123;
   --nav-bg: #234;
 }
 
@@ -28,7 +28,7 @@ nav {
   padding-block: 2rem;
 }
 
-.j_title{
+.j_title {
   padding-inline-start: 5rem;
 }
 
@@ -40,14 +40,14 @@ nav {
   gap: 1rem;
 }
 
-.products_block{
+.products_block {
   display: grid;
   grid-template-rows: 1fr;
   gap: 10px;
   margin-bottom: 40px;
 }
 
-.cls{
+.cls {
   display: grid;
   gap: 10px;
   justify-items: center;
@@ -68,24 +68,26 @@ label {
   font-weight: bold;
 }
 
-input, select, .admin_button {
+input,
+select,
+.admin_button {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.select_old{
+.select_old {
   grid-column: span 2; /* Расширить кнопку на две колонки */
 }
 
-.category_old{
+.category_old {
   grid-column: span 2; /* Расширить кнопку на две колонки */
 }
 
 .admin_button {
   grid-column: span 2; /* Расширить кнопку на две колонки */
-  background-color: #6F8A2B;
+  background-color: #6f8a2b;
   color: white;
   cursor: pointer;
 }
@@ -121,4 +123,8 @@ select {
   position: relative;
   z-index: -1;
   border-radius: 100vw 0 0 100vw;
+}
+
+.admin_content{
+  display: none;
 }
