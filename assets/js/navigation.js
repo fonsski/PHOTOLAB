@@ -1,7 +1,10 @@
+// Находим все кнопки с классом "services_button"
 let serviceButtons = document.querySelectorAll(".services_button");
 
+// Для каждой кнопки добавляем обработчик события клика
 serviceButtons.forEach((element) => {
   element.addEventListener("click", () => {
+    // Отправляем POST запрос на сервер для получения данных о продуктах
     fetch("/vendor/functions/productQuery.php", {
       method: "POST",
       headers: {
@@ -12,19 +15,23 @@ serviceButtons.forEach((element) => {
       .then((response) => response.json())
       .then((result) => {
         let html = "";
-        console.log(result);
+        // Обрабатываем полученные данные и формируем HTML
         result.forEach((product) => {
           html += htmlCreate(product);
         });
+        // Вставляем сформированный HTML в контейнер ".services_content"
         document.querySelector(".services_content").innerHTML = html;
+        // Удаляем класс "active" у всех кнопок
         serviceButtons.forEach((button) => {
           button.classList.remove("active");
         });
+        // Добавляем класс "active" только нажатой кнопке
         element.classList.add("active");
       });
   });
 });
 
+// Функция для создания HTML блока продукта
 function htmlCreate(product) {
   return `
     <div class="product_card">
@@ -37,8 +44,8 @@ function htmlCreate(product) {
     `;
 }
 
+// Находим кнопку с id "1" и устанавливаем ей класс "active"
 const activeServiceButton = document.getElementById("1");
-
 fetch("/vendor/functions/productQuery.php", {
   method: "POST",
   headers: {
@@ -49,15 +56,17 @@ fetch("/vendor/functions/productQuery.php", {
   .then((response) => response.json())
   .then((result) => {
     let html = "";
-    console.log(result);
+    // Обрабатываем полученные данные и формируем HTML
     result.forEach((product) => {
       html += htmlCreate(product);
     });
-    console.log(html);
+    // Вставляем сформированный HTML в контейнер ".services_content"
     document.querySelector(".services_content").innerHTML = html;
+    // Удаляем класс "active" у всех кнопок
     const allServiceButtons = document.querySelectorAll(".services_button");
     allServiceButtons.forEach((button) => {
       button.classList.remove("active");
     });
+    // Добавляем класс "active" кнопке с id "1"
     activeServiceButton.classList.add("active");
   });
