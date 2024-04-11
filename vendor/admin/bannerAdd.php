@@ -1,3 +1,5 @@
+<!-- © Все права на код принадлежат Photolab, ИП Столяров -->
+
 <?php
 include "../functions/core.php";
 if (!empty($_FILES['banner_image']) && $_FILES['banner_image']['error'] === UPLOAD_ERR_OK) {

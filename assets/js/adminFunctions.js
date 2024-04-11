@@ -1,3 +1,5 @@
+// © Все права на код принадлежат Photolab, ИП Столяров
+
 // JavaScript код для функциональности навигации администратора
 const addressButtons = document.querySelectorAll(".admin-navigation");
 const addressBlocks = document.querySelectorAll(".admin_content");

@@ -1,3 +1,5 @@
+// © Все права на код принадлежат Photolab, ИП Столяров
+
 // Получаем все кнопки адресов и блоки с адресами
 const addressButtons = document.querySelectorAll(".address_button");
 const addressBlocks = document.querySelectorAll(".address_content");

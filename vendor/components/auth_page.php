@@ -1,3 +1,5 @@
+<!-- © Все права на код принадлежат Photolab, ИП Столяров -->
+
 <?php
 require "../functions/core.php";
 ?>

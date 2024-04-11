@@ -1,8 +1,7 @@
+<!-- © Все права на код принадлежат Photolab, ИП Столяров -->
 <?php
 require_once "vendor/functions/core.php";
-
 $category = $link->query("SELECT * FROM categories");
-
 $banner = $link->query("SELECT * FROM banner WHERE active = 1");
 ?>
 
@@ -13,7 +12,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Готовите к печати фотографии? Нужна срочная печать брошюр? Хотите заказать брендированные сувениры? Сеть рекламных и полиграфических услуг «Photolab» выполнит любой заказ! Мы предлагаем широкий спектр услуг: от печати фотографий до изготовления рекламной продукции. Качественная работа, индивидуальный подход и конкурентные цены — вот почему клиенты выбирают нас!">
-  <meta name="keywords" content="Печать фотографий, печать брошюр, печать документов, печать визиток, печать листовок, печать плакатов, печать баннеров, печать на кружках, печать на футболках, сувениры, рекламная продукция, типография «Photolab».">
+  <meta name="keywords" content="Печать фотографий, фото, печать, документы, печать брошюр, брошурация, сувениры, печать документов, печать визиток, печать листовок, печать плакатов, печать баннеров, печать на кружках, печать на футболках, сувениры, рекламная продукция, типография «Photolab».">
   <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
@@ -24,18 +23,24 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
   <header>
     <img src="assets/img/logo.svg" alt="Логотип" class="logo" />
     <nav class="header_nav">
-      <ul class="nav_bar">
-        <li class="nav_element"><a href="#banner">ГЛАВНАЯ</a></li>
-        <li class="nav_element"><a href="#services">КАТАЛОГ</a></li>
-        <li class="nav_element"><a href="#footer">КОНТАКТЫ</a></li>
-        <?php if (isset($_SESSION['admin'])) { ?>
-          <li class="nav_element"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>
-        <?php } ?>
-        <!-- <button type="button" class="btn btn-default" data-modal="modal_1">РАССЧИТАТЬ СТОИМОСТЬ</button> -->
-      </ul>
+        <div class="hamburger_menu">
+            <div class="hamburger_line"></div>
+            <div class="hamburger_line"></div>
+            <div class="hamburger_line"></div>
+        </div>
+        <ul class="nav_bar">
+            <li class="nav_element"><a href="#banner">ГЛАВНАЯ</a></li>
+            <li class="nav_element"><a href="#services">КАТАЛОГ</a></li>
+            <li class="nav_element"><a href="#footer">КОНТАКТЫ</a></li>
+            <?php if (isset($_SESSION['admin'])) { ?>
+                <li class="nav_element"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>
+            <?php } ?>
+            <!-- <button type="button" class="btn btn-default" data-modal="modal_1">РАССЧИТАТЬ СТОИМОСТЬ</button> -->
+        </ul>
     </nav>
-  </header>
-
+</header>
+  
+  
   <!-- <div class="overlay" data-close=""></div>
 
   <div id="modal_1" class="dlg-modal dlg-modal-fade">

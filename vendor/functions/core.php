@@ -1,6 +1,8 @@
+<!-- © Все права на код принадлежат Photolab, ИП Столяров -->
+
 <?php
-$link = new mysqli('localhost', 'root', '', 'photolab');
 session_start();
+$link = new mysqli('localhost', 'root', '', 'photolab');
 
 // Проверка соединения
 if ($link->connect_error) {
@@ -13,7 +15,7 @@ function redirectUser($url = false)
         header("Location: " . $url);
     } else {
         header("Location: {$_SERVER['HTTP_REFERER']}");
-    }    
+    }
 }
 
 function isAdmin($bool = false)
@@ -26,3 +28,4 @@ function isAdmin($bool = false)
         }
     }
 }
+
