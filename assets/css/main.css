@@ -362,7 +362,7 @@ h3 {
   cursor: pointer;
 }
 
-.footer_content1 li {
+.footer_content1 li  {
   margin-top: 7px;
 }
 
@@ -387,7 +387,7 @@ h3 {
   cursor: pointer;
 }
 
-.footer_content2 li {
+.footer_content2 li  {
   margin-top: 7px;
 }
 
@@ -403,7 +403,7 @@ h3 {
   margin-bottom: 10px;
 }
 
-.footer_content3 a {
+.footer_content3 a  {
   text-decoration: none;
   color: #ffffff;
 }
@@ -590,6 +590,9 @@ iframe {
 @media only screen and (min-width: 520px) and (max-width: 619px){
 
 }
+@media(max-width: 828px){
+
+}
 @media only screen and (min-width: 620px) and (max-width: 719px) {
   .logo {
     width: 150px;
@@ -674,6 +677,14 @@ iframe {
     height: 38px;
   }
   .address_button {
+    padding: 0 0.2rem;
+    height: 38px;
+  }
+  .services_button{
+    padding: 0 0.2rem;
+    height: 38px;
+  }
+  .address_button{
     padding: 0 0.2rem;
     height: 38px;
   }
