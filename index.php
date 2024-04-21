@@ -23,26 +23,18 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
   <header>
     <img src="assets/img/logo.svg" alt="Логотип" class="logo" />
     <nav class="header_nav">
-        <div class="hamburger_menu">
-            <div class="hamburger_line"></div>
-            <div class="hamburger_line"></div>
-            <div class="hamburger_line"></div>
-        </div>
-        <ul class="nav_bar">
-            <li class="nav_element"><a href="#banner">ГЛАВНАЯ</a></li>
-            <li class="nav_element"><a href="#services">КАТАЛОГ</a></li>
-            <li class="nav_element"><a href="#footer">КОНТАКТЫ</a></li>
-            <?php if (isset($_SESSION['admin'])) { ?>
-                <li class="nav_element"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>
-            <?php } ?>
-            <!-- <button type="button" class="btn btn-default" data-modal="modal_1">РАССЧИТАТЬ СТОИМОСТЬ</button> -->
-        </ul>
+      <ul class="nav_bar">
+        <li class="nav_element"><a href="#banner">ГЛАВНАЯ</a></li>
+        <li class="nav_element"><a href="#services">КАТАЛОГ</a></li>
+        <li class="nav_element"><a href="#footer">КОНТАКТЫ</a></li>
+        <?php if (isset($_SESSION['admin'])) { ?>
+          <li class="nav_element"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>
+        <?php } ?>
+        <!-- <button type="button" class="btn btn-default" data-modal="modal_1">РАССЧИТАТЬ СТОИМОСТЬ</button> -->
+      </ul>
     </nav>
-</header>
-  
-  
+  </header>
   <!-- <div class="overlay" data-close=""></div>
-
   <div id="modal_1" class="dlg-modal dlg-modal-fade">
     <span class="closer" data-close=""></span>
     <h3>Здесь Вы можете рассчитать примерную стоимость заказа</h3>

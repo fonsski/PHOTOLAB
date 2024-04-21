@@ -1,25 +1,20 @@
-/* © Все права на код принадлежат Photolab, ИП Столяров*/
-
+/* © Все права на код принадлежат Photolab, ИП Столяров */
 /* Стили для шапки, шрифты и нормализация */
-
 @font-face {
   font-family: Gotham-medium;
   src: url(/assets/fonts/Gotham/gothampronarrow_medium.ttf);
 }
-
 @font-face {
   font-family: Gotham-bold;
   src: url(/assets/fonts/Gotham/gothampronarrow_bold.ttf);
 }
 /* Код для body*/
-
 body {
   background-color: #262c38;
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
-
 /* Нормализация отступов*/
 * {
   margin: 0;
@@ -27,7 +22,6 @@ body {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-
 /* Код для шапки и контента внутри неё */
 header {
   display: flex;
@@ -36,18 +30,15 @@ header {
   background-color: #5e6380;
   align-items: center;
 }
-
 .logo {
   width: 200px;
   height: 100px;
   margin-left: 40px;
 }
-
 .header_nav {
   left: 37%;
   position: absolute;
 }
-
 .header_nav ul {
   font-size: 27px;
   list-style-type: none;
@@ -57,13 +48,11 @@ header {
   justify-content: center;
   align-items: center;
 }
-
 /* Стилизация элементов списка */
 .header_nav li {
   display: inline-block;
   margin: 0 10px;
 }
-
 /* Стилизация ссылок */
 .header_nav a {
   text-decoration: none;
@@ -77,7 +66,6 @@ header {
   width: 100%;
   margin-top: 30px;
 }
-
 .banner_content {
   display: grid;
   grid-template-columns: 300px 400px;
@@ -87,23 +75,19 @@ header {
   background-color: #e8dbdb;
   padding: 60px;
 }
-
 .banner_text h1 {
   font-family: Gotham-Bold;
   font-size: 22px;
 }
-
 .banner_text p {
   font-family: Gotham-Medium;
   font-size: 18px;
 }
-
 .banner_image img {
   width: 300px;
   height: 360px;
   border-radius: 10px;
 }
-
 /* Код блока услуг */
 #services {
   margin-top: 30px;
@@ -112,7 +96,6 @@ header {
   justify-items: center;
   gap: 30px;
 }
-
 .services_title {
   font-family: Gotham-medium;
   font-size: 40px;
@@ -124,16 +107,13 @@ header {
   text-decoration: none;
   list-style: none;
 }
-
 .services_button {
   background-color: white;
   height: 48px;
-  padding: 0 1.2rem;
   border-radius: 10px;
   border: none;
   cursor: pointer;
 }
-
 .address_nav__block {
   color: #ffffff;
   text-decoration: none;
@@ -142,12 +122,10 @@ header {
   gap: 15px;
   justify-content: center;
 }
-
 .address_content {
   display: flex;
   justify-content: center;
 }
-
 .address_button {
   background-color: white;
   height: 48px;
@@ -156,36 +134,29 @@ header {
   border: none;
   cursor: pointer;
 }
-
 .services_nav__block li {
   display: inline-block;
   gap: 10px;
 }
-
 .services_nav__block a {
   text-decoration: none;
   color: #ffffff;
 }
-
 .services_nav__block h1 {
   font-size: 40px;
   font-family: Gotham-bold;
 }
-
-.services_nav__block h2 {
+services_nav__block h2 {
   font-size: 18px;
   font-family: Gotham-bold;
 }
-
 h3 {
   margin: 0;
   padding: 0;
 }
-
 .product_card {
   width: 300px;
 }
-
 .product_card img {
   display: block;
   border-radius: 15px 15px 0px 0px;
@@ -193,45 +164,37 @@ h3 {
   width: 100%;
   object-fit: cover;
 }
-
 .product_card p {
   margin: 0;
   padding: 0;
 }
-
 .card__image {
   width: 100%;
   height: 217px;
   border-radius: 15px 15px 0px 0px;
 }
-
 .card__content {
   padding: 36px 45px 41px 45px;
   background-color: #fff;
   border-radius: 0 0 15px 15px;
 }
-
 .card__content-title {
   font-family: Gotham-medium;
   font-size: 18px;
   font-weight: 800;
 }
-
 .card__content-description {
   margin-top: 10px;
   line-height: 22px;
 }
-
 .card__content_cost {
   margin-top: 5px;
 }
-
 .catalog-menu {
   display: flex;
   gap: 10px;
   justify-content: center;
 }
-
 .menu-item {
   display: inline-block;
   padding: 5px 10px;
@@ -241,7 +204,6 @@ h3 {
   font-family: Merriweather;
   font-size: 14px;
 }
-
 .address_menu-item {
   display: inline-block;
   padding: 5px 10px;
@@ -251,33 +213,27 @@ h3 {
   font-family: Gotham-medium;
   font-size: 14px;
 }
-
 .active {
   background-color: #6f8a2b;
   color: #fff;
 }
-
 .active_adr {
   background-color: #6f8a2b;
   color: #fff;
 }
-
 #content {
   margin-top: 20px;
   padding: 20px;
 }
-
 .services_content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 30px;
 }
-
 .content {
   width: 330px;
 }
-
 .card__image {
   width: 100%;
   height: 270px;
@@ -286,20 +242,17 @@ h3 {
   background-repeat: no-repeat;
   border-radius: 15px 15px 0px 0px;
 }
-
 .card__content {
   height: 100px;
   background-color: #e8dbdb;
   border-radius: 0 0 15px 15px;
   padding: 10px;
 }
-
 .card__content-title {
   font-family: Gotham-medium;
   font-size: 18px;
   font-weight: 800;
 }
-
 .card__content-description {
   margin-top: 10px;
   line-height: 22px;
@@ -312,14 +265,12 @@ h3 {
   justify-content: center;
   gap: 40px;
 }
-
 .addresses_title {
   font-family: Gotham-bold;
   font-size: 40px;
   color: #ffffff;
   text-align: center;
 }
-
 .addresses_content {
   display: flex;
   justify-content: center;
@@ -333,81 +284,66 @@ h3 {
   margin-top: 30px;
   padding: 20px;
 }
-
 .footer_content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
   justify-items: center;
 }
-
 .footer_content1 {
   font-family: Gotham-medium;
   font-size: 16px;
   color: #ffffff;
 }
-
 .footer_content1 h1 {
   font-size: 18px;
   font-family: Gotham-bold;
 }
-
 .footer_content1 ul {
   list-style-type: none;
 }
-
 .footer_content1 a {
   text-decoration: none;
   color: #ffffff;
   cursor: pointer;
 }
-
-.footer_content1 li  {
+.footer_content1 li {
   margin-top: 7px;
 }
-
 .footer_content2 {
   font-family: Gotham-bold;
   font-size: 16px;
   color: #ffffff;
 }
-
 .footer_content2 h1 {
   font-size: 18px;
   font-family: Gotham-bold;
 }
-
 .footer_content2 ul {
   list-style-type: none;
 }
-
 .footer_content2 a {
   text-decoration: none;
   color: #ffffff;
   cursor: pointer;
 }
-
-.footer_content2 li  {
+.footer_content2 li {
   margin-top: 7px;
 }
-
 .footer_content3 {
   font-family: Gotham-medium;
   font-size: 16px;
   color: #ffffff;
 }
-
 .footer_content3 h1 {
   font-size: 18px;
   font-family: Gotham-bold;
   margin-bottom: 10px;
 }
-
-.footer_content3 a  {
+.footer_content3 a {
   text-decoration: none;
   color: #ffffff;
 }
-
 .copyright_block {
   font-family: Gotham-medium;
   font-size: 16px;
@@ -416,13 +352,10 @@ h3 {
   right: 26px;
   margin-top: 100px;
 }
-
 iframe {
   border-radius: 20px;
 }
-
 /* Всплывающее окно */
-
 /* transition */
 .btn,
 .closer,
@@ -430,7 +363,6 @@ iframe {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
-
 .btn {
   display: inline-block;
   padding: 5px 10px;
@@ -444,9 +376,7 @@ iframe {
   border-radius: 5px; /* Закругленные углы */
   margin: 0 10px; /* Отступы между кнопками */
 }
-
 /*--- CONTENT ---*/
-
 .overlay {
   opacity: 0;
   visibility: hidden;
@@ -486,7 +416,6 @@ iframe {
   visibility: visible;
   opacity: 1;
 }
-
 .closer {
   width: 40px;
   height: 40px;
@@ -501,7 +430,6 @@ iframe {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-
 /* animation */
 .fadeIn,
 .fadeOut,
@@ -512,7 +440,6 @@ iframe {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -529,7 +456,6 @@ iframe {
   opacity: 1;
   visibility: visible;
 }
-
 @keyframes fadeOut {
   from {
     opacity: 1;
@@ -546,7 +472,6 @@ iframe {
   opacity: 0;
   visibility: hidden;
 }
-
 @keyframes slideInDown {
   from {
     top: -20px;
@@ -565,7 +490,6 @@ iframe {
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
 @keyframes slideOutUp {
   from {
     top: 50%;
@@ -582,18 +506,36 @@ iframe {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
-
 /* Адаптив */
-
 /* Для телефонов */
-
-@media only screen and (min-width: 520px) and (max-width: 619px){
-
-}
-@media(max-width: 828px){
-
-}
-@media only screen and (min-width: 620px) and (max-width: 719px) {
+@media only screen and (max-width: 749px) {
+  .nav_bar {
+    display: none;
+  }
+  .header_nav {
+    position: relative;
+  }
+  .header_nav:after {
+    content: "\2630"; /* Это символ бургер-меню */
+    font-size: 36px;
+    position: absolute;
+    top: 50%;
+    right: -240px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: white;
+  }
+  .header_nav ul {
+    position: absolute;
+    top: 50px;
+    right: -210px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 999;
+  }
+  .header_nav:active ul {
+    display: block;
+  }
   .logo {
     width: 150px;
   }
@@ -645,10 +587,13 @@ iframe {
     margin-left: 25px;
   }
   .header_nav {
-    left: 25%;
+    left: 29%;
   }
   .header_nav ul {
     font-size: 20px;
+  }
+  .nav_bar {
+    font-size: 16px;
   }
   .banner_content {
     grid-template-columns: 1fr 1fr;
@@ -673,23 +618,13 @@ iframe {
     grid-template-columns: 1fr 1fr;
   }
   .services_button {
-    padding: 0 0.2rem;
-    height: 38px;
+    height: 24px;
   }
   .address_button {
-    padding: 0 0.2rem;
-    height: 38px;
-  }
-  .services_button{
-    padding: 0 0.2rem;
-    height: 38px;
-  }
-  .address_button{
-    padding: 0 0.2rem;
-    height: 38px;
+    padding: 0 0.6rem;
+    height: 24px;
   }
 }
-
 /* Для компьютеров */
 @media only screen and (min-width: 1025px) {
   .header_nav {
