@@ -1,9 +1,8 @@
-<!-- © Все права на код принадлежат Photolab, ИП Столяров -->
-
 <?php
+// © Все права на код принадлежат Photolab, ИП Столяров
 session_start();
 $link = new mysqli('localhost', 'root', '', 'photolab');
-
+$link->set_charset('utf8mb4');
 // Проверка соединения
 if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
@@ -28,4 +27,3 @@ function isAdmin($bool = false)
         }
     }
 }
-

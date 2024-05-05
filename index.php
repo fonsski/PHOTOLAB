@@ -1,10 +1,8 @@
-<!-- © Все права на код принадлежат Photolab, ИП Столяров -->
 <?php
 require_once "vendor/functions/core.php";
 $category = $link->query("SELECT * FROM categories");
 $banner = $link->query("SELECT * FROM banner WHERE active = 1");
 ?>
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -33,7 +31,19 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
         <!-- <button type="button" class="btn btn-default" data-modal="modal_1">РАССЧИТАТЬ СТОИМОСТЬ</button> -->
       </ul>
     </nav>
+    <button class="hamburger_nav"><i class="fa fa-bars" aria-hidden="true"></i></button>
+
   </header>
+  <nav class="mobile_nav">
+    <ul class="nav_bar__mobile">
+      <li class="nav_element__mobile"><a href="#banner">ГЛАВНАЯ</a></li>
+      <li class="nav_element__mobile"><a href="#services">КАТАЛОГ</a></li>
+      <li class="nav_element__mobile"><a href="#footer">КОНТАКТЫ</a></li>
+      <?php if (isset($_SESSION['admin'])) { ?>
+        <li class="nav_element__mobile"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>
+      <?php } ?>
+    </ul>
+  </nav>
   <!-- <div class="overlay" data-close=""></div>
   <div id="modal_1" class="dlg-modal dlg-modal-fade">
     <span class="closer" data-close=""></span>
@@ -46,7 +56,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
     <?php foreach ($banner as $banner_cont) { ?>
       <div class="banner_content">
         <div class="banner_image">
-          <img src="assets/img/banner/<?= $banner_cont['img'] ?>" alt="Кружка" />
+          <img src="/assets/img/banner/<?= $banner_cont['img'] ?>" alt="Изображение баннера" />
         </div>
 
         <div class="banner_text">
@@ -62,14 +72,13 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
   <section id="services">
     <h1 class="services_title">Наши услуги</h1>
     <nav class="services_nav__block">
-      <?php foreach ($category as $cat) { ?>
-        <button class="services_button" id="<?= $cat['id'] ?>"><?= $cat['name'] ?></button>
+      <?php foreach ($category as $categor) { ?>
+        <button class="services_button" id="<?= $categor['id'] ?>"><?= $categor['name'] ?></button>
       <?php } ?>
     </nav>
-
     <div class="services_content">
-    </div>
 
+    </div>
   </section>
 
   <section id="addresses">
@@ -214,7 +223,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
       </div>
     </div>
   </section>
-  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/navigation.js" defer></script>
   <script src="assets/js/addresses.js"></script>
   <script>
     const typeAnimate = 'fade';

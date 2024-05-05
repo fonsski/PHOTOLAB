@@ -59,6 +59,60 @@ header {
   color: white;
   font-family: Gotham-medium;
 }
+/* Шапка под мобильные устройства */
+
+.hamburger_nav {
+  padding: 0;
+  border: none;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 2rem;
+  position: relative;
+  display: none;
+}
+
+.mobile_nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile_nav li {
+  margin-right: 20px;
+}
+
+.mobile_nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.mobile_nav {
+  display: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  background-color: #5e6380;
+  justify-content: center;
+  align-items: center;
+  font-family: Gotham-medium;
+}
+
+.nav_bar__mobile li {
+  text-align: center;
+}
+
+.mobile_nav.open {
+  display: flex;
+}
+
+.nav_bar__mobile {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav_element__mobile {
+  margin-bottom: 10px;
+}
 /* Баннер под шапкой */
 #banner {
   display: flex;
@@ -110,9 +164,14 @@ header {
 .services_button {
   background-color: white;
   height: 48px;
+  padding: 0 0.6rem;
   border-radius: 10px;
   border: none;
   cursor: pointer;
+}
+.services_button .active{
+  background-color: #6f8a2b;
+  color: #fff;
 }
 .address_nav__block {
   color: #ffffff;
@@ -146,7 +205,7 @@ header {
   font-size: 40px;
   font-family: Gotham-bold;
 }
-services_nav__block h2 {
+.services_nav__block h2 {
   font-size: 18px;
   font-family: Gotham-bold;
 }
@@ -281,8 +340,8 @@ h3 {
   display: flex;
   width: 100%;
   background-color: #5e6380;
-  margin-top: 30px;
   padding: 20px;
+  margin-top: 50px;
 }
 .footer_content {
   display: grid;
@@ -506,49 +565,46 @@ iframe {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
+
 /* Адаптив */
+
 /* Для телефонов */
+@media (max-width: 656px) {
+  .logo{
+    height: 60px;
+  }
+  .banner_text p{
+    font-size: 14px;
+  }
+  .banner_text h1{
+    font-size: 18px;
+  }
+}
 @media only screen and (max-width: 749px) {
-  .nav_bar {
-    display: none;
+  .hamburger_nav {
+    display: block;
+    position: relative;
+    margin-right: 30px;
+  }
+  header {
+    justify-content: space-between;
   }
   .header_nav {
-    position: relative;
-  }
-  .header_nav:after {
-    content: "\2630"; /* Это символ бургер-меню */
-    font-size: 36px;
-    position: absolute;
-    top: 50%;
-    right: -240px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: white;
-  }
-  .header_nav ul {
-    position: absolute;
-    top: 50px;
-    right: -210px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    z-index: 999;
-  }
-  .header_nav:active ul {
-    display: block;
+    display: none;
   }
   .logo {
     width: 150px;
   }
   .banner_content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding: 10px; /* Уменьшаем отступы */
   }
   .banner_text h1 {
-    font-size: 14px; /* Уменьшаем размер шрифта */
+    font-size: 20px; /* Уменьшаем размер шрифта */
   }
   .banner_text p {
-    font-size: 10px; /* Уменьшаем размер шрифта */
+    font-size: 16px; /* Уменьшаем размер шрифта */
   }
   .banner_image img {
     width: 100%;
@@ -558,7 +614,7 @@ iframe {
     font-size: 20px; /* Уменьшаем размер шрифта */
   }
   .services_content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   .services_nav__block {
     display: flex;
@@ -595,9 +651,7 @@ iframe {
   .nav_bar {
     font-size: 16px;
   }
-  .banner_content {
-    grid-template-columns: 1fr 1fr;
-  }
+  
   .banner_text h1 {
     font-size: 20px;
   }
@@ -618,11 +672,11 @@ iframe {
     grid-template-columns: 1fr 1fr;
   }
   .services_button {
-    height: 24px;
+    height: 34px;
   }
   .address_button {
     padding: 0 0.6rem;
-    height: 24px;
+    height: 34px;
   }
 }
 /* Для компьютеров */
@@ -631,7 +685,7 @@ iframe {
     left: 34%;
   }
   .header_nav ul {
-    font-size: 26px;
+    font-size: 24px;
   }
   .banner_content {
     grid-template-columns: 300px 400px;

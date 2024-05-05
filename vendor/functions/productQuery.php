@@ -1,5 +1,3 @@
-<!-- © Все права на код принадлежат Photolab, ИП Столяров -->
-
 <?php
 require "core.php";
 $_POST = (array) json_decode(file_get_contents('php://input'));
