@@ -1,62 +1,13 @@
 <?php
-require_once "vendor/functions/core.php";
-$category = $link->query("SELECT * FROM categories");
-$banner = $link->query("SELECT * FROM banner WHERE active = 1");
+  $title = "PHOTOLAB";
+  require_once "vendor/components/header.php";
 ?>
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Готовите к печати фотографии? Нужна срочная печать брошюр? Хотите заказать брендированные сувениры? Сеть рекламных и полиграфических услуг «Photolab» выполнит любой заказ! Мы предлагаем широкий спектр услуг: от печати фотографий до изготовления рекламной продукции. Качественная работа, индивидуальный подход и конкурентные цены — вот почему клиенты выбирают нас!">
-  <meta name="keywords" content="Печать фотографий, фото, печать, документы, печать брошюр, брошурация, сувениры, печать документов, печать визиток, печать листовок, печать плакатов, печать баннеров, печать на кружках, печать на футболках, сувениры, рекламная продукция, типография «Photolab».">
-  <link rel="stylesheet" href="/assets/css/main.css" />
-  <link rel="stylesheet" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-  <title>PHOTOLAB</title>
-</head>
-
-<body>
-  <header>
-    <img src="assets/img/logo.svg" alt="Логотип" class="logo" />
-    <nav class="header_nav">
-      <ul class="nav_bar">
-        <li class="nav_element"><a href="#banner">ГЛАВНАЯ</a></li>
-        <li class="nav_element"><a href="#services">КАТАЛОГ</a></li>
-        <li class="nav_element"><a href="#footer">КОНТАКТЫ</a></li>
-        <?php if (isset($_SESSION['admin'])) { ?>
-          <li class="nav_element"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>
-        <?php } ?>
-        <!-- <button type="button" class="btn btn-default" data-modal="modal_1">РАССЧИТАТЬ СТОИМОСТЬ</button> -->
-      </ul>
-    </nav>
-    <button class="hamburger_nav"><i class="fa fa-bars" aria-hidden="true"></i></button>
-
-  </header>
-  <nav class="mobile_nav">
-    <ul class="nav_bar__mobile">
-      <li class="nav_element__mobile"><a href="#banner">ГЛАВНАЯ</a></li>
-      <li class="nav_element__mobile"><a href="#services">КАТАЛОГ</a></li>
-      <li class="nav_element__mobile"><a href="#footer">КОНТАКТЫ</a></li>
-      <?php if (isset($_SESSION['admin'])) { ?>
-        <li class="nav_element__mobile"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>
-      <?php } ?>
-    </ul>
-  </nav>
-  <!-- <div class="overlay" data-close=""></div>
-  <div id="modal_1" class="dlg-modal dlg-modal-fade">
-    <span class="closer" data-close=""></span>
-    <h3>Здесь Вы можете рассчитать примерную стоимость заказа</h3>
-    <p>Стоимость рассчитывается примерно, точную полную стоимость согласует оператор в филиале</p>
-  </div>
-  </div> -->
 
   <section id="banner">
     <?php foreach ($banner as $banner_cont) { ?>
       <div class="banner_content">
         <div class="banner_image">
-          <img src="/assets/img/banner/<?= $banner_cont['img'] ?>" alt="Изображение баннера" />
+          <img src="/assets/img/banner/<?= $banner_cont['img'] ?>" alt="Изображение баннера типографии Photolab" />
         </div>
 
         <div class="banner_text">
@@ -70,8 +21,9 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
   </section>
 
   <section id="services">
-    <h1 class="services_title">Наши услуги</h1>
+    <h2 class="services_title">Наши услуги</h2>
     <nav class="services_nav__block">
+
       <?php foreach ($category as $categor) { ?>
         <button class="services_button" id="<?= $categor['id'] ?>"><?= $categor['name'] ?></button>
       <?php } ?>
@@ -82,7 +34,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
   </section>
 
   <section id="addresses">
-    <h1 class="addresses_title">Адреса</h1>
+    <h2 class="addresses_title">Адреса</h2>
     <nav class="address_nav__block">
       <button class="address_button" id="1">1-я транспортная</button>
       <button class="address_button" id="2">6-я станционная 2/3</button>
@@ -190,39 +142,10 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
     <!-- сюда засунуть 2гис скрипт добровольского -->
   </section>
 
-  <section id="footer">
-    <div class="footer_content">
-      <div class="footer_content1">
-        <h1>НАШИ УСЛУГИ</h1>
-        <ul>
-          <li><a href="#" data-button-id="">Фотопечать</a></li>
-          <li><a href="#">Сувенирная продукция</a></li>
-          <li><a href="#">Широкоформатная печать</a></li>
-          <li><a href="#">Полиграфия</a></li>
-        </ul>
-      </div>
-
-      <div class="footer_content2">
-        <h1>Мы в соцсетях:</h1>
-        <!-- <a href="#about">О нас</a> -->
-        <nav>
-          <ul>
-            <li>
-              <a href="https://vk.com/fotolab55"><i class="fa fa-vk" aria-hidden="true"></i> ВКонтакте</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <div class="footer_content3">
-        <h1>По вопросам сотрудничества</h1>
-        <i class="fa fa-envelope-open" aria-hidden="true"> <a href="mailto:photolabzakaz@yandex.ru">photolabzakaz@yandex.ru</a></i>
-      </div>
-      <div class="copyright_block">
-        <i class="fa fa-copyright" aria-hidden="true"> 2021-2024 Photolab Все права защищены</i>
-      </div>
-    </div>
-  </section>
+  <?php
+    require_once "vendor/components/footer.php";
+  ?>
+  <button class="topButton"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></button>
   <script src="assets/js/navigation.js" defer></script>
   <script src="assets/js/addresses.js"></script>
   <script>
@@ -231,6 +154,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
   <script src="assets/js/popup.function.js"></script>
   <script src="/assets/js/dashtoadmin.js"></script>
   <script src="/assets/js/hamburger.js"></script>
+  <script src="/assets/js/navRotation.js"></script>
 </body>
 
 </html>

@@ -7,7 +7,7 @@ $link->set_charset('utf8mb4');
 if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 }
-
+// Переход на другую страницу
 function redirectUser($url = false)
 {
     if ($url) {
@@ -16,7 +16,7 @@ function redirectUser($url = false)
         header("Location: {$_SERVER['HTTP_REFERER']}");
     }
 }
-
+// Проверка на администратора
 function isAdmin($bool = false)
 {
     if ($bool) {

@@ -1,5 +1,4 @@
 <!-- © Все права на код принадлежат Photolab, ИП Столяров -->
-
 <?php
 // Подключение файла ядра, содержащего подключение к бд и ряд функций
 require "../functions/core.php";
@@ -9,10 +8,8 @@ $category = $link->query("SELECT * FROM `categories`");
 $products = $link->query("SELECT * FROM `products`");
 $banner = $link->query("SELECT * FROM `banner`");
 ?>
-
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta name="view-transition" content="same-origin" />
     <meta charset="UTF-8" />
@@ -20,7 +17,6 @@ $banner = $link->query("SELECT * FROM `banner`");
     <link rel="stylesheet" href="/assets/css/admin_board.css">
     <title>Панель администратора</title>
 </head>
-
 
 <body>
     <section class="admin_blocks">
@@ -96,7 +92,6 @@ $banner = $link->query("SELECT * FROM `banner`");
                 </form>
             </div>
         </div>
-
         <div class="admin_content">
             <div class="products_block">
                 <div class="cls">
@@ -107,8 +102,6 @@ $banner = $link->query("SELECT * FROM `banner`");
                         <button class="admin_button">Подтвердить</button>
                     </form>
                 </div>
-
-
                 <div class="cls">
                     <h1>Редактировать категорию</h1>
                     <form action="updateCategory.php" method="POST">

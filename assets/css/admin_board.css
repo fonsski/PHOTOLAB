@@ -21,6 +21,16 @@ body {
   color: white;
 }
 
+.nav-list .active {
+  background-color: var(--body-bg);
+  position: relative;
+  z-index: 0;
+  border-radius: 100vw 0 0 100vw;
+  width: 150px;
+  height: 40px;
+  transition: background-color 0.3s ease; /* Добавляем плавную анимацию только для background-color */
+}
+
 nav {
   background: var(--nav-bg);
   position: fixed;
@@ -113,18 +123,9 @@ select {
 }
 
 .nav-list li {
-  padding-block: 1rem;
-  padding-inline: 2rem;
+  padding-block: 10px;
   margin-inline: 1rem 0;
   box-shadow: 2px 0 0 var(--body-bg);
-  transition: background-color 0.3s ease; /* Добавляем плавную анимацию для изменения фона */
-}
-
-.nav-list li.active {
-  background: var(--body-bg);
-  position: relative;
-  z-index: -1;
-  border-radius: 100vw 0 0 100vw;
 }
 
 .admin_content{
