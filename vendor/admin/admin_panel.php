@@ -42,7 +42,8 @@ $banner = $link->query("SELECT * FROM `banner`");
                         <label for="products">Введите цену</label>
                         <input type="text" name="cost">
                         <label for="product_category">Выберите категорию товара</label>
-                        <select name="category_id">
+                        <select name="category_id" required>
+                            <option value="" disabled selected>Выбрать...</option>
                             <?php foreach ($category as $item) { ?>
                                 <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
                             <?php } ?>

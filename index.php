@@ -23,11 +23,11 @@
   <section id="services">
     <h2 class="services_title">Наши услуги</h2>
     <nav class="services_nav__block">
-
       <?php foreach ($category as $categor) { ?>
         <button class="services_button" id="<?= $categor['id'] ?>"><?= $categor['name'] ?></button>
       <?php } ?>
     </nav>
+    
     <div class="services_content">
 
     </div>

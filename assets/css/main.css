@@ -464,6 +464,7 @@ iframe {
 }
 .main_404{
   display: grid;
+  position: relative;
   justify-items: center;
   align-items: center;
   border-radius: 10px;
@@ -476,6 +477,9 @@ iframe {
 }
 .title404{
   font-family: Gotham-bold;
+}
+.error404{
+  font-family: Gotham-Medium;
 }
 .desc{
   font-family: Gotham-medium;
