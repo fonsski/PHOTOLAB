@@ -1,4 +1,4 @@
-<section id="footer">
+<footer id="footer">
     <div class="footer_content">
         <div class="footer_content1">
             <h1>НАШИ УСЛУГИ</h1>
@@ -24,4 +24,15 @@
             <i class="fa fa-copyright" aria-hidden="true"> 2021-2024 Photolab Все права защищены</i>
         </div>
     </div>
-</section>
+</footer>
+<button class="topButton"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></button>
+<script src="assets/js/navigation.js"></script>
+<script src="assets/js/addresses.js"></script>
+<!-- <script>const typeAnimate = 'fade';</script> -->
+<!-- <script src="assets/js/popup.function.js"></script> -->
+<script src="/assets/js/dashtoadmin.js"></script>
+<script src="/assets/js/hamburger.js"></script>
+<script src="/assets/js/navRotation.js"></script>
+<script src="/assets/js/dinamicFooter.js"></script>
+<script src="/assets/js/questionBlock.js"></script>
+</body>

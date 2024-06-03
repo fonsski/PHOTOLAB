@@ -1,8 +1,9 @@
 <?php
-  $title = "PHOTOLAB";
-  require_once "vendor/components/header.php";
+$title = "PHOTOLAB";
+require_once "vendor/components/header.php";
 ?>
 
+<div class="content">
   <section id="banner">
     <?php foreach ($banner as $banner_cont) { ?>
       <div class="banner_content">
@@ -27,7 +28,7 @@
         <button class="services_button" id="<?= $categor['id'] ?>"><?= $categor['name'] ?></button>
       <?php } ?>
     </nav>
-    
+
     <div class="services_content">
 
     </div>
@@ -36,7 +37,7 @@
   <section id="addresses">
     <h2 class="addresses_title">Адреса</h2>
     <nav class="address_nav__block">
-      <button class="address_button" id="1">1-я транспортная</button>
+      <button class="address_button" id="1">1-я транспортная, 10</button>
       <button class="address_button" id="2">6-я станционная 2/3</button>
       <button class="address_button" id="3">Дианова, 14</button>
       <button class="address_button" id="4">Комарова 6к1</button>
@@ -141,20 +142,11 @@
 
     <!-- сюда засунуть 2гис скрипт добровольского -->
   </section>
+</div>
 
-  <?php
-    require_once "vendor/components/footer.php";
-  ?>
-  <button class="topButton"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></button>
-  <script src="assets/js/navigation.js" defer></script>
-  <script src="assets/js/addresses.js"></script>
-  <script>
-    const typeAnimate = 'fade';
-  </script>
-  <script src="assets/js/popup.function.js"></script>
-  <script src="/assets/js/dashtoadmin.js"></script>
-  <script src="/assets/js/hamburger.js"></script>
-  <script src="/assets/js/navRotation.js"></script>
-</body>
+<?php
+require_once "vendor/components/footer.php";
+?>
+
 
 </html>

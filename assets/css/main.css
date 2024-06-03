@@ -55,11 +55,16 @@ body {
 .topButton_hide {
   display: none;
 }
-
 @media (hover: hover) and (pointer: fine) {
   .topButton:hover {
-    background-color: #8977b5; /* цвет заднего фона при наведении */
+    background-color: #6f81f0; /* цвет заднего фона при наведении */
   }
+}
+/* Общий компонент */
+.content {
+  width: 100%;
+  display: grid;
+  justify-content: center;
 }
 /* Код для шапки и контента внутри неё */
 header {
@@ -212,9 +217,6 @@ header {
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
 }
 .services_button .active {
   background-color: #6f8a2b;
@@ -340,9 +342,6 @@ h3 {
   grid-template-rows: 1fr;
   gap: 30px;
 }
-.content {
-  width: 330px;
-}
 .card__image {
   width: 100%;
   height: 270px;
@@ -457,12 +456,13 @@ h3 {
 iframe {
   border-radius: 20px;
 }
+/* Страница 404 */
 .page404 {
   display: flex;
   justify-content: center;
   max-width: 100%;
 }
-.main_404{
+.main_404 {
   display: grid;
   position: relative;
   justify-items: center;
@@ -475,20 +475,20 @@ iframe {
   width: 600px;
   height: 300px;
 }
-.title404{
+.title404 {
   font-family: Gotham-bold;
 }
-.error404{
+.error404 {
   font-family: Gotham-Medium;
 }
-.desc{
+.desc {
   font-family: Gotham-medium;
   font-size: 18px;
 }
-.homepage{
+.homepage {
   font-size: 26px;
 }
-.home{
+.home {
   background-color: #6f8a2b;
   height: 48px;
   padding: 0 1.2rem;
@@ -503,171 +503,67 @@ iframe {
   font-family: Gotham-medium;
   font-size: 22px;
 }
-.home a{
+.home a {
   text-decoration: none;
   color: black;
 }
-.paws{
+.paws {
   position: absolute;
   bottom: 0;
   right: 0;
 }
-.paws img{
+.paws img {
   width: 200px;
   height: 200px;
 }
-/* Всплывающее окно */
-/* transition */
-.btn,
-.closer,
-.overlay {
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-.btn {
-  display: inline-block;
-  padding: 5px 10px;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  color: white; /* Цвет текста белый */
-  font-family: Gotham-bold; /* Жирный шрифт */
-  font-size: 16px; /* Размер текста */
-  text-decoration: none; /* Убрать подчеркивание */
-  border-radius: 5px; /* Закругленные углы */
-  margin: 0 10px; /* Отступы между кнопками */
-}
-/*--- CONTENT ---*/
-.overlay {
-  opacity: 0;
-  visibility: hidden;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 5;
-  background: rgba(0, 0, 0, 0.87);
-}
-.dlg-modal {
-  width: 100%;
-  max-width: 570px;
-  height: 300px;
-  opacity: 0;
-  visibility: hidden;
-  text-align: center;
-  position: fixed;
-  left: 50%;
-  z-index: 10;
-  padding: 35px 36px;
-  background: #fff;
+/* Страница "О нас" */
+.about_main {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-direction: column;
   border-radius: 10px;
-  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.85);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.85);
+  background-color: #e8dbdb;
+  padding: 1vh;
+  margin-top: 60px;
+  width: 600px;
+  height: 550px;
 }
-.dlg-modal-fade {
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.about_main p {
+  font-family: Gotham-medium;
 }
-.dlg-modal-slide {
-  top: -20px;
-  -webkit-transform: translate(-50%, -100%);
-  transform: translate(-50%, -100%);
-  visibility: visible;
-  opacity: 1;
+.about_h1 {
+  font-family: Gotham-bold;
+  height: min-content;
 }
-.closer {
-  width: 40px;
-  height: 40px;
-  display: block;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background: url("/assets/img/icons/cross.png") no-repeat;
+/* Блок вопрос & ответ */
+.qanda {
+  margin-top: 10px;
+}
+.qanda h2 {
+  font-family: Gotham-bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.question {
+  border: 1px solid #000000;
+  padding: 20px;
+  overflow: hidden;
+  width: 480px;
+  margin-bottom: 10px;
+  transition: border-color 0.25s ease;
+  background-color: #e8dbdb;
+  font-family: Gotham-bold;
   cursor: pointer;
 }
-.closer:hover {
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
+.answer {
+  height: 0px;
+  width: 480px;
+  overflow: hidden;
+  animation: normal;
+  font-family: Gotham-medium;
+  margin-bottom: 10px;
 }
-/* animation */
-.fadeIn,
-.fadeOut,
-.slideInDown,
-.slideOutUp {
-  -webkit-animation-duration: 0.4s;
-  animation-duration: 0.4s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-  to {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-.fadeIn {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-  opacity: 1;
-  visibility: visible;
-}
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    visibility: visible;
-  }
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-.fadeOut {
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut;
-  opacity: 0;
-  visibility: hidden;
-}
-@keyframes slideInDown {
-  from {
-    top: -20px;
-    -webkit-transform: translate(-50%, -100%);
-    transform: translate(-50%, -100%);
-  }
-  to {
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-}
-.slideInDown {
-  -webkit-animation-name: slideInDown;
-  animation-name: slideInDown;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-@keyframes slideOutUp {
-  from {
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-  to {
-    top: -20px;
-    -webkit-transform: translate(-50%, -100%);
-    transform: translate(-50%, -100%);
-  }
-}
-.slideOutUp {
-  -webkit-animation-name: slideOutUp;
-  animation-name: slideOutUp;
-}
-
 /* Адаптив */
 @media screen and (max-width: 2400px) {
   .banner_content {
@@ -749,9 +645,6 @@ iframe {
   .services_content {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .content {
-    width: 330px;
-  }
 }
 /* Для телефонов */
 @media only screen and (max-width: 749px) {
@@ -784,7 +677,7 @@ iframe {
     width: 100%;
     height: auto;
   }
-  .services_nav__block{
+  .services_nav__block {
     display: grid;
     grid-template-rows: 1fr;
   }
@@ -793,9 +686,6 @@ iframe {
   }
   .services_content {
     grid-template-columns: 1fr 1fr;
-  }
-  .content {
-    width: 100%;
   }
   .address_nav__block {
     display: flex;
