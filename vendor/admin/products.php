@@ -13,7 +13,9 @@ $products = $link->query("SELECT * FROM products");
             <label for="productName">Название товара</label>
             <input name="productName">
             <label for="productCost">Цена товара</label>
-            <input name="productCost">
+            <div class="a"><input name="productCost">
+                <p>р.</p>
+            </div>
             <label for="productCategory">Категория товара</label>
             <select name="productCategory">
                 <?php foreach ($category as $categoryName) { ?>
@@ -27,27 +29,26 @@ $products = $link->query("SELECT * FROM products");
         <form class="adminForm" action="../functions/allAdminFunctions.php#deleteProduct" method="post" enctype="multipart/form-data">
             <input type="hidden" name="action" value="updateProduct">
             <label for="productUpdate">Редактировать товар</label>
-            <select name="productUpdate">
+            <select name="productUpdate" class="productUpdate">
+                <option value="" disabled selected>Выберите товар</option>
                 <?php foreach ($products as $productName) { ?>
-                    <option value="<?= $productName['name'] ?>"><?= $productName['name'] ?></option>
+                    <option value="<?= $productName['id'] ?>"><?= $productName['name'] ?></option>
                 <?php } ?>
             </select>
             <label for="productCategoryNew">Новая категория товара</label>
-            <select name="productCategoryNew">
+            <select name="productCategoryNew" class="productCategoryNew">
                 <?php foreach ($category as $categoryName) { ?>
                     <option value="<?= $categoryName['id'] ?>"><?= $categoryName['name'] ?></option>
                 <?php } ?>
             </select>
             <label for="productNameNew">Новое название товара</label>
-            <?php foreach ($products as $productData) { ?>
-                <input name="productNameNew" value="<?= $productData['name'] ?>">
-            <?php } ?>
+            <input name="productNameNew" class="productNameNew" value="">
             <label for="productCostNew">Новая цена товара</label>
-            <?php foreach ($products as $productData) { ?>
-                <input name="productCostNew" value="<?= $productData['cost'] ?>">
-            <?php } ?>
+            <div class="a"><input name="productCostNew" class="productCostNew" value="">
+                <p>р.</p>
+            </div>
             <label for="productImgNew">Новое изображение товара</label>
-            <input type="file">
+            <input type="file" name="productImgNew">
             <button type="submit">Изменить товар</button>
         </form>
 

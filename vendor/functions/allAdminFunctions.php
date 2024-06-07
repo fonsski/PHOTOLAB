@@ -27,22 +27,30 @@ function deleteProduct()
 function updateProduct()
 {
     global $link;
-    $product_name = $_POST['productUpdate'];
-    if (!empty($_FILES['productImgNew'])) {
+    $product_id = $_POST['productUpdate'];
+    $img = ''; // Variable to store the file name
+
+    if (!empty($_FILES['productImgNew']['name'])) { // Check if a file was selected
         $files = $_FILES['productImgNew'];
         $img = $files['name'];
         move_uploaded_file($files['tmp_name'], '../../assets/img/products/' . $img);
     }
-    $link->query("UPDATE `products` SET `category_id`='{$_POST['productCategoryNew']}',`name`='{$_POST['productNameNew']}',
-    `cost`='{$_POST['productCostNew']}',`img`='$img' WHERE `name` = '$product_name'");
+
+    // Prepare the query with consideration for the presence or absence of a file
+    $query = "UPDATE `products` SET `category_id`='{$_POST['productCategoryNew']}', `name`='{$_POST['productNameNew']}', `cost`='{$_POST['productCostNew']}'";
+    if (!empty($img)) {
+        $query .= ", `img`='$img'";
+    }
+    $query .= " WHERE `id` = '$product_id'";
+    $link->query($query);
 }
 
 // Функция для обновления статуса баннера
-function updateBannerStatus()
+function updateBannerStatus()   
 {
     global $link;
-    $link->query("UPDATE banner SET active = '0' WHERE name != '{$_POST['bannerActive']}'");
-    $link->query("UPDATE banner SET active = '1' WHERE name = '{$_POST['bannerActive']}'");
+    $link->query("UPDATE banner SET active = '0' WHERE name != '{$_POST['activeBanner']}'");
+    $link->query("UPDATE banner SET active = '1' WHERE name = '{$_POST['activeBanner']}'");
 }
 
 // Функция для добавления баннера
@@ -64,7 +72,7 @@ function addBanner()
 function deleteBanner()
 {
     global $link;
-    $banner_name = $_POST['bannerDelete'];
+    $banner_name = $_POST['deleteBanner'];
     $link->query("DELETE FROM `banner` WHERE name = '$banner_name'");
 }
 

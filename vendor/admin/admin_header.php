@@ -9,7 +9,7 @@ isAdmin();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/admin_board.css" />
     <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
@@ -46,7 +46,7 @@ isAdmin();
                     <span class="material-icons-sharp"> collections </span>
                     <h3>Баннер</h3>
                 </a>
-                <a href="#">
+                <!-- <a href="#">
                     <span class="material-icons-sharp"> mail_outline </span>
                     <h3>Tickets</h3>
                     <span class="message-count">27</span>
@@ -58,11 +58,10 @@ isAdmin();
                 <a href="#">
                     <span class="material-icons-sharp"> report_gmailerrorred </span>
                     <h3>Reports</h3>
-                </a>
-                <a href="#">
+                </a> -->
+                <a href="../functions/logout.php">
                     <span class="material-icons-sharp"> logout </span>
-                    <h3>Logout</h3>
+                    <h3>Выйти</h3>
                 </a>
             </div>
         </aside>
-        

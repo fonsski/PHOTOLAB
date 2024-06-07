@@ -1,7 +1,7 @@
 const sideMenu = document.querySelector("aside");
 const menuBtn = document.getElementById("menu-btn");
 const closeBtn = document.getElementById("close-btn");
-const logo = document.querySelector('.logo img');
+const logo = document.querySelector(".logo img");
 const darkMode = document.querySelector(".dark-mode");
 
 // Проверяем, есть ли сохраненная тема в localStorage
@@ -36,21 +36,34 @@ darkMode.addEventListener("click", () => {
   }
 });
 
-Orders.forEach((order) => {
-  const tr = document.createElement("tr");
-  const trContent = `
-        <td>${order.productName}</td>
-        <td>${order.productNumber}</td>
-        <td>${order.paymentStatus}</td>
-        <td class="${
-          order.status === "Declined"
-            ? "danger"
-            : order.status === "Pending"
-            ? "warning"
-            : "primary"
-        }">${order.status}</td>
-        <td class="primary">Details</td>
-    `;
-  tr.innerHTML = trContent;
-  document.querySelector("table tbody").appendChild(tr);
-});
+const tableBody = document.querySelector(".recent-orders tbody");
+if (tableBody) {
+  document.addEventListener("DOMContentLoaded", function () {
+    // Функция для загрузки последних измененных товаров
+    function loadRecentProducts() {
+      fetch("/vendor/functions/recent_products.php")
+        .then((response) => response.json())
+        .then((data) => {
+          tableBody.innerHTML = ""; // Очищаем текущие записи в таблице
+          data.forEach((product) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                        <td>${product.name}</td>
+                        <td>${product.cost}р.</td>
+                        <td>${product.updated_at}</td>
+                        <td>
+                          <a href="/vendor/admin/products.php?id=${product.id}">
+                        <span class="material-icons-sharp">edit</span>
+                        <h3>Изменить</h3>
+                        </a>
+                        </td>
+                        <td></td>
+                    `;
+            tableBody.appendChild(row);
+          });
+        });
+    }
+
+    loadRecentProducts();
+  });
+}

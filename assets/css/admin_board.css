@@ -237,6 +237,7 @@ main .analyse > div {
   padding: var(--card-padding);
   border-radius: var(--card-border-radius);
   margin-top: 1rem;
+  width: 300px;
   box-shadow: var(--box-shadow);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -253,7 +254,6 @@ main .analyse > div .status {
 }
 
 main .analyse h3 {
-  margin-left: 0.6rem;
   font-size: 1rem;
 }
 
@@ -773,4 +773,14 @@ button:hover {
 }
 .confirm-button:hover {
   background: #f0f0f0;
+}
+.a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.a p{
+  font-size: 18px;
 }
