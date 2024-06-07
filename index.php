@@ -147,6 +147,3 @@ require_once "vendor/components/header.php";
 <?php
 require_once "vendor/components/footer.php";
 ?>
-
-
-</html>

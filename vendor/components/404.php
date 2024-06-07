@@ -20,12 +20,3 @@ require_once "header.php";
 <?php
 require_once "footer.php";
 ?>
-</body>
-<script>
-    let homeButton = document.querySelector(".home");
-    homeButton.addEventListener("click", () => {
-        window.location.replace("/index.php");
-    });
-</script>
-
-</html>

@@ -25,7 +25,6 @@
         </div>
     </div>
 </footer>
-<button class="topButton"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></button>
 <script src="assets/js/navigation.js"></script>
 <script src="assets/js/addresses.js"></script>
 <!-- <script>const typeAnimate = 'fade';</script> -->
@@ -35,4 +34,7 @@
 <script src="/assets/js/navRotation.js"></script>
 <script src="/assets/js/dinamicFooter.js"></script>
 <script src="/assets/js/questionBlock.js"></script>
+<script src="/assets/js/404.js"></script>
+<script src="/assets/js/btnUp.js"></script>
 </body>
+</html>

@@ -2,6 +2,8 @@
 require_once "{$_SERVER['DOCUMENT_ROOT']}/vendor/functions/core.php";
 $category = $link->query("SELECT * FROM categories");
 $banner = $link->query("SELECT * FROM banner WHERE active = 1");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -22,8 +24,8 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
     <a href="/index.php"><img src="/assets/img/logo.svg" alt="Логотип типография Photolab" class="logo" /></a>
     <nav class="header_nav">
       <ul class="nav_bar">
-        <li class="nav_element"><a href="#banner">ГЛАВНАЯ</a></li>
-        <li class="nav_element"><a href="#services">КАТАЛОГ</a></li>
+        <li class="nav_element"><a href="/index.php">ГЛАВНАЯ</a></li>
+        <li class="nav_element"><a href="/index.php#services">КАТАЛОГ</a></li>
         <li class="nav_element"><a href="#footer">КОНТАКТЫ</a></li>
         <li class="nav_element"><a href="/vendor/components/about.php">О НАС</a></li>
         <?php if (isset($_SESSION['admin'])) { ?>
@@ -36,7 +38,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
 
     <nav class="mobile_nav">
       <ul class="nav_bar__mobile">
-        <li class="nav_element__mobile"><a href="#banner">ГЛАВНАЯ</a></li>
+        <li class="nav_element__mobile"><a href="/index.php">ГЛАВНАЯ</a></li>
         <li class="nav_element__mobile"><a href="#services">КАТАЛОГ</a></li>
         <li class="nav_element__mobile"><a href="#footer">КОНТАКТЫ</a></li>
         <li class="nav_element__mobile"><a href="/vendor/components/about.php">О НАС</a></li>
@@ -46,6 +48,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
       </ul>
     </nav>
   </header>
+  <button class="topButton"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></button>
   <!-- <div class="overlay" data-close=""></div>
   <div id="modal_1" class="dlg-modal dlg-modal-fade">
     <span class="closer" data-close=""></span>
