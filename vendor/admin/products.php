@@ -11,9 +11,9 @@ $products = $link->query("SELECT * FROM products");
             <h2>Добавить товар</h2>
             <input type="hidden" name="action" value="addProduct">
             <label for="productName">Название товара</label>
-            <input name="productName">
+            <input type="text" name="productName">
             <label for="productCost">Цена товара</label>
-            <div class="a"><input name="productCost">
+            <div class="a"><input type="text" name="productCost">
                 <p>р.</p>
             </div>
             <label for="productCategory">Категория товара</label>
@@ -25,6 +25,7 @@ $products = $link->query("SELECT * FROM products");
             <input type="file" name="img">
             <button type="submit">Добавить товар</button>
         </form>
+
 
         <form class="adminForm" action="../functions/allAdminFunctions.php#deleteProduct" method="post" enctype="multipart/form-data">
             <input type="hidden" name="action" value="updateProduct">

@@ -35,7 +35,6 @@ function updateProduct()
         $img = $files['name'];
         move_uploaded_file($files['tmp_name'], '../../assets/img/products/' . $img);
     }
-
     // Prepare the query with consideration for the presence or absence of a file
     $query = "UPDATE `products` SET `category_id`='{$_POST['productCategoryNew']}', `name`='{$_POST['productNameNew']}', `cost`='{$_POST['productCostNew']}'";
     if (!empty($img)) {
@@ -46,7 +45,7 @@ function updateProduct()
 }
 
 // Функция для обновления статуса баннера
-function updateBannerStatus()   
+function updateBannerStatus()
 {
     global $link;
     $link->query("UPDATE banner SET active = '0' WHERE name != '{$_POST['activeBanner']}'");
@@ -61,8 +60,8 @@ function addBanner()
         $files = $_FILES['banner_image'];
         $banner_image = $files['name'];
         move_uploaded_file($files['tmp_name'], '../../assets/img/banner/' . $banner_image);
-        $link->query("INSERT INTO `banner`(`id`, `name`, `title`, `text`, `img`, `active`) VALUES (NULL,'{$_POST['banner_name']}',
-        '{$_POST['banner_title']}','{$_POST['banner_text']}', '$banner_image', NULL)");
+        $link->query("INSERT INTO `banner`(`id`, `name`, `title`, `text`, `img`, `active`) VALUES (NULL,'{$_POST['bannerName']}',
+        '{$_POST['bannerTitle']}','{$_POST['bannerText']}', '$banner_image', NULL)");
     } else {
         echo "Ошибка при загрузке файла.";
     }
@@ -81,13 +80,13 @@ function updateBanner()
 {
     global $link;
     $banner_name = $_POST['bannerOld'];
-    if (!empty($_FILES['banner_image'])) {
-        $files = $_FILES['banner_image'];
+    if (!empty($_FILES['imgNew'])) {
+        $files = $_FILES['imgNew'];
         $banner_image = $files['name'];
         move_uploaded_file($files['tmp_name'], '../../assets/img/banner/' . $banner_image);
     }
-    $link->query("UPDATE `banner` SET `name`='{$_POST['banner_name__new']}',`title`='{$_POST['banner_title__new']}',
-    `text`='{$_POST['banner_text__new']}',`img`= '$banner_image' WHERE `name` = '$banner_name'");
+    $link->query("UPDATE `banner` SET `name`='{$_POST['bannerNameNew']}',`title`='{$_POST['bannerTitleNew']}',
+    `text`='{$_POST['bannerTextNew']}',`img`= '$banner_image' WHERE `name` = '$banner_name'");
 }
 
 // Функция для добавления категории
@@ -159,5 +158,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if (isset($_SESSION['referer'])) {
     header("Location: {$_SESSION['referer']}");
 } else {
-    header("Location: ../admin/admin_panel.php"); // Перенаправление на стандартную страницу, если нет сохраненного URL
+    header("Location: /admin/admin_panel.php"); // Перенаправление на стандартную страницу, если нет сохраненного URL
 }

@@ -179,6 +179,7 @@ header {
 .banner_text h1 {
   font-family: Gotham-Bold;
   font-size: 22px;
+  margin-bottom: 10px;
 }
 .banner_text p {
   font-family: Gotham-Medium;

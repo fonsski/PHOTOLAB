@@ -3,7 +3,6 @@ require_once "{$_SERVER['DOCUMENT_ROOT']}/vendor/functions/core.php";
 $category = $link->query("SELECT * FROM categories");
 $banner = $link->query("SELECT * FROM banner WHERE active = 1");
 
-
 ?>
 <!DOCTYPE html>
 <html lang="ru">
