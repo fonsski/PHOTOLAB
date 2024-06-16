@@ -24,26 +24,18 @@ body {
 }
 /* Кнопка прокрутки вверх */
 .topButton {
-  /* фиксированное позиционирование */
   position: fixed;
-  /* цвет фона */
   background-color: #2f355b;
-  /* расстояние от правого края окна браузера */
   right: 20px;
-  /* расстояние от нижнего края окна браузера */
   bottom: 40px;
-  /* скругление верхнего левого угла */
   border-radius: 50%;
-  /* удаление границы */
   border: none;
-  /* вид курсора */
   cursor: pointer;
-  /* ширина элемента */
   width: 60px;
-  /* высота элемента */
   height: 60px;
   font-size: 28px;
   color: white;
+  z-index: 9999;
 }
 
 .topButton::before {
@@ -211,6 +203,15 @@ header {
   text-decoration: none;
   list-style: none;
 }
+
+.services_nav__block.open {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+.address_nav__block.open {
+  display: grid;
+  grid-template-rows: 1fr;
+}
 .services_button {
   background-color: white;
   height: 48px;
@@ -222,6 +223,28 @@ header {
 .services_button .active {
   background-color: #6f8a2b;
   color: #fff;
+}
+.services_mobile__nav {
+  padding: 0;
+  border: none;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 2rem;
+  position: relative;
+  display: block;
+}
+.services_category__block {
+  display: none;
+  padding: 10px;
+  gap: 10px;
+  align-items: center;
+  font-family: Gotham-bold;
+  color: white;
+  background-color: #6f8a2b;
+  width: 300px;
+  justify-content: center;
+  border-radius: 10px;
 }
 .address_nav__block {
   display: flex;
@@ -245,6 +268,28 @@ header {
   border-radius: 10px;
   border: none;
   cursor: pointer;
+}
+.addresses_category__block {
+  display: none;
+  padding: 10px;
+  gap: 10px;
+  align-items: center;
+  font-family: Gotham-bold;
+  color: white;
+  background-color: #6f8a2b;
+  width: 300px;
+  justify-content: center;
+  border-radius: 10px;
+}
+.addresses_mobile__nav {
+  padding: 0;
+  border: none;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 2rem;
+  position: relative;
+  display: block;
 }
 .services_nav__block li {
   display: inline-block;
@@ -371,7 +416,7 @@ h3 {
   margin-top: 30px;
   width: 100%;
   display: grid;
-  justify-content: center;
+  justify-items: center;
   gap: 40px;
 }
 .addresses_title {
@@ -680,20 +725,26 @@ iframe {
     width: 100%;
     height: auto;
   }
-  .services_nav__block {
-    display: grid;
-    grid-template-rows: 1fr;
-  }
   .services_title {
-    font-size: 20px; /* Уменьшаем размер шрифта */
+    font-size: 30px; /* Уменьшаем размер шрифта */
+  }
+  .addresses_title {
+    font-size: 30px;
+  }
+  .services_nav__block {
+    display: none; /* Скрываю чтобы с помощью JS вызывать данное меню по кнопке */
+  }
+  .address_nav__block {
+    display: none;
+  }
+  .services_category__block {
+    display: flex;
+  }
+  .addresses_category__block {
+    display: flex;
   }
   .services_content {
     grid-template-columns: 1fr 1fr;
-  }
-  .address_nav__block {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
   }
   iframe {
     width: 500px;
@@ -761,4 +812,6 @@ iframe {
   .card__image {
     height: 140px;
   }
+}
+@media screen and (max-width: 480px) {
 }

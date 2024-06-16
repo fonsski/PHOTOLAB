@@ -23,6 +23,10 @@ require_once "vendor/components/header.php";
 
   <section id="services">
     <h2 class="services_title">Наши услуги</h2>
+    <div class="services_category__block">
+      <button class="services_mobile__nav"><i class="fa fa-bars" aria-hidden="true"></i></button>
+      <h2>Открыть каталог</h2>
+    </div>
     <nav class="services_nav__block">
       <?php foreach ($category as $categor) { ?>
         <button class="services_button" id="<?= $categor['id'] ?>"><?= $categor['name'] ?></button>
@@ -36,6 +40,10 @@ require_once "vendor/components/header.php";
 
   <section id="addresses">
     <h2 class="addresses_title">Адреса</h2>
+    <div class="addresses_category__block">
+      <button class="addresses_mobile__nav"><i class="fa fa-bars" aria-hidden="true"></i></button>
+      <h2>Открыть список</h2>
+    </div>
     <nav class="address_nav__block">
       <button class="address_button" id="1">1-я транспортная, 10</button>
       <button class="address_button" id="2">6-я станционная 2/3</button>
