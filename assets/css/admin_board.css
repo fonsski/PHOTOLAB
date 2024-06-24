@@ -710,6 +710,7 @@ main .recent-orders a {
 .form_container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
   gap: 20px;
   width: 100%;
 }

@@ -13,6 +13,9 @@ if (currentTheme) {
     darkMode.querySelector("span:nth-child(1)").classList.add("active");
     darkMode.querySelector("span:nth-child(2)").classList.remove("active");
   }
+} else {
+  darkMode.querySelector("span:nth-child(1)").classList.remove("active");
+  darkMode.querySelector("span:nth-child(2)").classList.add("active");
 }
 
 menuBtn.addEventListener("click", () => {
@@ -30,11 +33,23 @@ darkMode.addEventListener("click", () => {
   if (document.body.classList.contains("dark-mode-variables")) {
     logo.src = "/assets/img/logo.svg";
     localStorage.setItem("theme", "dark-mode-variables");
+    localStorage.setItem("darkModeActive", true);
   } else {
     logo.src = "/assets/img/photologo-black.svg";
     localStorage.setItem("theme", "");
+    localStorage.setItem("darkModeActive", false);
   }
 });
+
+// Проверяем состояние значка темы при загрузке страницы
+const darkModeActive = localStorage.getItem("darkModeActive");
+if (darkModeActive === "true") {
+  darkMode.querySelector("span:nth-child(2)").classList.add("active");
+  darkMode.querySelector("span:nth-child(1)").classList.remove("active");
+} else {
+  darkMode.querySelector("span:nth-child(2)").classList.remove("active");
+  darkMode.querySelector("span:nth-child(1)").classList.add("active");
+}
 
 const tableBody = document.querySelector(".recent-orders tbody");
 if (tableBody) {

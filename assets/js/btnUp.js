@@ -10,6 +10,9 @@ const btnUp = {
     this.el.classList.add("topButton_hide");
   },
   addEventListener() {
+    // скроем кнопку по умолчанию
+    this.hide();
+
     // при прокрутке содержимого страницы
     window.addEventListener("scroll", () => {
       // определяем величину прокрутки
@@ -17,11 +20,11 @@ const btnUp = {
       // если страница прокручена больше чем на 400px, то делаем кнопку видимой, иначе скрываем
       scrollY > 400 ? this.show() : this.hide();
     });
+
     // при нажатии на кнопку .topButton
     if (this.el) {
       this.el.onclick = () => {
         // переместим в начало страницы
-        console.log("Ы");
         window.scrollTo({
           top: 0,
           left: 0,
@@ -31,4 +34,6 @@ const btnUp = {
     }
   },
 };
+
+// Инициализируем добавление события
 btnUp.addEventListener();

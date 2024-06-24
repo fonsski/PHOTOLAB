@@ -10,7 +10,6 @@ require_once "vendor/components/header.php";
         <div class="banner_image">
           <img src="/assets/img/banner/<?= $banner_cont['img'] ?>" alt="Изображение баннера типографии Photolab" />
         </div>
-
         <div class="banner_text">
           <h1><?= $banner_cont['title'] ?></h1>
           <p>
@@ -31,8 +30,7 @@ require_once "vendor/components/header.php";
       <?php foreach ($category as $categor) { ?>
         <button class="services_button" id="<?= $categor['id'] ?>"><?= $categor['name'] ?></button>
       <?php } ?>
-    </nav>
-
+    </nav>  
     <div class="services_content">
 
     </div>
