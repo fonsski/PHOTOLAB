@@ -768,6 +768,24 @@ iframe {
   .card__image {
     height: 220px;
   }
+  .footer_content1{
+    font-size: 12px;
+  }
+  .footer_content2{
+    font-size: 12px;
+  }
+  .copyright_block{
+    font-size: 12px;
+  }
+  .services_category__block{
+    width: 250px;
+    font-size: 14px;
+  }
+  .addresses_category__block{
+    width: 250px;
+    font-size: 14px;
+  }
+
 }
 @media screen and (max-width: 597px) {
   .banner_text p {
@@ -802,7 +820,7 @@ iframe {
     height: 160px;
   }
 }
-@media screen and (max-width: 501px) {
+@media screen and (max-width: 521px) {
   .banner_text p {
     font-size: 10px;
   }
@@ -812,6 +830,16 @@ iframe {
   .card__image {
     height: 140px;
   }
+  .footer_content1{
+    font-size: 10px;
+  }
+  .footer_content2{
+    font-size: 10px;
+  }
+  .copyright_block{
+    font-size: 10px;
+  }
 }
 @media screen and (max-width: 480px) {
+  
 }

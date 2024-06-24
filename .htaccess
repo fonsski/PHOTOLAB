@@ -1,1 +1,11 @@
+# Включить модуль переписывания URL
+RewriteEngine On
+
+# Убедитесь, что запрос не является существующим файлом или директорией
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Добавить .php к запросу, если файл с таким именем существует
+RewriteRule ^(.*)$ $1.php [L]
+
 ErrorDocument 404 http://photolab/vendor/components/404.php

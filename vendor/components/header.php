@@ -29,6 +29,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
         <li class="nav_element"><a href="/vendor/components/about.php">О НАС</a></li>
         <?php if (isset($_SESSION['admin'])) { ?>
           <li class="nav_element"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>
+          <li class="nav_element"><a href="/vendor/functions/logout.php">ВЫХОД</a></li>
         <?php } ?>
         <!-- <button type="button" class="btn btn-default" data-modal="modal_1">РАССЧИТАТЬ СТОИМОСТЬ</button> -->
       </ul>
