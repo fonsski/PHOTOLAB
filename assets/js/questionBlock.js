@@ -1,19 +1,15 @@
-document.addEventListener("DOMContentLoaded", function () {
-  let questionBlocks = document.querySelectorAll(".question");
-  questionBlocks.forEach(function (questionBlock) {
-    let answerBlock = questionBlock.nextElementSibling;
-    // Установим начальную высоту блока ответа
-    answerBlock.style.height = "0px";
-    answerBlock.style.overflow = "hidden"; // Чтобы скрыть содержимое
+const items = document.querySelectorAll(".accordion button");
 
-    questionBlock.addEventListener("click", function () {
-      if (answerBlock.style.height === "0px") {
-        answerBlock.style.height = "auto"; // Показать содержимое
-        answerBlock.style.overflow = "visible"; // Показать содержимое
-      } else {
-        answerBlock.style.height = "0px"; // Скрыть содержимое
-        answerBlock.style.overflow = "hidden"; // Скрыть содержимое
-      }
-    });
-  });
-});
+function toggleAccordion() {
+  const itemToggle = this.getAttribute('aria-expanded');
+  
+  for (i = 0; i < items.length; i++) {
+    items[i].setAttribute('aria-expanded', 'false');
+  }
+  
+  if (itemToggle == 'false') {
+    this.setAttribute('aria-expanded', 'true');
+  }
+}
+
+items.forEach(item => item.addEventListener('click', toggleAccordion));

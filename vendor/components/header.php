@@ -1,8 +1,5 @@
 <?php
 require_once "{$_SERVER['DOCUMENT_ROOT']}/vendor/functions/core.php";
-$category = $link->query("SELECT * FROM categories");
-$banner = $link->query("SELECT * FROM banner WHERE active = 1");
-
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -30,6 +27,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
         <?php if (isset($_SESSION['admin'])) { ?>
           <li class="nav_element"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>
           <li class="nav_element"><a href="/vendor/functions/logout.php">ВЫХОД</a></li>
+          <li class="nav_element"><a href="/vendor/components/constructor.php">Ы</a></li>
         <?php } ?>
         <!-- <button type="button" class="btn btn-default" data-modal="modal_1">РАССЧИТАТЬ СТОИМОСТЬ</button> -->
       </ul>

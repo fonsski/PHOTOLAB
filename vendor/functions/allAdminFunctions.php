@@ -101,7 +101,6 @@ function updateBanner()
     global $link;
     $banner_name = $_POST['bannerOld'];
     $banner_image = '';
-
     if (!empty($_FILES['imgNew']['name'])) {
         $files = $_FILES['imgNew'];
         $banner_image = $files['name'];

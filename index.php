@@ -1,6 +1,8 @@
 <?php
 $title = "PHOTOLAB";
 require_once "vendor/components/header.php";
+$category = $link->query("SELECT * FROM categories");
+$banner = $link->query("SELECT * FROM banner WHERE active = 1");
 ?>
 
 <div class="content">
@@ -145,7 +147,6 @@ require_once "vendor/components/header.php";
         });
       </script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
     </div>
-
     <!-- сюда засунуть 2гис скрипт добровольского -->
   </section>
 </div>

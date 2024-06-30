@@ -67,9 +67,9 @@ if (tableBody) {
                         <td>${product.cost}р.</td>
                         <td>${product.updated_at}</td>
                         <td>
-                          <a href="/vendor/admin/products.php?id=${product.id}">
+                        <a href="/vendor/admin/products.php?id=${product.id}">
                         <span class="material-icons-sharp">edit</span>
-                        <h3>Изменить</h3>
+                        <h3>Изменить</h3>жз
                         </a>
                         </td>
                         <td></td>
