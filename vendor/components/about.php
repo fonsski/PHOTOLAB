@@ -1,6 +1,5 @@
 <?php $title = "О нас";
 require_once "header.php";
-
 ?>
 <div class="content">
     <div class="container">
@@ -15,13 +14,7 @@ require_once "header.php";
             <div class="accordion-item">
                 <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">От чего зависят сроки выполнения заказа?</span><span class="icon" aria-hidden="true"></span></button>
                 <div class="accordion-content">
-                    <p>На сроки выполнения заказа влияют такие факторы как:
-                        <ul>
-                            <li>Загруженность точки</li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
+                    <p>На сроки выполнения заказа влияют такие факторы как: загруженность точки, наличие материала, степень подготовленности макета, тираж.
                     </p>
                 </div>
             </div>
@@ -45,6 +38,6 @@ require_once "header.php";
             </div>
         </div>
     </div>
-    <?php
-    require_once "footer.php";
-    ?>
+<?php
+require_once "footer.php";
+?>

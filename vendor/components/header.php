@@ -8,7 +8,7 @@ require_once "{$_SERVER['DOCUMENT_ROOT']}/vendor/functions/core.php";
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Готовите к печати фотографии? Нужна срочная печать брошюр? Хотите заказать брендированные сувениры? Сеть рекламных и полиграфических услуг «Photolab» выполнит любой заказ! Мы предлагаем широкий спектр услуг: от печати фотографий до изготовления рекламной продукции. Качественная работа, индивидуальный подход и конкурентные цены — вот почему клиенты выбирают нас!">
-  <meta name="keywords" content="Печать фотографий, фото, печать, документы, печать брошюр, брошурация, сувениры, печать документов, печать визиток, печать листовок, печать плакатов, печать баннеров, печать на кружках, печать на футболках, сувениры, рекламная продукция, типография «Photolab».">
+  <meta name="keywords" content="Печать фотографий, фото, печать, документы, брошурация, сувениры, печать документов, печать визиток, печать листовок, печать плакатов, печать баннеров, печать на кружках, печать на футболках, сувениры, рекламная продукция, типография «Photolab».">
   <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
@@ -27,7 +27,6 @@ require_once "{$_SERVER['DOCUMENT_ROOT']}/vendor/functions/core.php";
         <?php if (isset($_SESSION['admin'])) { ?>
           <li class="nav_element"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>
           <li class="nav_element"><a href="/vendor/functions/logout.php">ВЫХОД</a></li>
-          <li class="nav_element"><a href="/vendor/components/constructor.php">Ы</a></li>
         <?php } ?>
         <!-- <button type="button" class="btn btn-default" data-modal="modal_1">РАССЧИТАТЬ СТОИМОСТЬ</button> -->
       </ul>

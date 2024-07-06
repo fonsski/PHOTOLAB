@@ -21,6 +21,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  outline: 1px solid red;
 }
 /* Кнопка прокрутки вверх */
 .topButton {
@@ -430,6 +431,11 @@ h3 {
   justify-content: center;
   display: none;
 }
+#map {
+  width: 600px;
+  height: 400px;
+  border-radius: 15px;
+}
 /* Подвал сайта */
 #footer {
   display: flex;
@@ -667,6 +673,11 @@ iframe {
     grid-template-columns: 300px 400px;
   }
 }
+@media screen and (max-width: 1230px){
+  .header_nav ul{
+    font-size: 20px;
+  }
+}
 /* Для планшетов */
 @media only screen and (min-width: 720px) and (max-width: 1024px) {
   .logo {
@@ -704,21 +715,18 @@ iframe {
   .search_field input {
     width: 250px;
   }
-  .services_content {
-    grid-template-columns: 1fr 1fr;
-  }
   .address_button {
     padding: 0 0.6rem;
     height: 34px;
   }
+  .services_content {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 /* Для компьютеров */
-@media only screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) {
   .header_nav {
     left: 34%;
-  }
-  .header_nav ul {
-    font-size: 24px;
   }
   .banner_content {
     padding: 10px;
@@ -739,12 +747,14 @@ iframe {
   .search_field input {
     width: 300px;
   }
-  .services_content {
-    grid-template-columns: 1fr 1fr 1fr;
+}
+@media screen and (max-width: 830px) {
+  .container {
+    width: 42rem;
   }
 }
 /* Для телефонов */
-@media only screen and (max-width: 749px) {
+@media screen and (max-width: 749px) {
   .hamburger_nav {
     display: block;
     position: relative;
@@ -765,7 +775,7 @@ iframe {
     padding: 10px; /* Уменьшаем отступы */
   }
   .banner_text h1 {
-    font-size: 20px; /* Уменьшаем размер шрифта */
+    font-size: 24px; /* Уменьшаем размер шрифта */
   }
   .banner_text p {
     font-size: 16px; /* Уменьшаем размер шрифта */
@@ -799,16 +809,16 @@ iframe {
     width: 500px;
     height: 250px;
   }
+  .container {
+    width: 34rem;
+  }
 }
 
-@media only screen and (max-width: 656px) {
+@media screen and (max-width: 656px) {
   .logo {
     height: 60px;
   }
   .banner_text p {
-    font-size: 16px;
-  }
-  .banner_text h1 {
     font-size: 16px;
   }
   .product_card {
@@ -834,16 +844,23 @@ iframe {
     width: 250px;
     font-size: 14px;
   }
+  .container {
+    width: 30rem;
+  }
+  #map {
+    width: 450px;
+    height: 300px;
+  }
 }
 @media screen and (max-width: 597px) {
-  .banner_text p {
-    font-size: 12px;
-  }
   .product_card {
     width: 240px;
   }
   .card__image {
     height: 200px;
+  }
+  .container {
+    width: 28rem;
   }
 }
 @media screen and (max-width: 541px) {
@@ -858,20 +875,17 @@ iframe {
     max-height: 140px;
     width: 315px;
   }
-  .banner_text p {
-    font-size: 12px;
-  }
   .product_card {
     width: 200px;
   }
   .card__image {
     height: 160px;
   }
+  .container {
+    width: 24rem;
+  }
 }
 @media screen and (max-width: 521px) {
-  .banner_text p {
-    font-size: 10px;
-  }
   .product_card {
     width: 180px;
   }
@@ -897,13 +911,31 @@ iframe {
     padding: 5px;
     font-size: 12px;
   }
+  .container {
+    width: 20rem;
+  }
 }
 @media screen and (max-width: 480px) {
   iframe {
     width: 400px;
   }
-  .dg-widget-link .leaflet-popup-content-wrapper {
-    max-height: 140px !important;
-    width: 315px !important;
+  #map {
+    width: 400px;
+    height: 250px;
+  }
+}
+@media screen and (max-width: 430px) {
+  #map {
+    width: 370px;
+    height: 240px;
+  }
+  .services_title {
+    font-size: 14px;
+  }
+  .product_card {
+    width: 150px;
+  }
+  .card__image {
+    height: 120px;
   }
 }

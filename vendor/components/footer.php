@@ -31,7 +31,6 @@
 <!-- <script src="assets/js/popup.function.js"></script> -->
 <script src="/assets/js/dashtoadmin.js"></script>
 <script src="/assets/js/hamburger.js"></script>
-<script src="/assets/js/navRotation.js"></script>
 <script src="/assets/js/dinamicFooter.js"></script>
 <script src="/assets/js/questionBlock.js"></script>
 <script src="/assets/js/404.js"></script>
