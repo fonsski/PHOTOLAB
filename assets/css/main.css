@@ -21,7 +21,6 @@ body {
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  outline: 1px solid red;
 }
 /* Кнопка прокрутки вверх */
 .topButton {
@@ -403,11 +402,6 @@ h3 {
   border-radius: 0 0 15px 15px;
   padding: 10px;
 }
-.card__content-title {
-  font-family: Gotham-medium;
-  font-size: 18px;
-  font-weight: 800;
-}
 .card__content-description {
   margin-top: 10px;
   line-height: 22px;
@@ -445,10 +439,9 @@ h3 {
   margin-top: 50px;
 }
 .footer_content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
-  margin-right: 15%;
-  justify-content: space-between;
 }
 .footer_content1 {
   font-family: Gotham-medium;
@@ -502,7 +495,7 @@ h3 {
   color: #ffffff;
   position: absolute;
   right: 26px;
-  margin-top: 100px;
+  margin-top: 70px;
 }
 iframe {
   border-radius: 20px;
@@ -651,7 +644,7 @@ iframe {
 }
 .accordion button[aria-expanded="true"] + .accordion-content {
   opacity: 1;
-  max-height: 9em;
+  max-height: 10em;
   transition: all 200ms linear;
   will-change: opacity, max-height;
 }
@@ -673,8 +666,8 @@ iframe {
     grid-template-columns: 300px 400px;
   }
 }
-@media screen and (max-width: 1230px){
-  .header_nav ul{
+@media screen and (max-width: 1230px) {
+  .header_nav ul {
     font-size: 20px;
   }
 }
@@ -914,6 +907,9 @@ iframe {
   .container {
     width: 20rem;
   }
+  .copyright_block{
+    right: 5px;
+  }
 }
 @media screen and (max-width: 480px) {
   iframe {
@@ -926,16 +922,43 @@ iframe {
 }
 @media screen and (max-width: 430px) {
   #map {
-    width: 370px;
-    height: 240px;
-  }
-  .services_title {
-    font-size: 14px;
+    width: 340px;
+    height: 220px;
   }
   .product_card {
-    width: 150px;
+    width: 160px;
   }
   .card__image {
-    height: 120px;
+    height: 130px;
   }
+  #footer {
+    padding: 10px;
+  }
+  .footer_content2 li {
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 385px) {
+  #map {
+    width: 310px;
+    height: 190px;
+  }
+  .product_card {
+    width: 130px;
+  }
+  .card__image {
+    height: 100px;
+  }
+  .card__content{
+    font-size: 14px;
+  }
+  #footer{
+    padding: 3px;
+  }
+  .footer_content2 li {
+    margin-right: 5px;
+  }
+  /* .services_content{
+    grid-template-columns: 1fr;
+  } */
 }
