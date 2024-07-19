@@ -15,7 +15,10 @@ DG.then(function () {
 
   marker = DG.marker([initialLocation.lat, initialLocation.lon])
     .addTo(map)
-    .bindPopup(initialLocation.popupContent)
+    .bindPopup(initialLocation.popupContent, {
+        maxWidth: window.innerWidth >= 450 ? 200 : null,
+        maxHeight: window.innerWidth >= 450 ? 150 : null
+    })
     .openPopup();
 });
 
