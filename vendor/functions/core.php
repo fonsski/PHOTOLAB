@@ -1,5 +1,4 @@
 <?php
-// © Все права на код принадлежат Photolab, ИП Столяров
 session_start();
 $link = new mysqli('localhost', 'root', '', 'photolab');
 $link->set_charset('utf8mb4');
