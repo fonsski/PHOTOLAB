@@ -22,7 +22,7 @@ require_once "{$_SERVER['DOCUMENT_ROOT']}/vendor/functions/core.php";
       <ul class="nav_bar">
         <li class="nav_element"><a href="/index.php">ГЛАВНАЯ</a></li>
         <li class="nav_element"><a href="/index.php#services">КАТАЛОГ</a></li>
-        <li class="nav_element"><a href="#footer">КОНТАКТЫ</a></li>
+        <li class="nav_element"><a href="/index.php#footer">КОНТАКТЫ</a></li>
         <li class="nav_element"><a href="/vendor/components/about.php">О НАС</a></li>
         <?php if (isset($_SESSION['admin'])) { ?>
           <li class="nav_element"><a href="/vendor/admin/admin_panel.php">АДМИН-ПАНЕЛЬ</a></li>

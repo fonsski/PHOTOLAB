@@ -3,10 +3,10 @@
         <div class="footer_content1">
             <h1>НАШИ УСЛУГИ</h1>
             <ul>
-                <li><a href="#services" data-button-id="">Фотопечать</a></li>
-                <li><a href="#services">Сувенирная продукция</a></li>
-                <li><a href="#services">Широкоформатная печать</a></li>
-                <li><a href="#services">Полиграфия</a></li>
+                <li><a href="/index.php#services" data-button-id="">Фотопечать</a></li>
+                <li><a href="/index.php#services">Сувенирная продукция</a></li>
+                <li><a href="/index.php#services">Широкоформатная печать</a></li>
+                <li><a href="/index.php#services">Полиграфия</a></li>
             </ul>
         </div>
 

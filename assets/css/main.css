@@ -97,7 +97,6 @@ header {
   font-family: Gotham-medium;
 }
 /* Шапка под мобильные устройства */
-
 .hamburger_nav {
   padding: 0;
   border: none;
@@ -644,7 +643,7 @@ iframe {
 }
 .accordion button[aria-expanded="true"] + .accordion-content {
   opacity: 1;
-  max-height: 10em;
+  max-height: 15em;
   transition: all 200ms linear;
   will-change: opacity, max-height;
 }
@@ -909,6 +908,7 @@ iframe {
   }
   .copyright_block{
     right: 5px;
+    margin-top: 114px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -953,7 +953,7 @@ iframe {
     font-size: 14px;
   }
   #footer{
-    padding: 3px;
+    padding: 10px;
   }
   .footer_content2 li {
     margin-right: 5px;
