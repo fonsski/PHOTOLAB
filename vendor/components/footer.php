@@ -1,16 +1,18 @@
 <footer id="footer">
     <div class="footer_content">
-        <div class="footer_content1">
-            <h1>НАШИ УСЛУГИ</h1>
-            <ul>
-                <li><a href="/index.php#services" data-button-id="">Фотопечать</a></li>
-                <li><a href="/index.php#services">Сувенирная продукция</a></li>
-                <li><a href="/index.php#services">Широкоформатная печать</a></li>
-                <li><a href="/index.php#services">Полиграфия</a></li>
-            </ul>
+        <div class="services_footer">
+            <h3>НАШИ УСЛУГИ</h3>
+            <nav>
+                <ul>
+                    <li><a href="/index.php#services" data-button-id="">Фотопечать</a></li>
+                    <li><a href="/index.php#services">Сувенирная продукция</a></li>
+                    <li><a href="/index.php#services">Широкоформатная печать</a></li>
+                    <li><a href="/index.php#services">Полиграфия</a></li>
+                </ul>
+            </nav>
         </div>
 
-        <div class="footer_content2">
+        <div class="socials">
             <nav>
                 <ul>
                     <li><a href="https://vk.com/fotolab55"><i class="fa fa-vk" aria-hidden="true"></i> ВКонтакте</a></li>
@@ -20,8 +22,12 @@
                 </ul>
             </nav>
         </div>
-        <div class="copyright_block">
-            <i class="fa fa-copyright" aria-hidden="true"> 2021-2024 Photolab Все права защищены</i>
+        <div class="information">
+            <p>
+                <i class="fa fa-copyright" aria-hidden="true"></i>
+                2021-2024 Photolab Все права защищены
+            </p>
+            <p>* Цены, указанные на сайте, не являются офертой.</p>
         </div>
     </div>
 </footer>
@@ -36,4 +42,5 @@
 <script src="/assets/js/404.js"></script>
 <script src="/assets/js/btnUp.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,5 @@
-// JavaScript
-// Код для инициализации карты и обновления маркера с попапом на основе переданных координат и контента. Также добавляет обработчики событий для кнопок адресов и мобильного меню.
+// Код для инициализации карты и обновления маркера с попапом на основе переданных координат и контента. 
+// Также добавляет обработчики событий для кнопок адресов и мобильного меню.
 
 var map, marker;
 DG.then(function () {
@@ -9,35 +9,72 @@ DG.then(function () {
     popupContent:
       "1-я транспортная, 10 <br> <a href='tel:+7-965-986-84-99'>+7-965-986-84-99</a> <br> Ежедневно 10:00–19:00<br> Обед 13:00-13:30",
   };
+
+  function getPopupOptions() {
+    if (window.innerWidth <= 430) {
+      return { maxWidth: 180, maxHeight: 'auto' };
+    } else {
+      return { maxWidth: 190, maxHeight: 140 };
+    }
+  }
+
+  function applyPopupStyles() {
+    const popupContent = document.querySelector('.leaflet-popup-content');
+    if (popupContent) {
+      if (window.innerWidth <= 430) {
+        popupContent.style.fontSize = '0.9em';
+        popupContent.style.lineHeight = '1.2em';
+        popupContent.style.padding = '5px';
+        const links = popupContent.querySelectorAll('a');
+        links.forEach(link => {
+          link.style.fontSize = '0.9em';
+        });
+      } else {
+        popupContent.style.fontSize = '';
+        popupContent.style.lineHeight = '';
+        popupContent.style.padding = '';
+        const links = popupContent.querySelectorAll('a');
+        links.forEach(link => {
+          link.style.fontSize = '';
+        });
+      }
+    }
+  }
+
   map = DG.map("map", {
     center: [initialLocation.lat, initialLocation.lon],
     zoom: 18,
   });
+
   marker = DG.marker([initialLocation.lat, initialLocation.lon])
     .addTo(map)
-    .bindPopup(initialLocation.popupContent, {
-        maxWidth: window.innerWidth >= 350 ? 200 : 'auto',
-        maxHeight: window.innerWidth >= 350 ? 150 : 'auto'
-    })
+    .bindPopup(initialLocation.popupContent, getPopupOptions())
     .openPopup();
+
+  applyPopupStyles();
+
+  window.addEventListener('resize', function () {
+    marker.setPopupContent(initialLocation.popupContent, getPopupOptions()).openPopup();
+    applyPopupStyles();
+  });
 });
 
 function updateMap(lat, lon, popupContent) {
   if (map) {
     map.setView([lat, lon], 18);
     if (marker) {
-      marker.setLatLng([lat, lon]).setPopupContent(popupContent).openPopup();
+      marker.setLatLng([lat, lon]).setPopupContent(popupContent, getPopupOptions()).openPopup();
     } else {
       marker = DG.marker([lat, lon])
         .addTo(map)
-        .bindPopup(popupContent)
+        .bindPopup(popupContent, getPopupOptions())
         .openPopup();
     }
+    applyPopupStyles();
   }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Массив с данными для обновления карты
   const locations = [
     {
       lat: 54.960681,
@@ -64,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Комарова 6к1 — 1 этаж <br> <a href='tel:+7-960-994-28-77'>+7-960-994-28-77</a> <br> Ежедневно 10:00–21:00<br> Обед 14:30-15:00",
     },
   ];
-  // Получаем все кнопки адресов и блоки с адресами
+
   const addressButtons = document.querySelectorAll(".address_button");
   const addressesMobile = document.querySelector(".addresses_mobile__nav");
   const addressesNavBlock = document.querySelector(".address_nav__block");
