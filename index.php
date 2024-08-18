@@ -9,7 +9,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
   <section id="banner">
     <?php foreach ($banner as $banner_cont) { ?>
       <div class="banner_content">
-        <div class="banner_image">
+        <div class="info_banner">
           <img src="/assets/img/banner/<?= $banner_cont['img'] ?>" alt="<?= $banner_cont['name'] ?>" />
         </div>
         <div class="banner_text">

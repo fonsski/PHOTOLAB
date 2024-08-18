@@ -11,9 +11,9 @@ $products = $link->query("SELECT * FROM products");
             <h2>Добавить товар</h2>
             <input type="hidden" name="action" value="addProduct">
             <label for="productName">Название товара</label>
-            <input type="text" name="productName">
+            <input type="text" name="productName" placeholder="Введите название товара">
             <label for="productCost">Цена товара</label>
-            <div class="a"><input type="text" name="productCost">
+            <div class="a"><input type="text" name="productCost" placeholder="Введите цену товара">
                 <p>р.</p>
             </div>
             <label for="productCategory">Категория товара</label>
@@ -43,9 +43,9 @@ $products = $link->query("SELECT * FROM products");
                 <?php } ?>
             </select>
             <label for="productNameNew">Новое название товара</label>
-            <input name="productNameNew" class="productNameNew" value="">
+            <input name="productNameNew" class="productNameNew" value="" placeholder="Введите новое название товара">
             <label for="productCostNew">Новая цена товара</label>
-            <div class="a"><input name="productCostNew" class="productCostNew" value="">
+            <div class="a"><input name="productCostNew" class="productCostNew" value="" placeholder="Введите новую цену товара">
                 <p>р.</p>
             </div>
             <label for="productImgNew">Новое изображение товара</label>

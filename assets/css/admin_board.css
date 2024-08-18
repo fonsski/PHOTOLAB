@@ -708,7 +708,7 @@ main .recent-orders a {
 
 .form_container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   justify-items: center;
   gap: 20px;
   width: 100%;
@@ -722,9 +722,9 @@ select {
 
 form {
   display: grid;
-  gap: 5px;
+  gap: 10px;
   margin-top: 20px;
-  width: 200px;
+  width: 500px;
 }
 
 label {
@@ -747,6 +747,7 @@ button {
   border: none;
   border-radius: var(--border-radius-1);
   cursor: pointer;
+  width: 140px;
 }
 
 button:hover {

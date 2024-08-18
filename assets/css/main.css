@@ -152,7 +152,7 @@ header {
   margin-bottom: 10px;
 }
 /* Баннер под шапкой */
-# {
+#banner {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -176,7 +176,7 @@ header {
   font-family: Gotham-Medium;
   font-size: 18px;
 }
-.banner_image img {
+.info_banner img {
   width: 300px;
   height: 360px;
   border-radius: 10px;
@@ -672,7 +672,7 @@ iframe {
   .banner_text p {
     font-size: 16px;
   }
-  .banner_image img {
+  .info_banner img {
     width: 100%;
     height: auto;
   }
@@ -704,7 +704,7 @@ iframe {
   .banner_text p {
     font-size: 18px;
   }
-  .banner_image img {
+  .info_banner img {
     width: 300px;
     height: 360px;
   }
@@ -747,7 +747,7 @@ iframe {
   .banner_text p {
     font-size: 16px; /* Уменьшаем размер шрифта */
   }
-  .banner_image img {
+  .info_banner img {
     width: 100%;
     height: auto;
   }
