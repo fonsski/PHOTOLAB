@@ -32,7 +32,6 @@
     </div>
 </footer>
 <script src="assets/js/navigation.js"></script>
-<script src="assets/js/addresses.js"></script>
 <!-- <script>const typeAnimate = 'fade';</script> -->
 <!-- <script src="assets/js/popup.function.js"></script> -->
 <script src="/assets/js/dashtoadmin.js"></script>

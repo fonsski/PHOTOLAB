@@ -1,924 +1,888 @@
 /* © Все права на код принадлежат Photolab, ИП Столяров */
 /* Стили для шапки, шрифты и нормализация */
 @font-face {
-  font-family: Gotham-medium;
-  src: url(/assets/fonts/Gotham/gothampronarrow_medium.ttf);
+    font-family: Gotham-medium;
+    src: url(/assets/fonts/Gotham/gothampronarrow_medium.ttf);
 }
 @font-face {
-  font-family: Gotham-bold;
-  src: url(/assets/fonts/Gotham/gothampronarrow_bold.ttf);
+    font-family: Gotham-bold;
+    src: url(/assets/fonts/Gotham/gothampronarrow_bold.ttf);
 }
 /* Код для body*/
 body {
-  background-color: #262c38;
-  min-height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+    background-color: #262c38;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 /* Нормализация отступов*/
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 /* Кнопка прокрутки вверх */
 .topButton {
-  position: fixed;
-  background-color: #2f355b;
-  right: 20px;
-  bottom: 40px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  width: 60px;
-  height: 60px;
-  font-size: 28px;
-  color: white;
-  z-index: 9999;
+    position: fixed;
+    background-color: #2f355b;
+    right: 20px;
+    bottom: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    color: white;
+    z-index: 9999;
 }
 
 .topButton::before {
-  content: "";
-  width: 40px;
-  height: 40px;
+    content: "";
+    width: 40px;
+    height: 40px;
 }
 
 .topButton_hide {
-  display: none;
+    display: none;
 }
 @media (hover: hover) and (pointer: fine) {
-  .topButton:hover {
-    background-color: #6f81f0; /* цвет заднего фона при наведении */
-  }
+    .topButton:hover {
+        background-color: #6f81f0; /* цвет заднего фона при наведении */
+    }
 }
 /* Общий компонент */
 .content {
-  width: 100%;
-  display: grid;
-  justify-items: center;
+    width: 100%;
+    display: grid;
+    justify-items: center;
 }
 /* Код для шапки и контента внутри неё */
 header {
-  display: flex;
-  position: relative;
-  width: 100%;
-  background-color: #5e6380;
-  align-items: center;
-  z-index: 2;
+    display: flex;
+    position: relative;
+    width: 100%;
+    background-color: #5e6380;
+    align-items: center;
+    z-index: 2;
 }
 .logo {
-  width: 200px;
-  height: 100px;
-  margin-left: 40px;
+    width: 200px;
+    height: 100px;
+    margin-left: 40px;
 }
 .header_nav {
-  left: 37%;
-  position: absolute;
+    left: 37%;
+    position: absolute;
 }
 .header_nav ul {
-  font-size: 27px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    font-size: 27px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* Стилизация элементов списка */
 .header_nav li {
-  display: inline-block;
-  margin: 0 10px;
+    display: inline-block;
+    margin: 0 10px;
 }
 /* Стилизация ссылок */
 .header_nav a {
-  text-decoration: none;
-  color: white;
-  font-family: Gotham-medium;
+    text-decoration: none;
+    color: white;
+    font-family: Gotham-medium;
 }
 /* Шапка под мобильные устройства */
 .hamburger_nav {
-  padding: 0;
-  border: none;
-  color: white;
-  background-color: transparent;
-  cursor: pointer;
-  font-size: 2rem;
-  position: relative;
-  display: none;
+    padding: 0;
+    border: none;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 2rem;
+    position: relative;
+    display: none;
 }
 
 .mobile_nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .mobile_nav li {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 .mobile_nav a {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 
 .mobile_nav {
-  display: flex;
-  width: 100%;
-  top: -200%;
-  position: absolute;
-  background-color: #5e6380;
-  justify-content: center;
-  align-items: center;
-  font-family: Gotham-medium;
-  transition: 1s;
+    display: flex;
+    width: 100%;
+    top: -200%;
+    position: absolute;
+    background-color: #5e6380;
+    justify-content: center;
+    align-items: center;
+    font-family: Gotham-medium;
+    transition: 1s;
 }
 
 .nav_bar__mobile li {
-  text-align: center;
+    text-align: center;
 }
 
 .mobile_nav.open {
-  top: 100%;
+    top: 100%;
 }
 
 .nav_bar__mobile {
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
 .nav_element__mobile {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 /* Баннер под шапкой */
 #banner {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
 }
 .banner_content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  border-radius: 10px;
-  max-width: 80%;
-  background-color: #e8dbdb;
-  padding: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    background-color: #e8dbdb;
+    padding: 60px;
 }
 .banner_text h1 {
-  font-family: Gotham-Bold;
-  font-size: 22px;
-  margin-bottom: 10px;
+    font-family: Gotham-Bold;
+    font-size: 22px;
+    margin-bottom: 10px;
 }
 .banner_text p {
-  font-family: Gotham-Medium;
-  font-size: 18px;
+    font-family: Gotham-Medium;
+    font-size: 18px;
 }
 .info_banner img {
-  width: 300px;
-  height: 360px;
-  border-radius: 10px;
+    width: 300px;
+    height: 360px;
+    border-radius: 10px;
 }
 /* Код блока услуг */
 #services {
-  margin-top: 30px;
-  width: 100%;
-  display: grid;
-  justify-items: center;
-  gap: 30px;
+    margin-top: 30px;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    gap: 30px;
 }
 .services_title {
-  font-family: Gotham-medium;
-  font-size: 40px;
-  color: #ffffff;
-  text-align: center;
+    font-family: Gotham-medium;
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
 }
 .services_nav__block {
-  display: flex;
-  gap: 10px;
-  color: #ffffff;
-  text-decoration: none;
-  list-style: none;
+    display: flex;
+    gap: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    list-style: none;
 }
 
 .services_nav__block.open {
-  display: grid;
-  grid-template-rows: 1fr;
-}
-.address_nav__block.open {
-  display: grid;
-  grid-template-rows: 1fr;
+    display: grid;
+    grid-template-rows: 1fr;
 }
 .services_button {
-  background-color: white;
-  height: 48px;
-  padding: 0 0.6rem;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
+    background-color: white;
+    height: 48px;
+    padding: 0 0.6rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
 }
 .services_button .active {
-  background-color: #6f8a2b;
-  color: #fff;
+    background-color: #6f8a2b;
+    color: #fff;
 }
 .services_mobile__nav {
-  padding: 0;
-  border: none;
-  color: white;
-  background-color: transparent;
-  cursor: pointer;
-  font-size: 2rem;
-  position: relative;
-  display: block;
+    padding: 0;
+    border: none;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 2rem;
+    position: relative;
+    display: block;
 }
 .services_category__block {
-  display: none;
-  padding: 10px;
-  gap: 10px;
-  align-items: center;
-  font-family: Gotham-bold;
-  color: white;
-  background-color: #6f8a2b;
-  width: 300px;
-  justify-content: center;
-  border-radius: 10px;
-}
-.address_nav__block {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
-  color: #ffffff;
-  text-decoration: none;
-  list-style: none;
-  border-radius: 10px;
-}
-.address_content {
-  display: flex;
-  justify-content: center;
-}
-.address_button {
-  background-color: white;
-  height: 48px;
-  padding: 0 1.2rem;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-}
-.addresses_category__block {
-  display: none;
-  padding: 10px;
-  gap: 10px;
-  align-items: center;
-  font-family: Gotham-bold;
-  color: white;
-  background-color: #6f8a2b;
-  width: 300px;
-  justify-content: center;
-  border-radius: 10px;
-}
-.addresses_mobile__nav {
-  padding: 0;
-  border: none;
-  color: white;
-  background-color: transparent;
-  cursor: pointer;
-  font-size: 2rem;
-  position: relative;
-  display: block;
+    display: none;
+    padding: 10px;
+    gap: 10px;
+    align-items: center;
+    font-family: Gotham-bold;
+    color: white;
+    background-color: #6f8a2b;
+    width: 300px;
+    justify-content: center;
+    border-radius: 10px;
 }
 .services_nav__block li {
-  display: inline-block;
-  gap: 10px;
+    display: inline-block;
+    gap: 10px;
 }
 .services_nav__block a {
-  text-decoration: none;
-  color: #ffffff;
+    text-decoration: none;
+    color: #ffffff;
 }
 .services_nav__block h1 {
-  font-size: 40px;
-  font-family: Gotham-bold;
+    font-size: 40px;
+    font-family: Gotham-bold;
 }
 .services_nav__block h2 {
-  font-size: 18px;
-  font-family: Gotham-bold;
+    font-size: 18px;
+    font-family: Gotham-bold;
 }
 h3 {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
+.dg-widget-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
 .product_card {
-  width: 300px;
+    width: 300px;
 }
 .product_card img {
-  display: block;
-  border-radius: 15px 15px 0px 0px;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+    display: block;
+    border-radius: 15px 15px 0px 0px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 .product_card p {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 .card__image {
-  width: 100%;
-  height: 217px;
-  border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 217px;
+    border-radius: 15px 15px 0px 0px;
 }
 .card__content {
-  padding: 36px 45px 41px 45px;
-  background-color: #fff;
-  border-radius: 0 0 15px 15px;
+    padding: 36px 45px 41px 45px;
+    background-color: #fff;
+    border-radius: 0 0 15px 15px;
 }
 .card__content-title {
-  font-family: Gotham-medium;
-  font-size: 18px;
-  font-weight: 800;
+    font-family: Gotham-medium;
+    font-size: 18px;
+    font-weight: 800;
 }
 .card__content-description {
-  margin-top: 10px;
-  line-height: 22px;
+    margin-top: 10px;
+    line-height: 22px;
 }
 .card__content_cost {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 .catalog-menu {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
 }
 .menu-item {
-  display: inline-block;
-  padding: 5px 10px;
-  cursor: pointer;
-  background-color: #ffffff;
-  border-radius: 5px;
-  font-family: Merriweather;
-  font-size: 14px;
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-family: Merriweather;
+    font-size: 14px;
 }
 .address_menu-item {
-  display: inline-block;
-  padding: 5px 10px;
-  cursor: pointer;
-  background-color: #ffffff;
-  border-radius: 5px;
-  font-family: Gotham-medium;
-  font-size: 14px;
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-family: Gotham-medium;
+    font-size: 14px;
 }
 .active {
-  background-color: #6f8a2b;
-  color: #fff;
+    background-color: #6f8a2b;
+    color: #fff;
 }
 .active_adr {
-  background-color: #6f8a2b;
-  color: #fff;
+    background-color: #6f8a2b;
+    color: #fff;
 }
 #content {
-  margin-top: 20px;
-  padding: 20px;
+    margin-top: 20px;
+    padding: 20px;
 }
 .services_content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 30px;
 }
 .card__image {
-  width: 100%;
-  height: 270px;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 270px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 15px 15px 0px 0px;
 }
 .card__content {
-  height: 70px;
-  background-color: #e8dbdb;
-  border-radius: 0 0 15px 15px;
-  padding: 10px;
+    height: 70px;
+    background-color: #e8dbdb;
+    border-radius: 0 0 15px 15px;
+    padding: 10px;
 }
 .card__content-description {
-  margin-top: 10px;
-  line-height: 22px;
+    margin-top: 10px;
+    line-height: 22px;
 }
 /* Адреса */
 #addresses {
-  margin-top: 30px;
-  width: 100%;
-  display: grid;
-  justify-items: center;
-  gap: 40px;
+    margin-top: 30px;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    gap: 40px;
 }
 .addresses_title {
-  font-family: Gotham-bold;
-  font-size: 40px;
-  color: #ffffff;
-  text-align: center;
+    font-family: Gotham-bold;
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
 }
 .addresses_content {
-  display: flex;
-  justify-content: center;
-  display: none;
+    display: flex;
+    justify-content: center;
+    display: none;
 }
 #map {
-  width: 600px;
-  height: 400px;
-  border-radius: 15px;
+    width: 600px;
+    height: 400px;
+    border-radius: 15px;
 }
 /* Подвал сайта */
 .footer_content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  background-color: #5e6380;
-  font-family: Gotham-medium;
-  font-size: 16px;
-  margin-top: 30px;
-  padding: 15px;
-  color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #5e6380;
+    font-family: Gotham-medium;
+    font-size: 16px;
+    margin-top: 30px;
+    padding: 15px;
+    color: white;
 }
 .services_footer ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .services_footer li {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 .services_footer a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
-.socials{
-  gap: 5px;
+.socials {
+    gap: 5px;
 }
 .socials ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .socials li {
-  margin-right: 15px;
+    margin-right: 15px;
 }
 .socials a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
-.information{
-  display: grid;
+.information {
+    display: grid;
 }
 iframe {
-  border-radius: 20px;
+    border-radius: 20px;
 }
 /* Страница 404 */
 .page404 {
-  display: flex;
-  justify-content: center;
-  max-width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
 }
 .main_404 {
-  display: grid;
-  position: relative;
-  justify-items: center;
-  align-items: center;
-  border-radius: 10px;
-  max-width: 80%;
-  background-color: #e8dbdb;
-  padding: 60px;
-  margin-top: 40px;
-  width: 600px;
-  height: 300px;
+    display: grid;
+    position: relative;
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+    max-width: 80%;
+    background-color: #e8dbdb;
+    padding: 60px;
+    margin-top: 40px;
+    width: 600px;
+    height: 300px;
 }
 .title404 {
-  font-family: Gotham-bold;
+    font-family: Gotham-bold;
 }
 .error404 {
-  font-family: Gotham-Medium;
+    font-family: Gotham-Medium;
 }
 .desc {
-  font-family: Gotham-medium;
-  font-size: 18px;
+    font-family: Gotham-medium;
+    font-size: 18px;
 }
 .homepage {
-  font-size: 26px;
+    font-size: 26px;
 }
 .home {
-  background-color: #6f8a2b;
-  height: 48px;
-  padding: 0 1.2rem;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
-  text-decoration: none;
-  color: black;
-  font-family: Gotham-medium;
-  font-size: 22px;
+    background-color: #6f8a2b;
+    height: 48px;
+    padding: 0 1.2rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    text-decoration: none;
+    color: black;
+    font-family: Gotham-medium;
+    font-size: 22px;
 }
 .home a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 .paws {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 .paws img {
-  width: 200px;
-  height: 200px;
+    width: 200px;
+    height: 200px;
 }
 /* Страница "О нас" */
 .container {
-  display: grid;
-  justify-items: center;
-  margin: 80px auto;
-  padding: 4rem;
-  width: 48rem;
-  color: black;
-  background-color: #e8dbdb;
-  border-radius: 15px;
+    display: grid;
+    justify-items: center;
+    margin: 80px auto;
+    padding: 4rem;
+    width: 48rem;
+    color: black;
+    background-color: #e8dbdb;
+    border-radius: 15px;
 }
 .container h2 {
-  font-family: Gotham-bold;
+    font-family: Gotham-bold;
 }
 .accordion .accordion-item {
-  border-bottom: 1px solid #000000;
-  font-family: Gotham-medium;
+    border-bottom: 1px solid #000000;
+    font-family: Gotham-medium;
 }
 .accordion .accordion-item button[aria-expanded="true"] {
-  border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #000000;
 }
 .accordion button {
-  position: relative;
-  display: block;
-  text-align: left;
-  width: 100%;
-  padding: 1em 0;
-  color: black;
-  font-size: 1.15rem;
-  font-weight: 400;
-  border: none;
-  background: none;
-  outline: none;
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: black;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
 }
 .accordion button:hover,
 .accordion button:focus {
-  cursor: pointer;
-  color: black;
+    cursor: pointer;
+    color: black;
 }
 .accordion button:hover::after,
 .accordion button:focus::after {
-  cursor: pointer;
+    cursor: pointer;
 }
 .accordion button .accordion-title {
-  padding: 1em 1.5em 1em 0;
+    padding: 1em 1.5em 1em 0;
 }
 .accordion button .icon {
-  display: inline-block;
-  position: absolute;
-  top: 18px;
-  right: 0;
-  width: 22px;
-  height: 22px;
-  border: 1px solid;
-  border-radius: 22px;
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid;
+    border-radius: 22px;
 }
 .accordion button .icon::before {
-  display: block;
-  position: absolute;
-  content: "";
-  top: 9px;
-  left: 5px;
-  width: 10px;
-  height: 2px;
-  background: currentColor;
+    display: block;
+    position: absolute;
+    content: "";
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
 }
 .accordion button .icon::after {
-  display: block;
-  position: absolute;
-  content: "";
-  top: 5px;
-  left: 9px;
-  width: 2px;
-  height: 10px;
-  background: currentColor;
+    display: block;
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: 10px;
+    background: currentColor;
 }
 .accordion button[aria-expanded="true"] {
-  color: black;
+    color: black;
 }
 .accordion button[aria-expanded="true"] .icon::after {
-  width: 0;
+    width: 0;
 }
 .accordion button[aria-expanded="true"] + .accordion-content {
-  opacity: 1;
-  max-height: 15em;
-  transition: all 200ms linear;
-  will-change: opacity, max-height;
+    opacity: 1;
+    max-height: 15em;
+    transition: all 200ms linear;
+    will-change: opacity, max-height;
 }
 .accordion .accordion-content {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 200ms linear, max-height 200ms linear;
-  will-change: opacity, max-height;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+        opacity 200ms linear,
+        max-height 200ms linear;
+    will-change: opacity, max-height;
 }
 .accordion .accordion-content p {
-  font-size: 1rem;
-  font-weight: 300;
-  margin: 2em 0;
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 2em 0;
 }
 /* Адаптив */
 @media screen and (max-width: 2400px) {
-  .banner_content {
-    grid-template-columns: 300px 400px;
-  }
+    .banner_content {
+        grid-template-columns: 300px 400px;
+    }
 }
 @media screen and (max-width: 1230px) {
-  .header_nav ul {
-    font-size: 20px;
-  }
+    .header_nav ul {
+        font-size: 20px;
+    }
 }
 /* Для планшетов */
 @media only screen and (min-width: 720px) and (max-width: 1024px) {
-  .logo {
-    width: 180px;
-    height: 80px;
-    margin-left: 25px;
-  }
-  .banner_content {
-    grid-template-columns: 1fr 1fr;
-    padding: 20px;
-  }
-  .header_nav {
-    left: 29%;
-  }
-  .header_nav ul {
-    font-size: 20px;
-  }
-  .nav_bar {
-    font-size: 16px;
-  }
+    .logo {
+        width: 180px;
+        height: 80px;
+        margin-left: 25px;
+    }
+    .banner_content {
+        grid-template-columns: 1fr 1fr;
+        padding: 20px;
+    }
+    .header_nav {
+        left: 29%;
+    }
+    .header_nav ul {
+        font-size: 20px;
+    }
+    .nav_bar {
+        font-size: 16px;
+    }
 
-  .banner_text h1 {
-    font-size: 20px;
-  }
-  .banner_text p {
-    font-size: 16px;
-  }
-  .info_banner img {
-    width: 100%;
-    height: auto;
-  }
-  .services_title {
-    font-size: 35px;
-  }
-  .search_field input {
-    width: 250px;
-  }
-  .address_button {
-    padding: 0 0.6rem;
-    height: 34px;
-  }
-  .services_content {
-    grid-template-columns: 1fr 1fr;
-  }
+    .banner_text h1 {
+        font-size: 20px;
+    }
+    .banner_text p {
+        font-size: 16px;
+    }
+    .info_banner img {
+        width: 100%;
+        height: auto;
+    }
+    .services_title {
+        font-size: 35px;
+    }
+    .search_field input {
+        width: 250px;
+    }
+    .address_button {
+        padding: 0 0.6rem;
+        height: 34px;
+    }
+    .services_content {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 /* Для компьютеров */
 @media screen and (min-width: 1025px) {
-  .header_nav {
-    left: 34%;
-  }
-  .banner_content {
-    padding: 10px;
-  }
-  .banner_text h1 {
-    font-size: 22px;
-  }
-  .banner_text p {
-    font-size: 18px;
-  }
-  .info_banner img {
-    width: 300px;
-    height: 360px;
-  }
-  .services_title {
-    font-size: 40px;
-  }
-  .search_field input {
-    width: 300px;
-  }
+    .header_nav {
+        left: 34%;
+    }
+    .banner_content {
+        padding: 10px;
+    }
+    .banner_text h1 {
+        font-size: 22px;
+    }
+    .banner_text p {
+        font-size: 18px;
+    }
+    .info_banner img {
+        width: 300px;
+        height: 360px;
+    }
+    .services_title {
+        font-size: 40px;
+    }
+    .search_field input {
+        width: 300px;
+    }
 }
 @media screen and (max-width: 830px) {
-  .container {
-    width: 42rem;
-  }
+    .container {
+        width: 42rem;
+    }
 }
 /* Для телефонов */
 @media screen and (max-width: 749px) {
-  .hamburger_nav {
-    display: block;
-    position: relative;
-    margin-right: 30px;
-  }
-  header {
-    justify-content: space-between;
-  }
-  .header_nav {
-    display: none;
-  }
-  .logo {
-    width: 150px;
-  }
-  .banner_content {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 10px; /* Уменьшаем отступы */
-  }
-  .banner_text h1 {
-    font-size: 24px; /* Уменьшаем размер шрифта */
-  }
-  .banner_text p {
-    font-size: 16px; /* Уменьшаем размер шрифта */
-  }
-  .info_banner img {
-    width: 100%;
-    height: auto;
-  }
-  .services_title {
-    font-size: 30px; /* Уменьшаем размер шрифта */
-  }
-  .addresses_title {
-    font-size: 30px;
-  }
-  .services_nav__block {
-    display: none; /* Скрываю чтобы с помощью JS вызывать данное меню по кнопке */
-  }
-  .address_nav__block {
-    display: none;
-  }
-  .services_category__block {
-    display: flex;
-  }
-  .addresses_category__block {
-    display: flex;
-  }
-  .services_content {
-    grid-template-columns: 1fr 1fr;
-  }
-  iframe {
-    width: 500px;
-    height: 250px;
-  }
-  .container {
-    width: 34rem;
-  }
-  .footer_content{
-    font-size: 12px;
-  }
+    .hamburger_nav {
+        display: block;
+        position: relative;
+        margin-right: 30px;
+    }
+    header {
+        justify-content: space-between;
+    }
+    .header_nav {
+        display: none;
+    }
+    .logo {
+        width: 150px;
+    }
+    .banner_content {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px; /* Уменьшаем отступы */
+    }
+    .banner_text h1 {
+        font-size: 24px; /* Уменьшаем размер шрифта */
+    }
+    .banner_text p {
+        font-size: 16px; /* Уменьшаем размер шрифта */
+    }
+    .info_banner img {
+        width: 100%;
+        height: auto;
+    }
+    .services_title {
+        font-size: 30px; /* Уменьшаем размер шрифта */
+    }
+    .addresses_title {
+        font-size: 30px;
+    }
+    .services_nav__block {
+        display: none; /* Скрываю чтобы с помощью JS вызывать данное меню по кнопке */
+    }
+    .address_nav__block {
+        display: none;
+    }
+    .services_category__block {
+        display: flex;
+    }
+    .addresses_category__block {
+        display: flex;
+    }
+    .services_content {
+        grid-template-columns: 1fr 1fr;
+    }
+    iframe {
+        width: 500px;
+        height: 250px;
+    }
+    .container {
+        width: 34rem;
+    }
+    .footer_content {
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 656px) {
-  .logo {
-    height: 60px;
-  }
-  .banner_text p {
-    font-size: 16px;
-  }
-  .product_card {
-    width: 260px;
-  }
-  .card__image {
-    height: 220px;
-  }
-  .services_category__block {
-    width: 250px;
-    font-size: 14px;
-  }
-  .addresses_category__block {
-    width: 250px;
-    font-size: 14px;
-  }
-  .container {
-    width: 30rem;
-  }
-  #map {
-    width: 450px;
-    height: 300px;
-  }
+    .logo {
+        height: 60px;
+    }
+    .banner_text p {
+        font-size: 16px;
+    }
+    .product_card {
+        width: 260px;
+    }
+    .card__image {
+        height: 220px;
+    }
+    .services_category__block {
+        width: 250px;
+        font-size: 14px;
+    }
+    .addresses_category__block {
+        width: 250px;
+        font-size: 14px;
+    }
+    .container {
+        width: 30rem;
+    }
+    #map {
+        width: 450px;
+        height: 300px;
+    }
 }
 @media screen and (max-width: 597px) {
-  .product_card {
-    width: 240px;
-  }
-  .card__image {
-    height: 200px;
-  }
-  .container {
-    width: 28rem;
-  }
+    .product_card {
+        width: 240px;
+    }
+    .card__image {
+        height: 200px;
+    }
+    .container {
+        width: 28rem;
+    }
 }
 @media screen and (max-width: 541px) {
-  .address_button {
-    padding: 0.4rem;
-  }
-  iframe {
-    width: 450px;
-    height: 250px;
-  }
-  .leaflet-popup-content-wrapper {
-    max-height: 140px;
-    width: 315px;
-  }
-  .product_card {
-    width: 200px;
-  }
-  .card__image {
-    height: 160px;
-  }
-  .container {
-    width: 24rem;
-  }
-  .footer_content{
-    font-size: 10px;
-  }
+    .address_button {
+        padding: 0.4rem;
+    }
+    iframe {
+        width: 450px;
+        height: 250px;
+    }
+    .leaflet-popup-content-wrapper {
+        max-height: 140px;
+        width: 315px;
+    }
+    .product_card {
+        width: 200px;
+    }
+    .card__image {
+        height: 160px;
+    }
+    .container {
+        width: 24rem;
+    }
+    .footer_content {
+        font-size: 10px;
+    }
 }
 @media screen and (max-width: 521px) {
-  .product_card {
-    width: 180px;
-  }
-  .card__image {
-    height: 140px;
-  }
-  .copyright_block {
-    font-size: 12px;
-  }
-  .addresses_category__block {
-    width: 200px;
-    padding: 5px;
-    font-size: 12px;
-  }
-  .services_category__block {
-    width: 200px;
-    padding: 5px;
-    font-size: 12px;
-  }
-  .container {
-    width: 20rem;
-  }
-  .copyright_block {
-    right: 5px;
-    margin-top: 114px;
-  }
+    .product_card {
+        width: 180px;
+    }
+    .card__image {
+        height: 140px;
+    }
+    .copyright_block {
+        font-size: 12px;
+    }
+    .addresses_category__block {
+        width: 200px;
+        padding: 5px;
+        font-size: 12px;
+    }
+    .services_category__block {
+        width: 200px;
+        padding: 5px;
+        font-size: 12px;
+    }
+    .container {
+        width: 20rem;
+    }
+    .copyright_block {
+        right: 5px;
+        margin-top: 114px;
+    }
 }
 @media screen and (max-width: 480px) {
-  iframe {
-    width: 400px;
-  }
-  #map {
-    width: 400px;
-    height: 250px;
-  }
-  .footer_content{
-    font-size: 8px;
-  }
+    iframe {
+        width: 400px;
+    }
+    #map {
+        width: 400px;
+        height: 250px;
+    }
+    .footer_content {
+        font-size: 8px;
+    }
 }
 @media screen and (max-width: 430px) {
-  #map {
-    width: 340px;
-    height: 220px;
-  }
-  .product_card {
-    width: 160px;
-  }
-  .card__image {
-    height: 130px;
-  }
-  .socials li{
-    margin-right: 8px;
-  }
+    #map {
+        width: 340px;
+        height: 220px;
+    }
+    .product_card {
+        width: 160px;
+    }
+    .card__image {
+        height: 130px;
+    }
+    .socials li {
+        margin-right: 8px;
+    }
 }
 @media screen and (max-width: 385px) {
-  #map {
-    width: 310px;
-    height: 190px;
-  }
-  .product_card {
-    width: 130px;
-  }
-  .card__image {
-    height: 100px;
-  }
-  .card__content {
-    font-size: 14px;
-  }
-  .footer_content{
-    font-size: 7px;
-  }
+    #map {
+        width: 310px;
+        height: 190px;
+    }
+    .product_card {
+        width: 130px;
+    }
+    .card__image {
+        height: 100px;
+    }
+    .card__content {
+        font-size: 14px;
+    }
+    .footer_content {
+        font-size: 7px;
+    }
 }

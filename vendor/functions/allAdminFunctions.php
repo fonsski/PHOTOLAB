@@ -266,4 +266,3 @@ if (isset($_SESSION["referer"])) {
 } else {
     header("Location: /admin/admin_panel.php"); // Перенаправление на стандартную страницу, если нет сохраненного URL
 }
-
