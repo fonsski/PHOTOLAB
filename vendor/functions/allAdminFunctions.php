@@ -1,54 +1,84 @@
 <?php
 require_once "core.php";
-$_SESSION["referer"] = $_SERVER["HTTP_REFERER"];
 
-// Функция для добавления продукта
+if (isset($_POST["action"])) {
+    switch ($_POST["action"]) {
+        case "addProduct":
+            addProduct();
+            break;
+        case "updateProduct":
+            updateProduct();
+            break;
+        case "deleteProduct":
+            deleteProduct();
+            break;
+        case "addCategory":
+            addCategory();
+            break;
+        case "updateCategory":
+            updateCategory();
+            break;
+        case "deleteCategory":
+            deleteCategory();
+            break;
+        case "addBanner":
+            addBanner();
+            break;
+        case "updateBanner":
+            updateBanner();
+            break;
+        case "updateBannerStatus":
+            updateBannerStatus();
+            break;
+        case "deleteBanner":
+            deleteBanner();
+            break;
+        default:
+            die("Некорректное действие");
+    }
+}
+
 function addProduct()
 {
     global $link;
     $img = "";
-    if (!empty($_FILES["img"])) {
+    if (!empty($_FILES["img"]) && $_FILES["img"]["error"] === UPLOAD_ERR_OK) {
         $files = $_FILES["img"];
+        $fileType = mime_content_type($files["tmp_name"]);
+        if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
+            die("Неверный тип файла");
+        }
         $img = $files["name"];
         move_uploaded_file(
             $files["tmp_name"],
             "../../assets/img/products/" . $img
         );
     }
-    $stmt = $link->prepare(
-        "INSERT INTO `products` (`category_id`, `name`, `cost`, `img`) VALUES (?, ?, ?, ?)"
-    );
-    $stmt->bind_param(
-        "isss",
-        $_POST["productCategory"],
-        $_POST["productName"],
-        $_POST["productCost"],
-        $img
-    );
-    $stmt->execute();
-    $stmt->close();
+    $link->query("INSERT INTO `products`(`category_id`, `name`, `cost`, `img`) VALUES
+    (
+    '{$_POST["productCategory"]}',
+    '{$_POST["productName"]}',
+    '{$_POST["productCost"]}',
+    '$img'
+    )");
+    redirectUser();
 }
 
-// Функция для удаления продукта
-function deleteProduct()
-{
-    global $link;
-    $stmt = $link->prepare("DELETE FROM `products` WHERE name = ?");
-    $stmt->bind_param("s", $_POST["productDelete"]);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// Функция для обновления продукта
 function updateProduct()
 {
     global $link;
-    $product_id = $_POST["productUpdate"];
-    $img = ""; // Переменная для хранения имени файла
+    $img = "";
 
-    if (!empty($_FILES["productImgNew"]["name"])) {
-        // Проверка, был ли выбран файл
+    // Проверяем, загрузил ли пользователь новое изображение
+    if (
+        !empty($_FILES["productImgNew"]) &&
+        $_FILES["productImgNew"]["error"] === UPLOAD_ERR_OK
+    ) {
         $files = $_FILES["productImgNew"];
+        $fileType = mime_content_type($files["tmp_name"]);
+        if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
+            die("Неверный тип файла");
+        }
         $img = $files["name"];
         move_uploaded_file(
             $files["tmp_name"],
@@ -56,213 +86,135 @@ function updateProduct()
         );
     }
 
-    if (!empty($img)) {
-        $stmt = $link->prepare(
-            "UPDATE `products` SET `category_id`=?, `name`=?, `cost`=?, `img`=? WHERE `id`=?"
-        );
-        $stmt->bind_param(
-            "isssi",
-            $_POST["productCategoryNew"],
-            $_POST["productNameNew"],
-            $_POST["productCostNew"],
-            $img,
-            $product_id
-        );
-    } else {
-        $stmt = $link->prepare(
-            "UPDATE `products` SET `category_id`=?, `name`=?, `cost`=? WHERE `id`=?"
-        );
-        $stmt->bind_param(
-            "issi",
-            $_POST["productCategoryNew"],
-            $_POST["productNameNew"],
-            $_POST["productCostNew"],
-            $product_id
-        );
-    }
+    // Если новое изображение не загружено, то не обновляем поле `img`
+    $imgUpdate = $img ? ", `img` = '$img'" : "";
 
-    $stmt->execute();
-    $stmt->close();
+    // Обновляем данные по товару с проверкой по ID
+    $link->query("UPDATE `products` SET
+        `category_id` = '{$_POST["productCategoryNew"]}',
+        `name` = '{$_POST["productNameNew"]}',
+        `cost` = '{$_POST["productCostNew"]}'
+        $imgUpdate
+        WHERE `id` = '{$_POST["productUpdate"]}'");
+    redirectUser();
 }
 
-// Функция для обновления статуса баннера
-function updateBannerStatus()
+function deleteProduct()
 {
     global $link;
-    $stmt = $link->prepare("UPDATE banner SET active = '0' WHERE name != ?");
-    $stmt->bind_param("s", $_POST["activeBanner"]);
-    $stmt->execute();
-    $stmt->close();
-
-    $stmt = $link->prepare("UPDATE banner SET active = '1' WHERE name = ?");
-    $stmt->bind_param("s", $_POST["activeBanner"]);
-    $stmt->execute();
-    $stmt->close();
+    // Удаляем товар по ID
+    $link->query(
+        "DELETE FROM `products` WHERE `id` = '{$_POST["productDelete"]}'"
+    );
+    redirectUser();
 }
 
-// Функция для добавления баннера
+function addCategory()
+{
+    global $link;
+    $link->query(
+        "INSERT INTO `categories`(`name`) VALUES ('{$_POST["categoryAdd"]}')"
+    );
+    redirectUser();
+}
+
+function updateCategory()
+{
+    global $link;
+    $link->query(
+        "UPDATE `categories` SET `name`='{$_POST["categoryNameChange"]}' WHERE id = '{$_POST["categoryOld"]}'"
+    );
+    redirectUser();
+}
+
+function deleteCategory()
+{
+    global $link;
+
+    $link->query(
+        "DELETE FROM `categories` WHERE id = '{$_POST["deleteCategory"]}'"
+    );
+    redirectUser();
+}
+
 function addBanner()
 {
     global $link;
+
+    $img = "";
     if (
         !empty($_FILES["banner_image"]) &&
         $_FILES["banner_image"]["error"] === UPLOAD_ERR_OK
     ) {
         $files = $_FILES["banner_image"];
-        $banner_image = $files["name"];
+        $fileType = mime_content_type($files["tmp_name"]);
+        if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
+            die("Неверный тип файла");
+        }
+        $img = $files["name"];
         move_uploaded_file(
             $files["tmp_name"],
-            "../../assets/img/banner/" . $banner_image
+            "../../assets/img/banner/" . $img
         );
-        $stmt = $link->prepare(
-            "INSERT INTO `banner`(`name`, `title`, `text`, `img`, `active`) VALUES (?, ?, ?, ?, NULL)"
-        );
-        $stmt->bind_param(
-            "ssss",
-            $_POST["bannerName"],
-            $_POST["bannerTitle"],
-            $_POST["bannerText"],
-            $banner_image
-        );
-        $stmt->execute();
-        $stmt->close();
-    } else {
-        echo "Ошибка при загрузке файла.";
     }
+    $link->query("INSERT INTO `banner`(`name`, `title`, `text`, `img`) VALUES
+    (
+    '{$_POST["bannerName"]}',
+    '{$_POST["bannerTitle"]}',
+    '{$_POST["bannerText"]}',
+    '$img'
+    )");
+    redirectUser();
 }
 
-// Функция для удаления баннера
-function deleteBanner()
-{
-    global $link;
-    $stmt = $link->prepare("DELETE FROM `banner` WHERE id = ?");
-    $stmt->bind_param("i", $_POST["deleteBanner"]);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// Функция для обновления баннера
 function updateBanner()
 {
     global $link;
-    $banner_name = $_POST["bannerOld"];
-    $banner_image = "";
-    if (!empty($_FILES["imgNew"]["name"])) {
-        $files = $_FILES["imgNew"];
-        $banner_image = $files["name"];
+    $img = "";
+
+    // Проверяем, загрузил ли пользователь новое изображение
+    if (
+        !empty($_FILES["imgNew"]) &&
+        $_FILES["imgNew"]["error"] === UPLOAD_ERR_OK
+    ) {
+        $files = $_FILES["productImgNew"];
+        $fileType = mime_content_type($files["tmp_name"]);
+        if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
+            die("Неверный тип файла");
+        }
+        $img = $files["name"];
         move_uploaded_file(
             $files["tmp_name"],
-            "../../assets/img/banner/" . $banner_image
+            "../../assets/img/banner/" . $img
         );
     }
-    $stmt = $link->prepare(
-        "UPDATE `banner` SET `name`=?, `title`=?, `text`=? " .
-            (!empty($banner_image) ? ", `img`=?" : "") .
-            " WHERE `id`=?"
+
+    // Если новое изображение не загружено, то не обновляем поле `img`
+    $imgUpdate = $img ? ", `img` = '$img'" : "";
+
+    // Обновляем данные по баннеру с проверкой по ID
+    $link->query("UPDATE `banner` SET
+        `name` = '{$_POST["bannerNameNew"]}',
+        `title` = '{$_POST["bannerTitleNew"]}',
+        `text` = '{$_POST["bannerTextNew"]}'
+        $imgUpdate
+        WHERE `id` = '{$_POST["bannerOld"]}'");
+    redirectUser();
+}
+
+function updateBannerStatus()
+{
+    global $link;
+    $link->query("UPDATE `banner` SET `active` = '{$_POST["activeBanner"]}'");
+    redirectUser();
+}
+
+function deleteBanner()
+{
+    global $link;
+    $link->query(
+        "DELETE FROM `banner` WHERE `id` = '{$_POST["deleteBanner"]}'"
     );
-
-    if (!empty($banner_image)) {
-        $stmt->bind_param(
-            "ssssi",
-            $_POST["bannerNameNew"],
-            $_POST["bannerTitleNew"],
-            $_POST["bannerTextNew"],
-            $banner_image,
-            $banner_name
-        );
-    } else {
-        $stmt->bind_param(
-            "sssi",
-            $_POST["bannerNameNew"],
-            $_POST["bannerTitleNew"],
-            $_POST["bannerTextNew"],
-            $banner_name
-        );
-    }
-
-    $stmt->execute();
-    $stmt->close();
+    redirectUser();
 }
-
-// Функция для добавления категории
-function addCategory()
-{
-    global $link;
-    $stmt = $link->prepare("INSERT INTO `categories`(`name`) VALUES (?)");
-    $stmt->bind_param("s", $_POST["categoryAdd"]);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// Функция для удаления категории
-function deleteCategory()
-{
-    global $link;
-    $stmt = $link->prepare("DELETE FROM `categories` WHERE name = ?");
-    $stmt->bind_param("s", $_POST["deleteCategory"]);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// Функция для обновления имени категории
-function changeCategoryName()
-{
-    global $link;
-    $stmt = $link->prepare("UPDATE `categories` SET `name`=? WHERE `name` = ?");
-    $stmt->bind_param(
-        "ss",
-        $_POST["categoryNameChange"],
-        $_POST["categoryOldName"]
-    );
-    $stmt->execute();
-    $stmt->close();
-}
-
-// Вызов соответствующей функции в зависимости от отправленной формы
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (isset($_POST["action"])) {
-        $action = $_POST["action"];
-        switch ($action) {
-            case "addCategory":
-                addCategory();
-                break;
-            case "addProduct":
-                addProduct();
-                break;
-            case "updateBannerStatus":
-                updateBannerStatus();
-                break;
-            case "addBanner":
-                addBanner();
-                break;
-            case "deleteBanner":
-                deleteBanner();
-                break;
-            case "updateBanner":
-                updateBanner();
-                break;
-            case "deleteCategory":
-                deleteCategory();
-                break;
-            case "deleteProduct":
-                deleteProduct();
-                break;
-            case "updateProduct":
-                updateProduct();
-                break;
-            case "changeCategoryName":
-                changeCategoryName();
-                break;
-            // Добавьте другие случаи по мере необходимости
-            default:
-                // Обработка случая, если действие не определено
-                break;
-        }
-    }
-}
-
-if (isset($_SESSION["referer"])) {
-    header("Location: {$_SESSION["referer"]}");
-} else {
-    header("Location: /admin/admin_panel.php"); // Перенаправление на стандартную страницу, если нет сохраненного URL
-}
+?>

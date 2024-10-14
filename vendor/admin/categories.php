@@ -1,6 +1,7 @@
 <?php
 $title = "Категории товаров";
 require_once "admin_header.php";
+global $link;
 $category = $link->query("SELECT * FROM categories");
 ?>
 <main>
@@ -13,35 +14,30 @@ $category = $link->query("SELECT * FROM categories");
             <button type="submit">Добавить категорию</button>
         </form>
 
-        <form class="changeCategoryName" action="../functions/allAdminFunctions.php#changeCategoryName" method="POST">
+        <form class="changeCategoryName" action="/vendor/functions/allAdminFunctions.php" method="POST">
+            <input type="hidden" name="action" value="updateCategory">
             <label for="categoryNameChange">Редактировать категорию</label>
-            <select name="categoryOldName">
-                <?php foreach ($category as $categoryOldName) { ?>
-                    <option value="<?= $categoryOldName['name'] ?>"><?= $categoryOldName['name'] ?></option>
+            <select name="categoryOld">
+                <?php foreach ($category as $categoryOld) { ?>
+                    <option value="<?= $categoryOld['id'] ?>"><?= $categoryOld['name'] ?></option>
                 <?php } ?>
             </select>
-            <input type="hidden" name="action" value="changeCategoryName">
             <input name="categoryNameChange" placeholder="Введите новое название категории">
             <button type="submit">Редактировать категорию</button>
         </form>
 
-        <form class="deleteCategory" action="../functions/allAdminFunctions.php#deleteCategory" method="POST">
+        <form class="deleteCategory" action="/vendor/functions/allAdminFunctions.php" method="POST">
             <input type="hidden" name="action" value="deleteCategory">
             <label for="deleteCategory">Удалить категорию</label>
             <select name="deleteCategory">
                 <?php foreach ($category as $categoryOldName) { ?>
-                    <option value="<?= $categoryOldName['name'] ?>"><?= $categoryOldName['name'] ?></option>
+                    <option value="<?= $categoryOldName['id'] ?>"><?= $categoryOldName['name'] ?></option>
                 <?php } ?>
             </select>
             <button type="submit">Удалить категорию</button>
         </form>
     </div>
-    
-    <div class="success_window">
-        
-    </div>
 </main>
 <?php
 require_once "right_section.php";
 ?>
-</body>

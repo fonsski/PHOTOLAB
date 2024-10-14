@@ -1,7 +1,7 @@
 <?php
 $title = "Товары";
+global $link;
 require_once "admin_header.php";
-
 // Получение данных категорий и товаров
 $category = $link->query("SELECT * FROM categories");
 $products = $link->query("SELECT * FROM products");
@@ -9,9 +9,9 @@ $products = $link->query("SELECT * FROM products");
 <main>
     <h1>Действия с товарами</h1>
     <div class="form_container">
-        <form class="adminForm" action="../functions/allAdminFunctions.php#addProduct" method="post" enctype="multipart/form-data">
-            <h2>Добавить товар</h2>
+        <form class="adminForm" action="/vendor/functions/allAdminFunctions.php#addProduct" method="post" enctype="multipart/form-data">
             <input type="hidden" name="action" value="addProduct">
+            <h2>Добавить товар</h2>
             <label for="productName">Название товара</label>
             <input type="text" name="productName" placeholder="Введите название товара" required>
             <label for="productCost">Цена товара</label>
@@ -22,7 +22,11 @@ $products = $link->query("SELECT * FROM products");
             <label for="productCategory">Категория товара</label>
             <select name="productCategory" required>
                 <?php foreach ($category as $categoryName) { ?>
-                    <option value="<?= $categoryName['id'] ?>"><?= htmlspecialchars($categoryName['name']) ?></option>
+                    <option value="<?= $categoryName[
+                        "id"
+                    ] ?>"><?= htmlspecialchars(
+    $categoryName["name"]
+) ?></option>
                 <?php } ?>
             </select>
             <label for="img">Изображение товара</label>
@@ -30,19 +34,25 @@ $products = $link->query("SELECT * FROM products");
             <button type="submit">Добавить товар</button>
         </form>
 
-        <form class="adminForm" action="../functions/allAdminFunctions.php#deleteProduct" method="post" enctype="multipart/form-data">
+        <form class="adminForm" action="/vendor/functions/allAdminFunctions.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="action" value="updateProduct">
             <label for="productUpdate">Редактировать товар</label>
             <select name="productUpdate" class="productUpdate" required>
                 <option value="" disabled selected>Выберите товар</option>
                 <?php foreach ($products as $productName) { ?>
-                    <option value="<?= $productName['id'] ?>"><?= htmlspecialchars($productName['name']) ?></option>
+                    <option value="<?= $productName[
+                        "id"
+                    ] ?>"><?= htmlspecialchars($productName["name"]) ?></option>
                 <?php } ?>
             </select>
             <label for="productCategoryNew">Новая категория товара</label>
             <select name="productCategoryNew" class="productCategoryNew" required>
                 <?php foreach ($category as $categoryName) { ?>
-                    <option value="<?= $categoryName['id'] ?>"><?= htmlspecialchars($categoryName['name']) ?></option>
+                    <option value="<?= $categoryName[
+                        "id"
+                    ] ?>"><?= htmlspecialchars(
+    $categoryName["name"]
+) ?></option>
                 <?php } ?>
             </select>
             <label for="productNameNew">Новое название товара</label>
@@ -57,18 +67,19 @@ $products = $link->query("SELECT * FROM products");
             <button type="submit">Изменить товар</button>
         </form>
 
-        <form class="adminForm" action="../functions/allAdminFunctions.php#deleteProduct" method="post">
+        <form class="adminForm" action="/vendor/functions/allAdminFunctions.php" method="post">
             <input type="hidden" name="action" value="deleteProduct">
             <label for="productDelete">Удалить товар</label>
             <select name="productDelete" required>
                 <?php foreach ($products as $productName) { ?>
-                    <option value="<?= htmlspecialchars($productName['id']) ?>"><?= htmlspecialchars($productName['name']) ?></option>
+                    <option value="<?= htmlspecialchars(
+                        $productName["id"]
+                    ) ?>"><?= htmlspecialchars($productName["name"]) ?></option>
                 <?php } ?>
             </select>
             <button type="submit">Удалить товар</button>
         </form>
     </div>
 </main>
-<?php
-require_once "right_section.php";
+<?php require_once "right_section.php";
 ?>

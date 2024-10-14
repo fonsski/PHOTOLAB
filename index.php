@@ -1,6 +1,7 @@
 <?php
 $title = "PHOTOLAB";
 require_once "vendor/components/header.php";
+global $link;
 $category = $link->query("SELECT * FROM categories");
 $banner = $link->query("SELECT * FROM banner WHERE active = 1");
 ?>

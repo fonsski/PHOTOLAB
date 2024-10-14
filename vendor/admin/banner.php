@@ -1,12 +1,13 @@
 <?php
 $title = "Настройки баннера";
 require_once "admin_header.php";
+global $link;
 $banner = $link->query("SELECT * FROM banner");
 ?>
 <main>
     <h1>Действия с баннерами</h1>
     <div class="form_container">
-        <form class="adminForm" action="../functions/allAdminFunctions.php#addBanner" method="post" enctype="multipart/form-data">
+        <form class="adminForm" action="/vendor/functions/allAdminFunctions.php" method="post" enctype="multipart/form-data">
             <h2>Добавить баннер</h2>
             <input type="hidden" name="action" value="addBanner">
             <label for="bannnerName">Название баннера</label>
@@ -20,13 +21,14 @@ $banner = $link->query("SELECT * FROM banner");
             <button type="submit">Добавить баннер</button>
         </form>
 
-        <form class="adminForm" action="../functions/allAdminFunctions.php#updateBanner" method="post" enctype="multipart/form-data">
+        <form class="adminForm" action="/vendor/functions/allAdminFunctions.php" method="post" enctype="multipart/form-data">
             <h2>Редактировать баннер</h2>
             <input type="hidden" name="action" value="updateBanner">
             <select name="bannerOld">
                 <option value="">Выбрать баннер</option>
                 <?php foreach ($banner as $bannerUpdate) { ?>
-                    <option value="<?= $bannerUpdate['id'] ?>"><?= $bannerUpdate  ['name'] ?></option>
+                    <option value="<?= $bannerUpdate["id"] ?>">
+                    <?= $bannerUpdate["name"] ?></option>
                 <?php } ?>
             </select>
             <label for="bannerNameNew">Новое название баннера</label>
@@ -45,7 +47,9 @@ $banner = $link->query("SELECT * FROM banner");
             <input type="hidden" name="action" value="deleteBanner">
             <select name="deleteBanner">
                 <?php foreach ($banner as $bannerDelete) { ?>
-                    <option value="<?= $bannerDelete['id'] ?>"><?= $bannerDelete['name'] ?></option>
+                    <option value="<?= $bannerDelete[
+                        "id"
+                    ] ?>"><?= $bannerDelete["name"] ?></option>
                 <?php } ?>
             </select>
             <button type="submit">Удалить баннер</button>
@@ -56,13 +60,14 @@ $banner = $link->query("SELECT * FROM banner");
             <input type="hidden" name="action" value="updateBannerStatus">
             <select name="activeBanner">
                 <?php foreach ($banner as $bannerActive) { ?>
-                    <option value="<?= $bannerActive['id'] ?>"><?= $bannerActive['name'] ?></option>
+                    <option value="<?= $bannerActive[
+                        "id"
+                    ] ?>"><?= $bannerActive["name"] ?></option>
                 <?php } ?>
             </select>
             <button type="submit">Выбрать баннер</button>
         </form>
     </div>
 </main>
-<?php
-require_once "right_section.php";
+<?php require_once "right_section.php";
 ?>
