@@ -11,12 +11,14 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
     <?php foreach ($banner as $banner_cont) { ?>
       <div class="banner_content">
         <div class="info_banner">
-          <img src="/assets/img/banner/<?= $banner_cont['img'] ?>" alt="<?= $banner_cont['name'] ?>" />
+          <img src="/assets/img/banner/<?= $banner_cont[
+              "img"
+          ] ?>" alt="<?= $banner_cont["name"] ?>" />
         </div>
         <div class="banner_text">
-          <h1><?= $banner_cont['title'] ?></h1>
+          <h1><?= $banner_cont["title"] ?></h1>
           <p>
-            <?= $banner_cont['text'] ?>
+            <?= $banner_cont["text"] ?>
           </p>
         </div>
       </div>
@@ -30,7 +32,9 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
     </div>
     <nav class="services_nav__block">
       <?php foreach ($category as $categor) { ?>
-        <button class="services_button" id="<?= $categor['id'] ?>"><?= $categor['name'] ?></button>
+        <button class="services_button" id="<?= $categor["id"] ?>"><?= $categor[
+    "name"
+] ?></button>
       <?php } ?>
     </nav>
     <div class="services_content">
@@ -73,6 +77,5 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
 
 </div>
 
-<?php
-require_once "vendor/components/footer.php";
+<?php require_once "vendor/components/footer.php";
 ?>

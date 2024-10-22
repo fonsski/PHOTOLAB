@@ -1,6 +1,5 @@
 <?php
-require_once "admin_header.php";
-?>
+require_once "admin_header.php"; ?>
 
 <div class="right-section">
     <div class="nav">

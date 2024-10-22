@@ -1,6 +1,6 @@
 <?php
 require_once "core.php";
-
+// Выбор функции на основе полученного действия с админ-панели
 if (isset($_POST["action"])) {
     switch ($_POST["action"]) {
         case "addProduct":
@@ -38,6 +38,7 @@ if (isset($_POST["action"])) {
     }
 }
 
+// Функция добавления продукта
 function addProduct()
 {
     global $link;
@@ -205,7 +206,7 @@ function updateBanner()
 function updateBannerStatus()
 {
     global $link;
-    $link->query("UPDATE `banner` SET `active` = '{$_POST["activeBanner"]}'");
+    $link->query("UPDATE `banner` SET `active` = 1 WHERE `id` = '{$_POST["activeBanner"]}'");
     redirectUser();
 }
 

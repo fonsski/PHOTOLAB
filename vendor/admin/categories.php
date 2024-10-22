@@ -17,12 +17,13 @@ $category = $link->query("SELECT * FROM categories");
         <form class="changeCategoryName" action="/vendor/functions/allAdminFunctions.php" method="POST">
             <input type="hidden" name="action" value="updateCategory">
             <label for="categoryNameChange">Редактировать категорию</label>
-            <select name="categoryOld">
+            <select class="categoryOld" name="categoryOld">
+            <option value="" disabled selected>Выберите категорию</option>
                 <?php foreach ($category as $categoryOld) { ?>
-                    <option value="<?= $categoryOld['id'] ?>"><?= $categoryOld['name'] ?></option>
+                    <option value="<?= $categoryOld["id"] ?>"><?= $categoryOld["name"] ?></option>
                 <?php } ?>
             </select>
-            <input name="categoryNameChange" placeholder="Введите новое название категории">
+            <input class="categoryNameChange" name="categoryNameChange" placeholder="Введите новое название категории">
             <button type="submit">Редактировать категорию</button>
         </form>
 
@@ -31,13 +32,14 @@ $category = $link->query("SELECT * FROM categories");
             <label for="deleteCategory">Удалить категорию</label>
             <select name="deleteCategory">
                 <?php foreach ($category as $categoryOldName) { ?>
-                    <option value="<?= $categoryOldName['id'] ?>"><?= $categoryOldName['name'] ?></option>
+                    <option value="<?= $categoryOldName[
+                        "id"
+                    ] ?>"><?= $categoryOldName["name"] ?></option>
                 <?php } ?>
             </select>
             <button type="submit">Удалить категорию</button>
         </form>
     </div>
 </main>
-<?php
-require_once "right_section.php";
+<?php require_once "right_section.php";
 ?>

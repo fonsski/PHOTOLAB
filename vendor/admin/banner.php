@@ -24,7 +24,7 @@ $banner = $link->query("SELECT * FROM banner");
         <form class="adminForm" action="/vendor/functions/allAdminFunctions.php" method="post" enctype="multipart/form-data">
             <h2>Редактировать баннер</h2>
             <input type="hidden" name="action" value="updateBanner">
-            <select name="bannerOld">
+            <select class="bannerOld" name="bannerOld">
                 <option value="">Выбрать баннер</option>
                 <?php foreach ($banner as $bannerUpdate) { ?>
                     <option value="<?= $bannerUpdate["id"] ?>">
@@ -32,11 +32,11 @@ $banner = $link->query("SELECT * FROM banner");
                 <?php } ?>
             </select>
             <label for="bannerNameNew">Новое название баннера</label>
-            <input name="bannerNameNew" placeholder="Новое название баннера">
+            <input class="bannerNameNew" name="bannerNameNew" placeholder="Новое название баннера">
             <label for="bannerTitleNew">Новый заголовок баннера</label>
-            <input name="bannerTitleNew" placeholder="Новый заголовок баннера">
+            <input class="bannerTitleNew" name="bannerTitleNew" placeholder="Новый заголовок баннера">
             <label for="bannerTextNew">Новый текст баннера</label>
-            <input name="bannerTextNew" placeholder="Новый текст для баннера">
+            <input class="bannerTextNew" name="bannerTextNew" placeholder="Новый текст для баннера">
             <label for="imgNew">Новое изображение для баннера</label>
             <input type="file" name="imgNew">
             <button type="submit">Изменить баннер</button>
