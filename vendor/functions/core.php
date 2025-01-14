@@ -2,7 +2,6 @@
 session_start();
 $link = new mysqli("localhost", "root", "", "photolab");
 $link->set_charset("utf8mb4");
-
 // Переход на другую страницу
 function redirectUser($url = false)
 {
@@ -13,21 +12,15 @@ function redirectUser($url = false)
     }
 }
 // Проверка на администратора
-function isAdmin($bool = false)
+function isAdmin($url = false)
 {
-    if ($bool) {
-        return isset($_SESSION["admin"]);
-    } else {
-        if (!isset($_SESSION["admin"])) {
-            redirectUser("/");
-        }
-    }
+    
 }
 // Функция добавления записи в БД
 function addEntity($table, $fields)
 {
     global $link;
-    
+
     $query =
         "INSERT INTO `$table` (" .
         implode(", ", array_keys($fields)) .

@@ -21,7 +21,8 @@ require_once "admin_header.php";
                         <p>+81%</p>
                     </div>
                 </div>
-            </div>
+
+                </div>
         </div> -->
         <div class="visits">
             <div class="status">
@@ -73,7 +74,7 @@ require_once "admin_header.php";
             <tbody></tbody>
         </table>
     </div>
-    <!-- End of Recent Orders -->
+    
 </main>
 <?php
 require_once "right_section.php";

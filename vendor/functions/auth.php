@@ -1,6 +1,5 @@
 <?php
 require_once "core.php"; // Подключаем ядро сайта
-session_start(); // Стартуем сессию
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['log'])) {
     $login = trim($_POST['login']);

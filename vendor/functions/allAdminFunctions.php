@@ -1,5 +1,6 @@
 <?php
 require_once "core.php";
+ 
 // Выбор функции на основе полученного действия с админ-панели
 if (isset($_POST["action"])) {
     switch ($_POST["action"]) {
@@ -109,7 +110,7 @@ function deleteProduct()
     );
     redirectUser();
 }
-
+ 
 function addCategory()
 {
     global $link;

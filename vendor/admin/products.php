@@ -22,11 +22,9 @@ $products = $link->query("SELECT * FROM products");
             <label for="productCategory">Категория товара</label>
             <select name="productCategory" required>
                 <?php foreach ($category as $categoryName) { ?>
-                    <option value="<?= $categoryName[
-                        "id"
-                    ] ?>"><?= htmlspecialchars(
-    $categoryName["name"]
-) ?></option>
+                    <option value="<?= $categoryName["id"] ?>"><?= htmlspecialchars(
+                                $categoryName["name"]
+                            ) ?></option>
                 <?php } ?>
             </select>
             <label for="img">Изображение товара</label>
@@ -40,19 +38,15 @@ $products = $link->query("SELECT * FROM products");
             <select name="productUpdate" class="productUpdate" required>
                 <option value="" disabled selected>Выберите товар</option>
                 <?php foreach ($products as $productName) { ?>
-                    <option value="<?= $productName[
-                        "id"
-                    ] ?>"><?= htmlspecialchars($productName["name"]) ?></option>
+                    <option value="<?= $productName["id"] ?>"><?= htmlspecialchars($productName["name"]) ?></option>
                 <?php } ?>
             </select>
             <label for="productCategoryNew">Новая категория товара</label>
             <select name="productCategoryNew" class="productCategoryNew" required>
                 <?php foreach ($category as $categoryName) { ?>
-                    <option value="<?= $categoryName[
-                        "id"
-                    ] ?>"><?= htmlspecialchars(
-    $categoryName["name"]
-) ?></option>
+                    <option value="<?= $categoryName["id"] ?>"><?= htmlspecialchars(
+                                $categoryName["name"]
+                            ) ?></option>
                 <?php } ?>
             </select>
             <label for="productNameNew">Новое название товара</label>
@@ -73,8 +67,8 @@ $products = $link->query("SELECT * FROM products");
             <select name="productDelete" required>
                 <?php foreach ($products as $productName) { ?>
                     <option value="<?= htmlspecialchars(
-                        $productName["id"]
-                    ) ?>"><?= htmlspecialchars($productName["name"]) ?></option>
+                                        $productName["id"]
+                                    ) ?>"><?= htmlspecialchars($productName["name"]) ?></option>
                 <?php } ?>
             </select>
             <button type="submit">Удалить товар</button>
