@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "Авторизация";
 require "../functions/core.php";
 session_start(); // Стартуем сессию
 ?>

@@ -1,4 +1,5 @@
-<?php $title = "О нас";
+<?php 
+$pageTitle = "О нас";
 require_once "header.php";
 ?>
 <div class="content">

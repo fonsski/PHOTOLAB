@@ -1,5 +1,5 @@
 <?php
-$title = "Акции";
+$pageTitle = "Акции";
 require_once "header.php";
 ?>
 <div class="content">

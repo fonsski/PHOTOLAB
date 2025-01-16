@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-$title = "Политика конфедициальности";
+$pageTitle = "Политика конфедициальности";
 ?>
 <div class="container">
     

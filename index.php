@@ -1,5 +1,5 @@
 <?php
-$title = "PHOTOLAB";
+$pageTitle = "PHOTOLAB";
 require_once "vendor/components/header.php";
 global $link;
 $category = $link->query("SELECT * FROM categories");

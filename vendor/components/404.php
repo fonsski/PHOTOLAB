@@ -1,5 +1,5 @@
 <?php
-$title = "Страница не найдена";
+$pageTitle = "Страница не найдена";
 require_once "header.php";
 ?>
 <div class="content">
