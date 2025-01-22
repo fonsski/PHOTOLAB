@@ -69,7 +69,7 @@ if (tableBody) {
                         <td>
                         <a href="/vendor/admin/products.php?id=${product.id}">
                         <span class="material-icons-sharp">edit</span>
-                        <h3>Изменить</h3>жз
+                        <h3>Изменить</h3>
                         </a>
                         </td>
                         <td></td>
