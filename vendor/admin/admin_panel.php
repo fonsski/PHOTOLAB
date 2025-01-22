@@ -6,59 +6,24 @@ isAdmin();
 <!-- Main Content -->
 <main>
     <h1>Аналитика</h1>
-    <!-- Analyses -->
     <div class="analyse">
-        <!-- <div class="sales">
-            <div class="status">
-                <div class="info">
-                    <h3>Total Sales</h3>
-                    <h1>$65,024</h1>
-                </div>
-                <div class="progresss">
-                    <svg>
-                        <circle cx="38" cy="38" r="36"></circle>
-                    </svg>
-                    <div class="percentage">
-                        <p>+81%</p>
-                    </div>
-                </div>
-
-                </div>
-        </div> -->
         <div class="visits">
             <div class="status">
                 <div class="info">
                     <h3>Посещаемость сайта</h3>
-                    <h1>24,981</h1>
+                    <h1><?php echo $totalVisits; ?></h1>
                 </div>
                 <div class="progresss">
-                    <svg>
-                        <circle cx="38" cy="38" r="36"></circle>
-                    </svg>
-                    <div class="percentage">
-                        <p>48%</p>
-                    </div>
+                    <canvas id="visitsChart"></canvas>
                 </div>
             </div>
         </div>
-        <!-- <div class="searches">
-            <div class="status">
-                <div class="info">
-                    <h3>Searches</h3>
-                    <h1>14,147</h1>
-                </div>
-                <div class="progresss">
-                    <svg>
-                        <circle cx="38" cy="38" r="36"></circle>
-                    </svg>
-                    <div class="percentage">
-                        <p>+21%</p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
-    <!-- End of Analyses -->
+
+    <!-- График посещаемости -->
+    <div class="visits-trend">
+        <canvas id="visitsTrendChart"></canvas>
+    </div>
 
     <!-- Recent Orders Table -->
     <div class="recent-orders">
@@ -73,16 +38,70 @@ isAdmin();
                 </tr>
             </thead>
             <tbody>
-            
+                <!-- Содержимое таблицы -->
             </tbody>
         </table>
     </div>
-    
 </main>
-<?php
-require_once "right_section.php";
-?>
+<?php require_once "right_section.php"; ?>
 </div>
 </body>
+<script>
+// График в круге
+const ctx = document.getElementById('visitsChart').getContext('2d');
+new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [<?php echo $totalVisits; ?>, 100 - <?php echo $totalVisits; ?>],
+            backgroundColor: ['#7380ec', '#dce1eb']
+        }]
+    },
+    options: {
+        cutout: '70%',
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    }
+});
 
+// График тренда посещаемости
+const trendCtx = document.getElementById('visitsTrendChart').getContext('2d');
+new Chart(trendCtx, {
+    type: 'line',
+    data: {
+        labels: <?php echo json_encode($visitsData["dates"]); ?>,
+        datasets: [{
+            label: 'Посещения',
+            data: <?php echo json_encode($visitsData["visits"]); ?>,
+            borderColor: '#7380ec',
+            tension: 0.3,
+            fill: true,
+            backgroundColor: 'rgba(115, 128, 236, 0.1)'
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Посещаемость за последние 7 дней'
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
 </html>

@@ -1,6 +1,11 @@
 <?php
 require_once "../functions/core.php";
+require_once "../functions/visit_counter.php";
 isAdmin();
+
+$visitCounter = new VisitCounter();
+$totalVisits = $visitCounter->getTotalVisits();
+$visitsData = $visitCounter->getVisitsData();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +18,8 @@ isAdmin();
     <link rel="stylesheet" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/admin_board.css" />
     <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <title><?php echo $title ?></title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title><?php echo $title; ?></title>
 </head>
 
 <body>
