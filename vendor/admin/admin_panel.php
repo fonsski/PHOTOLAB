@@ -11,7 +11,7 @@ isAdmin();
             <div class="status">
                 <div class="info">
                     <h3>Посещаемость сайта</h3>
-                    <h1><?php echo $totalVisits; ?></h1>
+                    <h1><?php echo $totalVisits; ?> чел.</h1>
                 </div>
                 <div class="progresss">
                     <canvas id="visitsChart"></canvas>
