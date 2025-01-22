@@ -11,11 +11,12 @@ function redirectUser($url = false)
         header("Location: {$_SERVER["HTTP_REFERER"]}");
     }
 }
-// Проверка на администратора
+
 function isAdmin($url = false)
 {
     
 }
+
 // Функция добавления записи в БД
 function addEntity($table, $fields)
 {
@@ -29,6 +30,7 @@ function addEntity($table, $fields)
         "')";
     $link->query($query);
 }
+
 // Функция обновления записи в БД
 function updateEntity($table, $fields, $condition)
 {
@@ -53,6 +55,7 @@ function updateEntity($table, $fields, $condition)
     $query = "UPDATE `$table` SET $setClause WHERE $conditionClause";
     $link->query($query);
 }
+
 // Функция удаления записи из БД
 function deleteEntity($table, $condition)
 {

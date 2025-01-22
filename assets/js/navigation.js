@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let serviceButtons = document.querySelectorAll(".services_button");
   const serviceMobile = document.querySelector(".services_mobile__nav");
   const servicesNavBlock = document.querySelector(".services_nav__block");
-
   if (serviceButtons.length > 0) {
     // Функция для отправки запроса и обновления HTML
     const fetchAndUpdateContent = async (id) => {

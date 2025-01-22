@@ -29,22 +29,21 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
     </div>
     <nav class="services_nav__block">
       <?php foreach ($category as $categor) { ?>
-        <button class="services_button" id="<?= $categor["id"] ?>"><?= $categor[
-    "name"
-] ?></button>
+        <button class="services_button" id="<?= $categor["id"] ?>"><?= $categor["name"] ?>
+    </button>
       <?php } ?>
     </nav>
     <div class="services_content">
 
     </div>
   </section>
-
-  <section id="addresses">
+  <!-- TODO: Решить где будет секция с адресами -->
+  <!-- <section id="addresses">
     <h2 class="addresses_title">Адреса</h2>
-
-  </section>
+  </section> -->
 
 </div>
 
-<?php require_once "vendor/components/footer.php";
+<?php 
+require_once "vendor/components/footer.php";
 ?>

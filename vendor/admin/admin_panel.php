@@ -1,6 +1,7 @@
 <?php
 $title = "Админ панель";
 require_once "admin_header.php";
+isAdmin();
 ?>
 <!-- Main Content -->
 <main>
@@ -35,7 +36,7 @@ require_once "admin_header.php";
                         <circle cx="38" cy="38" r="36"></circle>
                     </svg>
                     <div class="percentage">
-                        <p>-48%</p>
+                        <p>48%</p>
                     </div>
                 </div>
             </div>
