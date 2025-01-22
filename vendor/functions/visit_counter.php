@@ -26,7 +26,7 @@ class VisitCounter
         }
     }
 
-    // Остальные методы остаются без изменений
+    
     public function countVisit()
     {
         $ip = $_SERVER["REMOTE_ADDR"];
