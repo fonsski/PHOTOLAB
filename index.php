@@ -41,6 +41,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
     </div>
   </section>
   <!-- TODO: Решить где будет секция с адресами -->
+
   <!-- <section id="addresses">
     <h2 class="addresses_title">Адреса</h2>
   </section> -->

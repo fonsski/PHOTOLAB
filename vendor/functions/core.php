@@ -12,7 +12,7 @@ function redirectUser($url = false)
     }
 }
 
-function isAdmin($url = false)
+function isAdmin()
 {
     
 }
