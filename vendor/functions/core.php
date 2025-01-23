@@ -14,7 +14,9 @@ function redirectUser($url = false)
 
 function isAdmin()
 {
-    
+    if (!isset($_SESSION["admin"])) {
+        redirectUser("../../index.php");
+    }
 }
 
 // Функция добавления записи в БД
