@@ -6,18 +6,15 @@ class VisitCounter
 
     public function __construct()
     {
-        // Получаем путь к корню проекта (на один уровень выше vendor)
         $rootPath = dirname(dirname(__DIR__));
 
         $this->logFile = $rootPath . "/logs/visits.json";
         $this->ipLogFile = $rootPath . "/logs/ip_logs.json";
 
-        // Создаем директорию для логов, если её нет
         if (!file_exists($rootPath . "/logs")) {
             mkdir($rootPath . "/logs", 0777, true);
         }
 
-        // Создаем файлы, если их нет
         if (!file_exists($this->logFile)) {
             file_put_contents($this->logFile, json_encode([]));
         }
@@ -26,10 +23,16 @@ class VisitCounter
         }
     }
 
+    private function hashIP($ip) 
+    {
+        // Используем SHA-256 для хэширования IP с добавлением соли
+        $salt = "beavers_rules_the_world";
+        return hash('sha256', $ip . $salt);
+    }
     
     public function countVisit()
     {
-        $ip = $_SERVER["REMOTE_ADDR"];
+        $ip = $this->hashIP($_SERVER["REMOTE_ADDR"]); // Хэшируем IP
         $today = date("Y-m-d");
 
         $visits = json_decode(file_get_contents($this->logFile), true);

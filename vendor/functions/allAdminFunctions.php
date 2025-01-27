@@ -1,6 +1,6 @@
 <?php
 require_once "core.php";
- 
+
 // Выбор функции на основе полученного действия с админ-панели
 if (isset($_POST["action"])) {
     switch ($_POST["action"]) {
@@ -42,7 +42,6 @@ if (isset($_POST["action"])) {
 // Функция добавления продукта
 function addProduct()
 {
-    global $link;
     $img = "";
     if (!empty($_FILES["img"]) && $_FILES["img"]["error"] === UPLOAD_ERR_OK) {
         $files = $_FILES["img"];
@@ -56,22 +55,27 @@ function addProduct()
             "../../assets/img/products/" . $img
         );
     }
-    $link->query("INSERT INTO `products`(`category_id`, `name`, `cost`, `img`) VALUES
-    (
-    '{$_POST["productCategory"]}',
-    '{$_POST["productName"]}',
-    '{$_POST["productCost"]}',
-    '$img'
-    )");
+
+    $fields = [
+        "category_id" => $_POST["productCategory"],
+        "name" => $_POST["productName"],
+        "cost" => $_POST["productCost"],
+        "img" => $img,
+    ];
+
+    addEntity("products", $fields);
     redirectUser();
 }
 
 function updateProduct()
 {
-    global $link;
-    $img = "";
+    $fields = [
+        "category_id" => $_POST["productCategoryNew"],
+        "name" => $_POST["productNameNew"],
+        "cost" => $_POST["productCostNew"],
+    ];
 
-    // Проверяем, загрузил ли пользователь новое изображение
+    // Проверяем, загружено ли новое изображение
     if (
         !empty($_FILES["productImgNew"]) &&
         $_FILES["productImgNew"]["error"] === UPLOAD_ERR_OK
@@ -86,31 +90,23 @@ function updateProduct()
             $files["tmp_name"],
             "../../assets/img/products/" . $img
         );
+        $fields["img"] = $img;
     }
 
-    // Если новое изображение не загружено, то не обновляем поле `img`
-    $imgUpdate = $img ? ", `img` = '$img'" : "";
+    $condition = ["id" => $_POST["productUpdate"]];
 
-    // Обновляем данные по товару с проверкой по ID
-    $link->query("UPDATE `products` SET
-        `category_id` = '{$_POST["productCategoryNew"]}',
-        `name` = '{$_POST["productNameNew"]}',
-        `cost` = '{$_POST["productCostNew"]}'
-        $imgUpdate
-        WHERE `id` = '{$_POST["productUpdate"]}'");
+    updateEntity("products", $fields, $condition);
     redirectUser();
 }
 
 function deleteProduct()
 {
-    global $link;
-    // Удаляем товар по ID
-    $link->query(
-        "DELETE FROM `products` WHERE `id` = '{$_POST["productDelete"]}'"
-    );
+    $condition = ["id" => $_POST["productDelete"]];
+
+    deleteEntity("products", $condition);
     redirectUser();
 }
- 
+
 function addCategory()
 {
     global $link;
@@ -207,7 +203,9 @@ function updateBanner()
 function updateBannerStatus()
 {
     global $link;
-    $link->query("UPDATE `banner` SET `active` = 1 WHERE `id` = '{$_POST["activeBanner"]}'");
+    $link->query(
+        "UPDATE `banner` SET `active` = 1 WHERE `id` = '{$_POST["activeBanner"]}'"
+    );
     redirectUser();
 }
 
