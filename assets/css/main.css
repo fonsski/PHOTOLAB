@@ -415,8 +415,8 @@ h3 {
     position: relative;
 }
 
-.product_card {
-    width: 300px;
+.product_card {30
+    width: 250px;
 }
 .product_card img {
     display: block;

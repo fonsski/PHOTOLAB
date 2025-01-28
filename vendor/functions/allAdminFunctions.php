@@ -1,6 +1,6 @@
 <?php
 require_once "core.php";
-
+ 
 // Выбор функции на основе полученного действия с админ-панели
 if (isset($_POST["action"])) {
     switch ($_POST["action"]) {
@@ -57,29 +57,26 @@ function addProduct()
     }
 
     $fields = [
-        "category_id" => $_POST["productCategory"],
-        "name" => $_POST["productName"],
-        "cost" => $_POST["productCost"],
-        "img" => $img,
+        'category_id' => $_POST["productCategory"],
+        'name' => $_POST["productName"],
+        'cost' => $_POST["productCost"],
+        'img' => $img
     ];
 
-    addEntity("products", $fields);
+    addEntity('products', $fields);
     redirectUser();
 }
 
 function updateProduct()
 {
     $fields = [
-        "category_id" => $_POST["productCategoryNew"],
-        "name" => $_POST["productNameNew"],
-        "cost" => $_POST["productCostNew"],
+        'category_id' => $_POST["productCategoryNew"],
+        'name' => $_POST["productNameNew"],
+        'cost' => $_POST["productCostNew"]
     ];
 
     // Проверяем, загружено ли новое изображение
-    if (
-        !empty($_FILES["productImgNew"]) &&
-        $_FILES["productImgNew"]["error"] === UPLOAD_ERR_OK
-    ) {
+    if (!empty($_FILES["productImgNew"]) && $_FILES["productImgNew"]["error"] === UPLOAD_ERR_OK) {
         $files = $_FILES["productImgNew"];
         $fileType = mime_content_type($files["tmp_name"]);
         if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
@@ -90,23 +87,23 @@ function updateProduct()
             $files["tmp_name"],
             "../../assets/img/products/" . $img
         );
-        $fields["img"] = $img;
+        $fields['img'] = $img;
     }
 
-    $condition = ["id" => $_POST["productUpdate"]];
+    $condition = ['id' => $_POST["productUpdate"]];
 
-    updateEntity("products", $fields, $condition);
+    updateEntity('products', $fields, $condition);
     redirectUser();
 }
 
 function deleteProduct()
 {
-    $condition = ["id" => $_POST["productDelete"]];
-
-    deleteEntity("products", $condition);
+    $condition = ['id' => $_POST["productDelete"]];
+    
+    deleteEntity('products', $condition);
     redirectUser();
 }
-
+ 
 function addCategory()
 {
     global $link;
@@ -203,9 +200,7 @@ function updateBanner()
 function updateBannerStatus()
 {
     global $link;
-    $link->query(
-        "UPDATE `banner` SET `active` = 1 WHERE `id` = '{$_POST["activeBanner"]}'"
-    );
+    $link->query("UPDATE `banner` SET `active` = 1 WHERE `id` = '{$_POST["activeBanner"]}'");
     redirectUser();
 }
 

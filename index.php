@@ -2,9 +2,6 @@
 $pageTitle = "PHOTOLAB";
 require_once "vendor/components/header.php";
 global $link;
-require_once "vendor/functions/visit_counter.php";
-$visitCounter = new VisitCounter();
-$visitCounter->countVisit();
 $category = $link->query("SELECT * FROM categories");
 $banner = $link->query("SELECT * FROM banner WHERE active = 1");
 ?>

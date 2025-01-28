@@ -1,3 +1,5 @@
+// Блоки кода отвечающие за тему
+
 const sideMenu = document.querySelector("aside");
 const menuBtn = document.getElementById("menu-btn");
 const closeBtn = document.getElementById("close-btn");
@@ -51,6 +53,7 @@ if (darkModeActive === "true") {
   darkMode.querySelector("span:nth-child(1)").classList.add("active");
 }
 
+// Блоки кода отвечающие за загрузку и вывод недавно изменённых товаров
 const tableBody = document.querySelector(".recent-orders tbody");
 if (tableBody) {
   document.addEventListener("DOMContentLoaded", function () {

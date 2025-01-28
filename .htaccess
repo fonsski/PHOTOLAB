@@ -1,1 +1,1 @@
-ErrorDocument 404 http://photolab.local/components/404.php
+ErrorDocument 404 /vendor/components/404.php
