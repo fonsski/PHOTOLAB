@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "PHOTOLAB";
+$pageTitle = "PHOTOLAB"; // Это комментарий
 require_once "vendor/components/header.php";
 global $link;
 $category = $link->query("SELECT * FROM categories");
