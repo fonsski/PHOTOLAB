@@ -1,0 +1,134 @@
+@font-face {
+    font-family: Gotham-regular;
+    src: url(/assets/fonts/Gotham/ofont.ru_GothamPro.ttf);
+}
+
+.contentt {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/*блок с акцией*/
+.info-block {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.info-block_image img {
+    width: 740px;
+    height: 523px;
+    border-radius: 20px;
+}
+
+.info-block_text {
+    width: 400px;
+    margin-left: 50px;
+}
+
+.info-block__text_title {
+    color: white;
+    font-size: 48px;
+    margin-bottom: 30px;
+    font-family: Gotham-bold;
+}
+
+.info-block__text_description {
+    color: rgb(182, 182, 182);
+    font-size: 25px;
+    font-family: Gotham-regular;
+    line-height: 35px;
+}
+
+/*карточки с акциями*/
+.allCarts {
+    text-align: center;
+    margin-top: 130px;
+}
+
+.allCarts_title {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-family: Gotham-bold;
+    margin-bottom: 70px;
+}
+
+.allCarts_cartsAll {
+    display: flex;
+    justify-content: space-between;
+}
+
+.allCarts__cartsAll_cart {
+    background-color: #F5E9E9;
+    border-radius: 20px;
+}
+
+.cartsAll__cart_img img {
+    width: 270px;
+    height: 260px;
+    border-radius: 20px;
+}
+
+.cartsAll__cart_name {
+    font-size: 28px;
+    font-family: Gotham-medium;
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.cartsAll__cart_prise {
+    font-size: 28px;
+    font-family: Gotham-medium;
+    text-align: left;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.allCarts_around {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin-left: 350px;
+}
+
+.around {
+    width: 35px;
+    height: 35px;
+    background-color: #D9D9D9;
+    border-radius: 40px;
+}
+
+/*прейскурант*/
+.priseBlock_title {
+    text-align: center;
+    margin-top: 130px;
+    color: white;
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-family: Gotham-bold;
+    margin-bottom: 70px;
+}
+
+.priseBlock_img img {
+    width: 1220px;
+}
+
+/*отзывы*/
+/* .reviews {
+    display: flex;
+}
+
+.reviews_all {
+    width: 868px;
+    height: 551px;
+    background-color: #2F3643;
+    border-radius: 20px;
+}
+
+.userInfo_img img {
+    width: 50px;
+    height: 50px;
+} */
