@@ -1,6 +1,6 @@
 <?php
 require_once "core.php";
- 
+
 // Выбор функции на основе полученного действия с админ-панели
 if (isset($_POST["action"])) {
     switch ($_POST["action"]) {
@@ -99,36 +99,38 @@ function updateProduct()
 function deleteProduct()
 {
     $condition = ['id' => $_POST["productDelete"]];
-    
+
     deleteEntity('products', $condition);
     redirectUser();
 }
- 
+
 function addCategory()
 {
-    global $link;
-    $link->query(
-        "INSERT INTO `categories`(`name`) VALUES ('{$_POST["categoryAdd"]}')"
-    );
+    $fields = [
+        'name' => $_POST["categoryAdd"]
+    ];
+
+    addEntity('categories', $fields);
     redirectUser();
 }
 
 function updateCategory()
 {
-    global $link;
-    $link->query(
-        "UPDATE `categories` SET `name`='{$_POST["categoryNameChange"]}' WHERE id = '{$_POST["categoryOld"]}'"
-    );
+    $fields = [
+        'name' => $_POST["categoryNameChange"]
+    ];
+
+    $condition = ['id' => $_POST["categoryOld"]];
+
+    updateEntity('categories', $fields, $condition);
     redirectUser();
 }
 
 function deleteCategory()
 {
-    global $link;
+    $condition = ['id' => $_POST["deleteCategory"]];
 
-    $link->query(
-        "DELETE FROM `categories` WHERE id = '{$_POST["deleteCategory"]}'"
-    );
+    deleteEntity('categories', $condition);
     redirectUser();
 }
 
@@ -212,4 +214,3 @@ function deleteBanner()
     );
     redirectUser();
 }
-?>
