@@ -1,6 +1,6 @@
 <?php
 require_once "{$_SERVER["DOCUMENT_ROOT"]}/vendor/functions/core.php";
-require_once "vendor/functions/visit_counter.php";
+require_once "{$_SERVER["DOCUMENT_ROOT"]}/vendor/functions/visit_counter.php";
 $visitCounter = new VisitCounter();
 $visitCounter->countVisit();
 ?>
