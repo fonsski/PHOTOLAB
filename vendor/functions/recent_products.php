@@ -4,7 +4,7 @@ require_once "core.php";
 global $link;
 
 // Запрос к БД
-$query = "SELECT id, name, cost, updated_at FROM products ORDER BY updated_at DESC";
+$query = "SELECT id, name, cost, updated_at FROM products WHERE updated_at >= NOW() - INTERVAL 24 HOUR ORDER BY updated_at DESC";
 $result = mysqli_query($link, $query);
 
 // Формируем массив с результатами
