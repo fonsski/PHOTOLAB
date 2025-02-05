@@ -28,7 +28,7 @@ $banner = $link->query("SELECT * FROM banner");
                 <option value="">Выбрать баннер</option>
                 <?php foreach ($banner as $bannerUpdate) { ?>
                     <option value="<?= $bannerUpdate["id"] ?>">
-                    <?= $bannerUpdate["name"] ?></option>
+                        <?= $bannerUpdate["name"] ?></option>
                 <?php } ?>
             </select>
             <label for="bannerNameNew">Новое название баннера</label>
@@ -47,9 +47,7 @@ $banner = $link->query("SELECT * FROM banner");
             <input type="hidden" name="action" value="deleteBanner">
             <select name="deleteBanner">
                 <?php foreach ($banner as $bannerDelete) { ?>
-                    <option value="<?= $bannerDelete[
-                        "id"
-                    ] ?>"><?= $bannerDelete["name"] ?></option>
+                    <option value="<?= $bannerDelete["id"] ?>"><?= $bannerDelete["name"] ?></option>
                 <?php } ?>
             </select>
             <button type="submit">Удалить баннер</button>
@@ -60,9 +58,11 @@ $banner = $link->query("SELECT * FROM banner");
             <input type="hidden" name="action" value="updateBannerStatus">
             <select name="activeBanner">
                 <?php foreach ($banner as $bannerActive) { ?>
-                    <option value="<?= $bannerActive[
-                        "id"
-                    ] ?>"><?= $bannerActive["name"] ?></option>
+                    <option value="<?= $bannerActive["id"] ?>"
+                        <?php
+                        echo  $bannerActive['active'] == 1 ? "selected" : "";
+                        ?>
+                        ><?= $bannerActive["name"] ?></option>
                 <?php } ?>
             </select>
             <button type="submit">Выбрать баннер</button>
