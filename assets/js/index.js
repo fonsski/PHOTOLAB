@@ -57,18 +57,36 @@ if (darkModeActive === "true") {
 const tableBody = document.querySelector(".recent-orders tbody");
 if (tableBody) {
   document.addEventListener("DOMContentLoaded", function () {
+    // Разница между серверным и локальным временем
+    const timeZoneOffset = 3 * 60 * 60 * 1000;
+    // Функция для форматирования времени
+    function formatTimeAgo(datetime) {
+      const now = new Date();
+      const updated = new Date(new Date(datetime).getTime() + timeZoneOffset);
+      const diffMs = now - updated;
+      const diffMinutes = Math.floor(diffMs / (1000 * 60));
+      const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+
+      if (diffMinutes < 1) return 'Только что';
+      if (diffHours < 1) return `${diffMinutes} мин. назад`;
+      return `${diffHours} ч. ${diffMinutes % 60} мин. назад`;
+    }
+
     // Функция для загрузки последних измененных товаров
     function loadRecentProducts() {
       fetch("/vendor/functions/recent_products.php")
         .then((response) => response.json())
         .then((data) => {
           tableBody.innerHTML = ""; // Очищаем текущие записи в таблице
+          if (data.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="5">Нет изменений за последние 24 часа</td></tr>`;
+          }
           data.forEach((product) => {
             const row = document.createElement("tr");
             row.innerHTML = `
                         <td>${product.name}</td>
                         <td>${product.cost}р.</td>
-                        <td>${product.updated_at}</td>
+                        <td>${formatTimeAgo(product.updated_at)}</td>
                         <td>
                         <a href="/vendor/admin/product.php?id=${product.id}">
                         <span class="material-icons-sharp">edit</span>
@@ -83,5 +101,8 @@ if (tableBody) {
     }
 
     loadRecentProducts();
+
+    // Автообновление таблицы, нужно для очистки таблицы автономно
+    setInterval(loadRecentProducts, 5000);
   });
 }
