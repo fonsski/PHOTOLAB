@@ -136,8 +136,6 @@ function deleteCategory()
 
 function addBanner()
 {
-    global $link;
-
     $img = "";
     if (
         !empty($_FILES["banner_image"]) &&
@@ -154,21 +152,21 @@ function addBanner()
             "../../assets/img/banner/" . $img
         );
     }
-    $link->query("INSERT INTO `banner`(`name`, `title`, `text`, `img`) VALUES
-    (
-    '{$_POST["bannerName"]}',
-    '{$_POST["bannerTitle"]}',
-    '{$_POST["bannerText"]}',
-    '$img'
-    )");
+
+    $fields = [
+        'name' => $_POST["bannerName"],
+        'title' => $_POST["bannerTitle"],
+        'text' => $_POST["bannerText"],
+        'img' => $img
+    ];
+
+    addEntity('banner', $fields);
     redirectUser();
 }
 
 function updateBanner()
 {
-    global $link;
     $img = "";
-
     // Проверяем, загрузил ли пользователь новое изображение
     if (
         !empty($_FILES["imgNew"]) &&
@@ -186,31 +184,38 @@ function updateBanner()
         );
     }
 
-    // Если новое изображение не загружено, то не обновляем поле `img`
-    $imgUpdate = $img ? ", `img` = '$img'" : "";
+    // добавление в массив fields данных с условием наличия обновленного фото
+    $fields = $img ?
+        [
+            'name' => $_POST["bannerNameNew"],
+            'title' => $_POST["bannerTitleNew"],
+            'text' => $_POST["bannerTextNew"],
+            'img' => $img
+        ] : [
+            'name' => $_POST["bannerNameNew"],
+            'title' => $_POST["bannerTitleNew"],
+            'text' => $_POST["bannerTextNew"]
+        ];
 
-    // Обновляем данные по баннеру с проверкой по ID
-    $link->query("UPDATE `banner` SET
-        `name` = '{$_POST["bannerNameNew"]}',
-        `title` = '{$_POST["bannerTitleNew"]}',
-        `text` = '{$_POST["bannerTextNew"]}'
-        $imgUpdate
-        WHERE `id` = '{$_POST["bannerOld"]}'");
+    $condition = ['id' => $_POST["bannerOld"]];
+
+    updateEntity('banner', $fields, $condition);
     redirectUser();
 }
 
 function updateBannerStatus()
 {
     global $link;
+    $link->query("UPDATE `banner` SET `active` = 0 WHERE 1");
     $link->query("UPDATE `banner` SET `active` = 1 WHERE `id` = '{$_POST["activeBanner"]}'");
+
     redirectUser();
 }
 
 function deleteBanner()
 {
-    global $link;
-    $link->query(
-        "DELETE FROM `banner` WHERE `id` = '{$_POST["deleteBanner"]}'"
-    );
+    $condition = ['id' => $_POST["deleteBanner"]];
+
+    deleteEntity('banner', $condition);
     redirectUser();
 }
