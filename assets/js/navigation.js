@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let serviceButtons = document.querySelectorAll(".services_button");
   const serviceMobile = document.querySelector(".services_mobile__nav");
   const servicesNavBlock = document.querySelector(".services_nav__block");
+  const addresNavBlock = document.querySelector(".services_addres__block");
+  const addresToggleMenu = document.querySelector(".addres_nav__block");
+  const addresButton = document.querySelectorAll('.addres_button');
+  const mapImgElement = document.querySelector('.addres_content img');
   if (serviceButtons.length > 0) {
     // Функция для отправки запроса и обновления HTML
     const fetchAndUpdateContent = async (id) => {
@@ -64,4 +68,24 @@ document.addEventListener("DOMContentLoaded", function () {
       servicesNavBlock.classList.toggle("open");
     });
   }
+  
+  // Открытие меню с выборами адресов в мобильной версии
+  addresNavBlock.addEventListener('click', () => {
+    addresToggleMenu.classList.toggle('open');
+  })
+
+  // Перебираем все кнопки с адресами, и добавляем им слушатель события по нажатию на одну из них
+  addresButton.forEach(button => {
+    button.addEventListener('click', function() {
+      // Убираем класс active у всех кнопок
+      addresButton.forEach(btn => btn.classList.remove('active'));
+
+      // Добавляем класс active к нажатой кнопке
+      this.classList.add('active');
+
+      // Меняем src у изображения
+      const imgName = this.getAttribute('data-img');
+      mapImgElement.src = `assets/img/map/${imgName}`;
+    });
+  });
 });
