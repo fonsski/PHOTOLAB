@@ -154,7 +154,6 @@
     border-radius: 20px;
     overflow-y: auto;
     padding: 20px;
-    width: 40%;
 }
 
 .reviews__all_user {
@@ -354,12 +353,12 @@ hr {
         margin-left: 25px;
     }
 
-    .reviews_all {
-        width: 100%;
-    }
-
     .header_nav {
         left: 29%;
+    }
+
+    .reviews_all {
+        width: 100%;
     }
 
     .header_nav ul {
@@ -396,10 +395,6 @@ hr {
         justify-content: center;
     }
 
-    .info-block_text {
-        width: 600px;
-    }
-
     .allCarts_cartsAll {
         flex-wrap: wrap;
         gap: 60px;
@@ -430,18 +425,85 @@ hr {
     }
 }
 
-@media screen and (max-width: 800px) {
-    .info-block_image img {
-        width: 540px;
-        height: 323px;
+@media only screen and (max-width: 1370px) and (min-width: 800px) {
+    .allCarts_cartsAll {
+        flex-wrap: wrap;
     }
 
     .priceBlock_img {
-        width: 500px;
-        height: 1020px;
+        width: 600px;
+        height: 1222px;
+        background-image: url(/assets/img/banner/price2.png);
+        background-size: cover;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 380px) {
+    .info-block_image img {
+        max-width: 300px;
+        min-height: 350px;
+    }
+
+    .info-block__text_title {
+        font-size: 30px;
+    }
+
+    .info-block__text_description {
+        color: rgb(182, 182, 182);
+        font-size: 15px;
+        font-family: Gotham-regular;
+    }
+
+    .info-block_text {
+        max-width: 350px;
+        text-align: center;
+        margin-left: 0px;
+    }
+
+    .allCarts_title,
+    .priceBlock_title,
+    .reviews_title {
+        font-size: 30px;
+    }
+
+    .priceBlock_img {
+        max-width: 360px;
+        height: 734px;
+        background-image: url(/assets/img/banner/price3.png);
+        background-size: cover;
+    }
+
+    .reviews {
+        align-items: center;
+    }
+
+    .reviews_all {
+        min-width: 370px;
+        width: 50%;
+    }
+
+    .reviews__all_user {
+        display: block;
     }
 
     .reviews_counter {
+        max-width: 370px;
+    }
+
+    .RevCount-btn {
+        max-width: 300px;
+    }
+
+    .contentt {
         width: 100%;
     }
+
+    .colStar {
+        font-size: 15px;
+    }
+
+    .count-star-rev_one_hr {
+        width: 150px;
+    }
+
 }
