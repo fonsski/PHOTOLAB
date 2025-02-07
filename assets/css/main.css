@@ -326,7 +326,7 @@ header {
 }
 /* Код блока услуг */
 #services {
-    margin-top: 30px;
+    margin: 30px 0px;
     width: 100%;
     display: grid;
     justify-items: center;
@@ -338,7 +338,7 @@ header {
     color: #ffffff;
     text-align: center;
 }
-.services_nav__block {
+.services_nav__block, .addres_nav__block {
     display: flex;
     gap: 10px;
     color: #ffffff;
@@ -346,11 +346,11 @@ header {
     list-style: none;
 }
 
-.services_nav__block.open {
+.services_nav__block.open, .addres_nav__block.open {
     display: grid;
     grid-template-rows: 1fr;
 }
-.services_button {
+.services_button, .addres_button {
     background-color: white;
     height: 48px;
     padding: 0 0.6rem;
@@ -362,7 +362,7 @@ header {
     background-color: #6f8a2b;
     color: #fff;
 }
-.services_mobile__nav {
+.services_mobile__nav, .address_mobile__nav {
     padding: 0;
     border: none;
     color: white;
@@ -372,7 +372,7 @@ header {
     position: relative;
     display: block;
 }
-.services_category__block {
+.services_category__block, .services_addres__block {
     display: none;
     padding: 10px;
     gap: 10px;
@@ -491,6 +491,9 @@ h3 {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     gap: 30px;
+}
+.addres_content img{
+    max-width: 700px;
 }
 .card__image {
     width: 100%;
@@ -816,13 +819,13 @@ h3 {
     .addresses_title {
         font-size: 30px;
     }
-    .services_nav__block {
+    .services_nav__block, .addres_nav__block {
         display: none; /* Скрываю чтобы с помощью JS вызывать данное меню по кнопке */
     }
     .address_nav__block {
         display: none;
     }
-    .services_category__block {
+    .services_category__block, .services_addres__block {
         display: flex;
     }
     .addresses_category__block {
@@ -830,6 +833,9 @@ h3 {
     }
     .services_content {
         grid-template-columns: 1fr 1fr;
+    }
+    .addres_content img {
+        max-width: 350px;
     }
     iframe {
         width: 500px;
@@ -853,7 +859,7 @@ h3 {
     .card__image {
         height: 220px;
     }
-    .services_category__block {
+    .services_category__block, .services_addres__block {
         width: 250px;
         font-size: 14px;
     }
@@ -920,7 +926,7 @@ h3 {
         padding: 5px;
         font-size: 12px;
     }
-    .services_category__block {
+    .services_category__block, .services_addres__block {
         width: 200px;
         padding: 5px;
         font-size: 12px;

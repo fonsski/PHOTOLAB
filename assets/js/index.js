@@ -57,12 +57,18 @@ if (darkModeActive === "true") {
 const tableBody = document.querySelector(".recent-orders tbody");
 if (tableBody) {
   document.addEventListener("DOMContentLoaded", function () {
-    // Разница между серверным и локальным временем
-    const timeZoneOffset = 3 * 60 * 60 * 1000;
+    // Функция для получения текущего московского времени
+    function getMoscowTime() {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000); // Получаем текущее время в UTC
+      const moscowTime = new Date(utc + (3 * 3600000)); // Московское время UTC+3
+      return moscowTime;
+    }
+
     // Функция для форматирования времени
     function formatTimeAgo(datetime) {
       const now = new Date();
-      const updated = new Date(new Date(datetime).getTime() + timeZoneOffset);
+      const updated = new Date(datetime);
       const diffMs = now - updated;
       const diffMinutes = Math.floor(diffMs / (1000 * 60));
       const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
