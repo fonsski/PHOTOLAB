@@ -57,26 +57,29 @@ function addProduct()
     }
 
     $fields = [
-        'category_id' => $_POST["productCategory"],
-        'name' => $_POST["productName"],
-        'cost' => $_POST["productCost"],
-        'img' => $img
+        "category_id" => $_POST["productCategory"],
+        "name" => $_POST["productName"],
+        "cost" => $_POST["productCost"],
+        "img" => $img,
     ];
 
-    addEntity('products', $fields);
+    addEntity("products", $fields);
     redirectUser();
 }
 
 function updateProduct()
 {
     $fields = [
-        'category_id' => $_POST["productCategoryNew"],
-        'name' => $_POST["productNameNew"],
-        'cost' => $_POST["productCostNew"]
+        "category_id" => $_POST["productCategoryNew"],
+        "name" => $_POST["productNameNew"],
+        "cost" => $_POST["productCostNew"],
     ];
 
     // Проверяем, загружено ли новое изображение
-    if (!empty($_FILES["productImgNew"]) && $_FILES["productImgNew"]["error"] === UPLOAD_ERR_OK) {
+    if (
+        !empty($_FILES["productImgNew"]) &&
+        $_FILES["productImgNew"]["error"] === UPLOAD_ERR_OK
+    ) {
         $files = $_FILES["productImgNew"];
         $fileType = mime_content_type($files["tmp_name"]);
         if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
@@ -87,50 +90,50 @@ function updateProduct()
             $files["tmp_name"],
             "../../assets/img/products/" . $img
         );
-        $fields['img'] = $img;
+        $fields["img"] = $img;
     }
 
-    $condition = ['id' => $_POST["productUpdate"]];
+    $condition = ["id" => $_POST["productUpdate"]];
 
-    updateEntity('products', $fields, $condition);
+    updateEntity("products", $fields, $condition);
     redirectUser();
 }
 
 function deleteProduct()
 {
-    $condition = ['id' => $_POST["productDelete"]];
+    $condition = ["id" => $_POST["productDelete"]];
 
-    deleteEntity('products', $condition);
+    deleteEntity("products", $condition);
     redirectUser();
 }
 
 function addCategory()
 {
     $fields = [
-        'name' => $_POST["categoryAdd"]
+        "name" => $_POST["categoryAdd"],
     ];
 
-    addEntity('categories', $fields);
+    addEntity("categories", $fields);
     redirectUser();
 }
 
 function updateCategory()
 {
     $fields = [
-        'name' => $_POST["categoryNameChange"]
+        "name" => $_POST["categoryNameChange"],
     ];
 
-    $condition = ['id' => $_POST["categoryOld"]];
+    $condition = ["id" => $_POST["categoryOld"]];
 
-    updateEntity('categories', $fields, $condition);
+    updateEntity("categories", $fields, $condition);
     redirectUser();
 }
 
 function deleteCategory()
 {
-    $condition = ['id' => $_POST["deleteCategory"]];
+    $condition = ["id" => $_POST["deleteCategory"]];
 
-    deleteEntity('categories', $condition);
+    deleteEntity("categories", $condition);
     redirectUser();
 }
 
@@ -154,68 +157,66 @@ function addBanner()
     }
 
     $fields = [
-        'name' => $_POST["bannerName"],
-        'title' => $_POST["bannerTitle"],
-        'text' => $_POST["bannerText"],
-        'img' => $img
+        "name" => $_POST["bannerName"],
+        "title" => $_POST["bannerTitle"],
+        "text" => $_POST["bannerText"],
+        "img" => $img,
     ];
 
-    addEntity('banner', $fields);
+    addEntity("banner", $fields);
     redirectUser();
 }
 
 function updateBanner()
 {
-    $img = "";
-    // Проверяем, загрузил ли пользователь новое изображение
-    if (
-        !empty($_FILES["imgNew"]) &&
-        $_FILES["imgNew"]["error"] === UPLOAD_ERR_OK
-    ) {
-        $files = $_FILES["productImgNew"];
-        $fileType = mime_content_type($files["tmp_name"]);
-        if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
-            die("Неверный тип файла");
-        }
-        $img = $files["name"];
-        move_uploaded_file(
-            $files["tmp_name"],
-            "../../assets/img/banner/" . $img
-        );
-    }
-
-    // добавление в массив fields данных с условием наличия обновленного фото
-    $fields = $img ?
-        [
-            'name' => $_POST["bannerNameNew"],
-            'title' => $_POST["bannerTitleNew"],
-            'text' => $_POST["bannerTextNew"],
-            'img' => $img
-        ] : [
-            'name' => $_POST["bannerNameNew"],
-            'title' => $_POST["bannerTitleNew"],
-            'text' => $_POST["bannerTextNew"]
+    function updateBanner()
+    {
+        $fields = [
+            "name" => $_POST["bannerNameNew"],
+            "title" => $_POST["bannerTitleNew"],
+            "text" => $_POST["bannerTextNew"],
         ];
 
-    $condition = ['id' => $_POST["bannerOld"]];
+        // Проверяем, загружено ли новое изображение
+        if (
+            !empty($_FILES["imgNew"]) &&
+            $_FILES["imgNew"]["error"] === UPLOAD_ERR_OK
+        ) {
+            $files = $_FILES["imgNew"];
+            $fileType = mime_content_type($files["tmp_name"]);
+            if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
+                die("Неверный тип файла");
+            }
+            $img = $files["name"];
+            move_uploaded_file(
+                $files["tmp_name"],
+                "../../assets/img/banner/" . $img
+            );
+            $fields["img"] = $img;
+        }
 
-    updateEntity('banner', $fields, $condition);
-    redirectUser();
+        $condition = ["id" => $_POST["bannerOld"]];
+
+        updateEntity("banner", $fields, $condition);
+        redirectUser();
+    }
 }
 
 function updateBannerStatus()
 {
     global $link;
     $link->query("UPDATE `banner` SET `active` = 0 WHERE 1");
-    $link->query("UPDATE `banner` SET `active` = 1 WHERE `id` = '{$_POST["activeBanner"]}'");
+    $link->query(
+        "UPDATE `banner` SET `active` = 1 WHERE `id` = '{$_POST["activeBanner"]}'"
+    );
 
     redirectUser();
 }
 
 function deleteBanner()
 {
-    $condition = ['id' => $_POST["deleteBanner"]];
+    $condition = ["id" => $_POST["deleteBanner"]];
 
-    deleteEntity('banner', $condition);
+    deleteEntity("banner", $condition);
     redirectUser();
 }
