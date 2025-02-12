@@ -169,37 +169,34 @@ function addBanner()
 
 function updateBanner()
 {
-    function updateBanner()
-    {
-        $fields = [
-            "name" => $_POST["bannerNameNew"],
-            "title" => $_POST["bannerTitleNew"],
-            "text" => $_POST["bannerTextNew"],
-        ];
+    $fields = [
+        "name" => $_POST["bannerNameNew"],
+        "title" => $_POST["bannerTitleNew"],
+        "text" => $_POST["bannerTextNew"],
+    ];
 
-        // Проверяем, загружено ли новое изображение
-        if (
-            !empty($_FILES["imgNew"]) &&
-            $_FILES["imgNew"]["error"] === UPLOAD_ERR_OK
-        ) {
-            $files = $_FILES["imgNew"];
-            $fileType = mime_content_type($files["tmp_name"]);
-            if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
-                die("Неверный тип файла");
-            }
-            $img = $files["name"];
-            move_uploaded_file(
-                $files["tmp_name"],
-                "../../assets/img/banner/" . $img
-            );
-            $fields["img"] = $img;
+    // Проверяем, загружено ли новое изображение
+    if (
+        !empty($_FILES["imgNew"]) &&
+        $_FILES["imgNew"]["error"] === UPLOAD_ERR_OK
+    ) {
+        $files = $_FILES["imgNew"];
+        $fileType = mime_content_type($files["tmp_name"]);
+        if ($fileType !== "image/jpeg" && $fileType !== "image/png") {
+            die("Неверный тип файла");
         }
-
-        $condition = ["id" => $_POST["bannerOld"]];
-
-        updateEntity("banner", $fields, $condition);
-        redirectUser();
+        $img = $files["name"];
+        move_uploaded_file(
+            $files["tmp_name"],
+            "../../assets/img/banner/" . $img
+        );
+        $fields["img"] = $img;
     }
+
+    $condition = ["id" => $_POST["bannerOld"]];
+
+    updateEntity("banner", $fields, $condition);
+    redirectUser();
 }
 
 function updateBannerStatus()
