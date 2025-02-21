@@ -1,6 +1,6 @@
 assets/css/* linguist-vendored
 assets/img/* linguist-vendored
 assets/fonts/* linguist-vendored
-vendor/functions/* linguist-detectable
-vendor/admin/* linguist-detectable
-vendor/components/* linguist-detectable
+vendor/functions/* linguist-language=PHP
+vendor/admin/* linguist-language=PHP
+vendor/components/* linguist-language=PHP
