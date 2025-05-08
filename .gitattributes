@@ -1,7 +1,0 @@
-assets/css/* linguist-vendored
-assets/img/* linguist-vendored
-assets/fonts/* linguist-vendored
-assets/js/* linguist-vendored
-vendor/functions/* linguist-language=PHP
-vendor/admin/* linguist-language=PHP
-vendor/components/* linguist-language=PHP
