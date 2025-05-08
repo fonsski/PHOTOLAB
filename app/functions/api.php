@@ -8,7 +8,6 @@ $_POST = (array) json_decode(file_get_contents("php://input"));
 function getValue($entity, $id)
 {
     global $link;
-
     switch ($entity) {
         case "product":
             $query = "SELECT * FROM `products` WHERE `id` = '$id'";

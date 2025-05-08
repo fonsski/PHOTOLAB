@@ -71,7 +71,7 @@ function fetchData(entity, id) {
     action: "getValue",
   });
 
-  fetch("/vendor/functions/api.php", {
+  fetch("/app/functions/api.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",

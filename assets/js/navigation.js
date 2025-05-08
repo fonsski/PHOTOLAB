@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Функция для отправки запроса и обновления HTML
     const fetchAndUpdateContent = async (id) => {
       try {
-        let response = await fetch("vendor/functions/productQuery.php", {
+        let response = await fetch("app/functions/productQuery.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json;charset=utf-8",

@@ -80,7 +80,7 @@ if (tableBody) {
 
     // Функция для загрузки последних измененных товаров
     function loadRecentProducts() {
-      fetch("/vendor/functions/recent_products.php")
+      fetch("/app/functions/recent_products.php")
         .then((response) => response.json())
         .then((data) => {
           tableBody.innerHTML = ""; // Очищаем текущие записи в таблице
@@ -94,7 +94,7 @@ if (tableBody) {
                         <td>${product.cost}р.</td>
                         <td>${formatTimeAgo(product.updated_at)}</td>
                         <td>
-                        <a href="/vendor/admin/product.php?id=${product.id}">
+                        <a href="/app/admin/product.php?id=${product.id}">
                         <span class="material-icons-sharp">edit</span>
                         <h3>Изменить</h3>
                         </a>

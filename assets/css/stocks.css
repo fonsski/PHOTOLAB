@@ -507,3 +507,124 @@ hr {
     }
 
 }
+
+/* --- Адаптивность для мобильных устройств и планшетов --- */
+@media screen and (max-width: 1024px) {
+    .contentt {
+        width: 98%;
+        padding: 0 5px;
+    }
+    .info-block {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .info-block_image img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        margin: 0 auto;
+    }
+    .info-block_text {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+    .allCarts_cartsAll {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .allCarts__cartsAll_cart {
+        width: 90vw;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .cartsAll__cart_img img {
+        width: 100%;
+        height: auto;
+    }
+    .priceBlock_img {
+        width: 100%;
+        max-width: 600px;
+        height: 300px;
+        background-size: cover;
+    }
+    .reviews {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .reviews_all, .reviews_counter {
+        width: 100%;
+        min-width: unset;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contentt {
+        width: 100%;
+        padding: 0 2px;
+    }
+    .info-block_image img {
+        max-width: 95vw;
+        min-height: 180px;
+        height: auto;
+    }
+    .info-block__text_title {
+        font-size: 22px;
+    }
+    .info-block__text_description {
+        font-size: 13px;
+        line-height: 1.3;
+    }
+    .allCarts_title, .priceBlock_title, .reviews_title {
+        font-size: 22px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    .allCarts__cartsAll_cart {
+        max-width: 95vw;
+        width: 100%;
+    }
+    .cartsAll__cart_name, .cartsAll__cart_price {
+        font-size: 16px;
+    }
+    .priceBlock_img {
+        max-width: 95vw;
+        height: 120px;
+    }
+    .reviews__all_user {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .userInfo_name {
+        font-size: 18px;
+    }
+    .reviews__all_comment {
+        font-size: 14px;
+    }
+    .reviews_counter {
+        padding: 10px;
+    }
+    .RevCount-btn {
+        width: 100%;
+        font-size: 16px;
+        max-width: 100%;
+    }
+    .count-star-rev_one_hr {
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .info-block__text_title {
+        font-size: 16px;
+    }
+    .info-block__text_description {
+        font-size: 10px;
+    }
+    .allCarts_title, .priceBlock_title, .reviews_title {
+        font-size: 16px;
+    }
+}

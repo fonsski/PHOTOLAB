@@ -1,6 +1,6 @@
 <?php
 $pageTitle = "PHOTOLAB";
-require_once "vendor/components/header.php";
+require_once "app/components/header.php";
 global $link;
 $category = $link->query("SELECT * FROM categories");
 $banner = $link->query("SELECT * FROM banner WHERE active = 1");
@@ -18,7 +18,7 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
           <p class="banner_description">
             <?= $bann["text"] ?>
           </p>
-          <a href="vendor/components/stocks.php?id=<?= $bann['id']; ?>" class="banner_button">Подробнее</a>
+          <a href="app/components/stocks.php?id=<?= $bann['id']; ?>" class="banner_button">Подробнее</a>
         </div>
       <?php } ?>
     </div>
@@ -61,5 +61,5 @@ $banner = $link->query("SELECT * FROM banner WHERE active = 1");
 </div>
 
 <?php
-require_once "vendor/components/footer.php";
+require_once "app/components/footer.php";
 ?>
